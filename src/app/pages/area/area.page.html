@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="">
+            <ion-button [routerLink]="'/home'">
+                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="">
+            <ion-menu-button color="medium"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="home">
+    <div class="container">
+            <h1 class="font-large">
+                MEINE ZEIT
+            </h1>
+            <h1 class="font-large">
+                OHNE
+            </h1>
+            <div>
+                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            </div>
+            <p>Auf was willst Du <b>verzichten</b>?</p>
+
+            <mat-form-field>
+                <mat-label>Wähle aus vorhanden Themen</mat-label>
+                <mat-select [(ngModel)]="select">
+                    <mat-option value="a">A</mat-option>
+                    <mat-option value="b">B</mat-option>
+                    <mat-option value="c">C</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <h1>
+                ODER
+            </h1>
+            <h1>
+                Selbst etwas festlegen
+            </h1>
+
+            <form>
+                <mat-form-field>
+                    <mat-label>z.B. Online Shopping</mat-label>
+                    <label>
+                        <input matInput>
+                    </label>
+                </mat-form-field>
+                <ion-button expand="block" class="button" color="success" shape="round" routerLink="/intensity">WEITER
+                </ion-button>
+            </form>
+        <div class="gradient-bar"></div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,32 @@
+ion-content {
+
+    ion-button {
+        width: 80vw;
+    }
+
+    .tag {
+        height: 120px;
+    }
+
+    .tag-circle {
+        text-align: center;
+        width: 70px;
+        height: 70px;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        position: absolute;
+        border: 1px solid #2dbcb0;
+        border-radius: 50%;
+        padding: 1px;
+        color: white;
+        font-size: 25px;
+        line-height: 1.5;
+        background-color: #29c467;
+        background-image: linear-gradient(
+                        to top left,
+                        #2dbcb0, #a4ffd3
+        );
+    }
+
+}
+

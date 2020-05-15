@@ -1,0 +1,79 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="">
+            <ion-button [routerLink]="'/area'">
+                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="">
+            <ion-menu-button color="medium"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="home">
+    <div class="container">
+        <h1 class="font-large">
+            MEINE ZEIT
+        </h1>
+        <h1 class="font-large">
+            OHNE
+        </h1>
+        <div>
+            <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        </div>
+        <p class="ion-text-center">Auf wieviel mochtest Du <br><b>verzichten</b>?</p>
+
+
+        <div class="percentage-lists">
+            <ion-grid>
+                <ion-row class="percentage-list" (click)="selectPercentage(100)">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/Oval.png" class="img-avatar" alt="Oval" *ngIf="selectedPercentage === 100">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            100% - Ich verzichte komplett
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="percentage-list" (click)="selectPercentage(75)">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/Oval.png" class="img-avatar" alt="Oval" *ngIf="selectedPercentage === 75">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            75% - Reduzierter Konsum
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="percentage-list" (click)="selectPercentage(50)">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/Oval.png" class="img-avatar" alt="Oval" *ngIf="selectedPercentage === 50">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            50% - Reduzierter Konsum
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="percentage-list" (click)="selectPercentage(25)">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/Oval.png" class="img-avatar" alt="Oval" *ngIf="selectedPercentage === 25">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            25% - Reduzierter Konsum
+                        </p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <ion-button expand="block" class="button" color="success" shape="round" routerLink="/summary">STARTE CHALLENGE</ion-button>
+        </div>
+        <div class="gradient-bar"></div>
+    </div>
+
+</ion-content>

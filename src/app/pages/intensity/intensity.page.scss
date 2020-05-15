@@ -1,0 +1,62 @@
+ion-content {
+
+    mat-form-field {
+        width: 90%;
+
+        mat-label {
+            font-size: 18px;
+        }
+    }
+
+    ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-underline {
+        height: 2px;
+        background: var(--ion-color-success);
+        transform: none;
+    }
+
+    ::ng-deep .mat-form-field-label {
+        text-align: center;
+    }
+
+    .percentage-lists {
+        width: 80vw;
+    }
+
+
+    .circle {
+        border: #b0e6e2 2px solid;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .img-avatar {
+        width: 45px;
+        height: 45px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+    }
+
+    .avatar {
+        padding: 8px;
+        vertical-align: middle;
+    }
+
+    .percentage-list {
+        margin: 10px 0;
+
+        p {
+            margin: 10px 0;
+        }
+    }
+
+
+}
+

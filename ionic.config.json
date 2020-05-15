@@ -1,5 +1,7 @@
 {
   "name": "addiction",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

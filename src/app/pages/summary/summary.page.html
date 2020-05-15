@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="">
+            <ion-button [routerLink]="'/intensity'">
+                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="">
+            <ion-menu-button color="medium"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="home">
+    <div class="container">
+        <h1 class="font-large">
+            MEINE ZEIT
+        </h1>
+        <h1 class="font-large">
+            OHNE
+        </h1>
+        <div>
+            <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        </div>
+
+        <p class="ion-text-center"><b>Meine persönliche challenge <br> kann starten</b></p>
+
+        <p class="ion-text-center">Ich verzichte in den <br> kommenden 14 Tagen</p>
+
+        <p class="ion-text-center">zu <b>100</b>% auf:</p>
+
+        <p class="ion-text-center"><b>Alkohol</b></p>
+
+        <ion-button expand="block" class="button" color="success" shape="round" routerLink="/taq">STARTE CHALLENGE</ion-button>
+
+        <div class="gradient-bar"></div>
+    </div>
+
+</ion-content>

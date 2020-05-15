@@ -1,0 +1,35 @@
+ion-header {
+    position: fixed;
+    height: 50px;
+}
+ion-content {
+    .main-container {
+        background: url("/assets/image/QR Code Scanner/home_png.png") no-repeat center top fixed;
+        background-size: 100% 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .header-container {
+            padding-top: 50px;
+            display: flex;
+            flex-direction: column;
+            color: var(--ion-color-light);
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-top-left-radius: 25px;
+            border-top-right-radius: 25px;
+            height: 100%;
+        }
+    }
+
+    ion-button {
+        width: 80vw;
+    }
+}

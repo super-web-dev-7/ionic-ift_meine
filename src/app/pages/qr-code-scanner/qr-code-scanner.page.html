@@ -1,0 +1,45 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button [routerLink]="'/home'">
+                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+
+        <ion-buttons slot="end">
+            <ion-menu-button color="light"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="home">
+    <div class="main-container">
+        <div class="header-container">
+
+            <h1 class="font-large ion-text-center">
+                MEINE ZEIT
+            </h1>
+            <h1 class="font-large ion-text-center">
+                OHNE
+            </h1>
+
+            <p class="ion-text-center">
+                -Login-
+            </p>
+        </div>
+
+        <div class="input-container">
+            <ion-text color="light" class="ion-text-center">
+                <h1 class="font-weight-bold ion-no-margin">
+                    __
+                </h1>
+            </ion-text>
+            <div>
+                <img src="/assets/image/QR%20Code%20Scanner/Bitmap.png">
+            </div>
+            <ion-button expand="full" class="button" color="success" shape="round" routerLink="/area">STARTE CHALLENGE
+            </ion-button>
+            <div class="gradient-bar"></div>
+        </div>
+    </div>
+
+</ion-content>
