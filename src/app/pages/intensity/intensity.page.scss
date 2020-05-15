@@ -34,6 +34,13 @@ ion-content {
         transform: translate(-50%, -50%);
     }
 
+    .green-dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #33d695;
+    }
+
     .img-avatar {
         width: 45px;
         height: 45px;
@@ -45,8 +52,10 @@ ion-content {
     }
 
     .avatar {
-        padding: 8px;
-        vertical-align: middle;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .percentage-list {
