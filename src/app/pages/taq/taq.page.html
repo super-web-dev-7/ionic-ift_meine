@@ -1,12 +1,14 @@
 <ion-header>
     <ion-toolbar>
-        <ion-buttons slot="start" class="">
+        <ion-buttons slot="start">
             <ion-button [routerLink]="'/summary'">
                 <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
             </ion-button>
         </ion-buttons>
-        <ion-buttons slot="end" class="">
-            <ion-menu-button color="medium"></ion-menu-button>
+        <ion-buttons slot="end">
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Tag 1/menu.png" alt="direction">
+            </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
@@ -26,7 +28,7 @@
                 <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
             </div>
 
-            <p class="ion-text-center">Mein persönliches Ziel ist es,<br> für insgesamt 14 Tage auf</p>
+            <p class="ion-text-center font-size-18">Mein persönliches Ziel ist es,<br> für insgesamt 14 Tage auf</p>
         </div>
 
         <p class="ion-text-center"><b>Zigaretten</b></p>

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {MenuController} from '@ionic/angular';
 
 @Component({
     selector: 'app-area',
@@ -7,12 +8,17 @@ import {Component, OnInit} from '@angular/core';
 })
 export class AreaPage implements OnInit {
 
-    constructor() {
+    constructor(
+        private menu: MenuController
+    ) {
     }
 
-    private select: any;
-
     ngOnInit() {
+    }
+
+    openMenu() {
+        this.menu.enable(true, 'menu')
+        this.menu.open('menu')
     }
 
 }

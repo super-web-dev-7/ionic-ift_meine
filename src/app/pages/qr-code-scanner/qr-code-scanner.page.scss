@@ -16,6 +16,18 @@ ion-content {
             display: flex;
             flex-direction: column;
             color: var(--ion-color-light);
+
+            .large {
+                font-size: 36px;
+                text-align: center;
+                color: var(--ion-color-light);
+                font-family: Raleway-Regular;
+            }
+
+            h2 {
+                font-family: Raleway-Regular;
+            }
+
         }
 
         .input-container {

@@ -1,40 +1,40 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="end">
-            <ion-menu-button color="light"></ion-menu-button>
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Home/menu.png" alt="direction">
+            </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="home">
     <div class="main-container">
         <div class="header-container">
+            <h1 class="ion-no-margin large">
+                MEINE ZEIT
+            </h1>
+            <h1 class="ion-no-margin large">
+                OHNE
+            </h1>
             <ion-text color="light" class="ion-text-center">
-                <p class="ion-no-margin large">
-                    MEINE ZEIT
-                </p>
-            </ion-text>
-            <ion-text color="light" class="ion-text-center">
-                <p class="ion-no-margin large">
-                    OHNE
-                </p>
-            </ion-text>
-            <ion-text color="light" class="ion-text-center">
-                <h3>
+                <h2>
                     -Login-
-                </h3>
+                </h2>
             </ion-text>
         </div>
 
         <div class="input-container">
             <div class="input-container-box">
                 <ion-text color="light" class="ion-text-center">
-                    <h1 class="font-weight-bold ion-no-margin">
-                        __
+                    <h1 class="font-weight-bold header-line ion-no-margin">
+                        ___
                     </h1>
                 </ion-text>
                 <form class="form-code">
                     <ion-input class="input-code"></ion-input>
-                    <ion-button expand="block" class="button-code" color="success" shape="round" routerLink="/area">STARTE CHALLENGE</ion-button>
+                    <ion-button expand="block" class="button-code" color="success" shape="round" routerLink="/area">
+                        STARTE CHALLENGE
+                    </ion-button>
                 </form>
                 <ion-text color="light" class="ion-text-center">
                     <h1>
@@ -88,7 +88,8 @@
                     </ion-col>
                     <ion-col size="9">
                         <p>
-                            ich gebe täglich Rückmeldung in der APP, ob ich mein <b>Ziel</b> am <b>Vortag</b> erreicht habe.
+                            ich gebe täglich Rückmeldung in der APP, ob ich mein <b>Ziel</b> am <b>Vortag</b> erreicht
+                            habe.
                         </p>
                     </ion-col>
                 </ion-row>
@@ -110,7 +111,8 @@
                     </ion-col>
                     <ion-col size="9">
                         <p>
-                            Nur, wenn ich mich täglich <b>zurückgemeldet</b> habe, kann ich meinen Challenge-Verlauf sehen
+                            Nur, wenn ich mich täglich <b>zurückgemeldet</b> habe, kann ich meinen Challenge-Verlauf
+                            sehen
                         </p>
                     </ion-col>
                 </ion-row>

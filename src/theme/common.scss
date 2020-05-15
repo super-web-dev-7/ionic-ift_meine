@@ -1,12 +1,30 @@
+@font-face {
+    font-family: Raleway-Regular;
+    font-style: normal;
+    src: url("/assets/font/Raleway-Regular.ttf");
+}
+
+@font-face {
+    font-family: Raleway-Medium;
+    font-style: normal;
+    src: url("/assets/font/Raleway-Medium.ttf");
+}
+
 .font-weight-bold {
     font-weight: bold;
 }
+
 .font-large {
     font-size: 36px!important;
+    font-family: Raleway-Regular!important;
+}
+
+.font-size-18 {
+    font-size: 18px;
 }
 
 .gradient-bar {
-    height: 15px;
+    height: 12px;
     width: 100%;
     background: linear-gradient(90deg, rgba(0,203,255,1) 22%, rgba(0,225,193,1) 48%, rgba(73,243,132,1) 100%);;
 }
@@ -26,6 +44,11 @@ ion-toolbar {
 
 ion-content {
 
+    p {
+        font-size: 18px;
+    }
+
+    --ion-font-family: Raleway-Medium;
     --background: #f5f6f6;
 
     .container {
@@ -37,24 +60,20 @@ ion-content {
         color: var(--ion-color-medium);
     }
 
-    //.header {
-    //    display: flex;
-    //    flex-direction: column;
-    //    align-items: center;
-    //    h1 {
-    //        text-align: center;
-    //    }
-    //}
-    //
-    //.content {
-    //    display: flex;
-    //    align-items: center;
-    //    flex-direction: column;
-    //    align-content: space-around;
-    //    justify-content: space-around;
-    //}
+    .container > div:first-child {
+        margin-top: 20px;
+    }
+
+    .container > div:first-child img {
+        margin: 30px;
+    }
 
     .border {
         //border: 2px solid red;
+    }
+
+    .button {
+        height: 50px;
+        font-size: 17px;
     }
 }

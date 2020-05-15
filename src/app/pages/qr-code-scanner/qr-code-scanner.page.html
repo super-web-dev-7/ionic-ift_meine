@@ -7,27 +7,25 @@
         </ion-buttons>
 
         <ion-buttons slot="end">
-            <ion-menu-button color="light"></ion-menu-button>
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Home/menu.png" alt="direction">
+            </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="home">
     <div class="main-container">
         <div class="header-container">
+            <h1 class="ion-no-margin large">
+                MEINE ZEIT
+            </h1>
+            <h1 class="ion-no-margin large">
+                OHNE
+            </h1>
             <ion-text color="light" class="ion-text-center">
-                <p class="ion-no-margin font-large">
-                    MEINE ZEIT
-                </p>
-            </ion-text>
-            <ion-text color="light" class="ion-text-center">
-                <p class="ion-no-margin font-large">
-                    OHNE
-                </p>
-            </ion-text>
-            <ion-text color="light" class="ion-text-center">
-                <h3>
+                <h2>
                     -Login-
-                </h3>
+                </h2>
             </ion-text>
         </div>
 

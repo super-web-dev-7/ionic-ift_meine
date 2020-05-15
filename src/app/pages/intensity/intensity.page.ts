@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {MenuController} from '@ionic/angular';
 
 @Component({
     selector: 'app-intensity',
@@ -9,11 +10,18 @@ export class IntensityPage implements OnInit {
 
     private selectedPercentage: any;
 
-    constructor() {
+    constructor(
+        private menu: MenuController
+    ) {
         this.selectedPercentage = 100;
     }
 
     ngOnInit() {
+    }
+
+    openMenu() {
+        this.menu.enable(true, 'menu')
+        this.menu.open('menu')
     }
 
     selectPercentage(percent) {

@@ -20,13 +20,24 @@ ion-content {
         .header-container {
             padding-top: 70px;
             padding-bottom: 30px;
-            //height: 160px;
+
+            .large {
+                font-size: 36px;
+                text-align: center;
+                color: var(--ion-color-light);
+                font-family: Raleway-Regular;
+            }
+
+            h2 {
+                font-family: Raleway-Regular;
+            }
         }
     }
 
     ion-text{
         p.large {
             font-size: 36px;
+            font-family: Raleway-Regular;
         }
     }
 
@@ -46,6 +57,10 @@ ion-content {
             align-items: center;
             justify-content: space-around;
             height: 100%;
+
+            .header-line {
+                font-weight: bold;
+            }
         }
     }
 
