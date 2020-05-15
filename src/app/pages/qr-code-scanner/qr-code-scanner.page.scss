@@ -11,7 +11,8 @@ ion-content {
         flex-direction: column;
 
         .header-container {
-            padding-top: 50px;
+            padding-top: 70px;
+            padding-bottom: 30px;
             display: flex;
             flex-direction: column;
             color: var(--ion-color-light);
@@ -22,10 +23,87 @@ ion-content {
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(37, 36, 36, 0.68);
             border-top-left-radius: 25px;
             border-top-right-radius: 25px;
             height: 100%;
+
+            .input-container-box {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                height: 100%;
+
+                .qrcode-container {
+                    display: flex;
+                    flex-direction: column;
+                    height: 233px;
+                    position: relative;
+                    width: 233px;
+                    justify-content: space-between;
+
+                    .qrcode-image {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        padding: 10px;
+                    }
+
+                    .border-top, .border-bottom {
+                        display: flex;
+                        justify-content: space-between;
+
+                        div {
+                            width: 50px;
+                            height: 50px;
+                        }
+                    }
+
+                    .border-top {
+                        .border-left {
+                            border-top: 3px solid #29c467;
+                            border-left: 3px solid #29c467;
+                            border-right: 0 solid #29c467;
+                            border-bottom: 0 solid #29c467;
+                        }
+
+                        .border-right {
+                            border-top: 3px solid #29c467;
+                            border-right: 3px solid #29c467;
+                            border-left: 0 solid #29c467;
+                            border-bottom: 0 solid #29c467;
+                        }
+                    }
+
+                    .border-bottom {
+                        .border-left {
+                            border-top: 0 solid #29c467;
+                            border-left: 3px solid #29c467;
+                            border-right: 0 solid #29c467;
+                            border-bottom: 3px solid #29c467;
+                        }
+
+                        .border-right {
+                            border-top: 0 solid #29c467;
+                            border-left: 0 solid #29c467;
+                            border-right: 3px solid #29c467;
+                            border-bottom: 3px solid #29c467;
+                        }
+                    }
+                }
+            }
+
+            .bar {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: flex-end;
+
+                .gradient-bar {
+                    width: 100vw;
+                }
+            }
         }
     }
 

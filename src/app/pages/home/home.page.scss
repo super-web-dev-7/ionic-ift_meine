@@ -13,11 +13,14 @@ ion-content {
 
     .main-container {
         background: url("/assets/image/Home/home_png.png") no-repeat center top fixed;
-        background-size: 100% 100%;
-        height: 100vh;
+        background-size: 100% ;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
         .header-container {
-            padding-top: 50px;
-            height: 160px;
+            padding-top: 70px;
+            padding-bottom: 30px;
+            //height: 160px;
         }
     }
 
@@ -28,10 +31,22 @@ ion-content {
     }
 
     .input-container {
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(37, 36, 36, 0.68);
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
         height: 100%;
+
+        .input-container-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            height: 100%;
+        }
     }
 
     .input-code {
@@ -43,12 +58,28 @@ ion-content {
     }
 
     .form-code {
-        margin: 40px 30px 20px;
+        width: 80vw;
+    }
+
+    .sc-ion-input-md-h {
+        --padding-top: 8px;
+        --padding-bottom: 8px;
+    }
+
+    .bar {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        .gradient-bar {
+            width: 100vw;
+        }
     }
 
     .button-code {
         margin-top: 20px;
-        height: 46px;
+        //height: 46px;
     }
 
     .qr-scan {

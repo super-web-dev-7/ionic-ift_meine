@@ -14,31 +14,50 @@
 <ion-content [fullscreen]="true" class="home">
     <div class="main-container">
         <div class="header-container">
-
-            <h1 class="font-large ion-text-center">
-                MEINE ZEIT
-            </h1>
-            <h1 class="font-large ion-text-center">
-                OHNE
-            </h1>
-
-            <p class="ion-text-center">
-                -Login-
-            </p>
+            <ion-text color="light" class="ion-text-center">
+                <p class="ion-no-margin font-large">
+                    MEINE ZEIT
+                </p>
+            </ion-text>
+            <ion-text color="light" class="ion-text-center">
+                <p class="ion-no-margin font-large">
+                    OHNE
+                </p>
+            </ion-text>
+            <ion-text color="light" class="ion-text-center">
+                <h3>
+                    -Login-
+                </h3>
+            </ion-text>
         </div>
 
         <div class="input-container">
-            <ion-text color="light" class="ion-text-center">
-                <h1 class="font-weight-bold ion-no-margin">
-                    __
-                </h1>
-            </ion-text>
-            <div>
-                <img src="/assets/image/QR%20Code%20Scanner/Bitmap.png">
+            <div class="input-container-box">
+                <ion-text color="light" class="ion-text-center">
+                    <h1 class="font-weight-bold ion-no-margin">
+                        __
+                    </h1>
+                </ion-text>
+                <div class="qrcode-container">
+                    <div class="border-top ">
+                        <div class="border-left border"></div>
+                        <div class="border-right border"></div>
+                    </div>
+                    <div class="qrcode-image">
+                        <img src="/assets/image/QR%20Code%20Scanner/Bitmap.png">
+                    </div>
+
+                    <div class="border-bottom ">
+                        <div class="border-left border"></div>
+                        <div class="border-right border"></div>
+                    </div>
+                </div>
+                <ion-button expand="full" class="button" color="success" shape="round" routerLink="/area">STARTE CHALLENGE
+                </ion-button>
             </div>
-            <ion-button expand="full" class="button" color="success" shape="round" routerLink="/area">STARTE CHALLENGE
-            </ion-button>
-            <div class="gradient-bar"></div>
+            <div class="bar">
+                <div class="gradient-bar"></div>
+            </div>
         </div>
     </div>
 

@@ -6,9 +6,9 @@
 }
 
 .gradient-bar {
-    height: 12px;
+    height: 15px;
     width: 100%;
-    background: var(--ion-color-success);
+    background: linear-gradient(90deg, rgba(0,203,255,1) 22%, rgba(0,225,193,1) 48%, rgba(73,243,132,1) 100%);;
 }
 
 ion-toolbar {
@@ -34,6 +34,7 @@ ion-content {
         justify-content: space-between;
         flex-direction: column;
         align-items: center;
+        color: var(--ion-color-medium);
     }
 
     //.header {

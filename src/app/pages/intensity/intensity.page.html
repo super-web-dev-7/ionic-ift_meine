@@ -12,25 +12,31 @@
 </ion-header>
 <ion-content [fullscreen]="true" class="home">
     <div class="container">
-        <h1 class="font-large">
-            MEINE ZEIT
-        </h1>
-        <h1 class="font-large">
-            OHNE
-        </h1>
         <div>
-            <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            <div>
+                <h1 class="ion-text-center font-large">
+                    MEINE ZEIT
+                </h1>
+                <h1 class="ion-text-center font-large">
+                    OHNE
+                </h1>
+            </div>
+            <div class="ion-text-center">
+                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            </div>
+            <p class="ion-text-center">Auf wieviel mochtest Du <br><b>verzichten</b>?</p>
         </div>
-        <p class="ion-text-center">Auf wieviel mochtest Du <br><b>verzichten</b>?</p>
 
 
-        <div class="percentage-lists">
+
+
+<!--        <div class="percentage-lists">-->
             <ion-grid>
                 <ion-row class="percentage-list" (click)="selectPercentage(100)">
                     <ion-col size="3" class="avatar">
                         <div class="circle"></div>
                         <div class="green-dot" *ngIf="selectedPercentage === 100"></div>
-<!--                        <img src="/assets/image/Home/Oval.png" class="img-avatar" alt="Oval" *ngIf="selectedPercentage === 100">-->
+                        <!--                        <img src="/assets/image/Home/Oval.png" class="img-avatar" alt="Oval" *ngIf="selectedPercentage === 100">-->
                     </ion-col>
                     <ion-col size="9">
                         <p>
@@ -71,10 +77,17 @@
                         </p>
                     </ion-col>
                 </ion-row>
+                <ion-row>
+                    <ion-col size="12" class="ion-no-padding">
+                        <ion-button expand="block" class="button ion-no-margin" color="success" shape="round" routerLink="/summary">STARTE
+                            CHALLENGE
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
             </ion-grid>
-            <ion-button expand="block" class="button" color="success" shape="round" routerLink="/summary">STARTE CHALLENGE</ion-button>
-        </div>
         <div class="gradient-bar"></div>
-    </div>
+        </div>
+
+<!--    </div>-->
 
 </ion-content>
