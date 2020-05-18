@@ -37,7 +37,7 @@ export class QrCodeScannerPage implements OnInit {
             console.log("response>>>> ", res.isExist)
             if (res.isExist === true) this.router.navigate(['/area'])
             else {
-                this.presentToast('QR Code is not registered');
+                this.presentToast('Dieser Code ist leider nicht korrekt');
             }
         })
 

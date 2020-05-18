@@ -30,14 +30,14 @@ export class HomePage implements OnInit {
     code_check() {
         console.log(">>>>>", this.code);
         if (this.code === undefined || this.code === null || this.code === '') {
-            this.presentToast('Please input your code.')
+            this.presentToast('Bitte geben Sie Ihren Code ein.')
             return;
         }
         this.codeService.code_check(this.code).subscribe(res => {
             console.log("response>>>> ", res.isExist)
             if (res.isExist === true) this.router.navigate(['/area'])
             else {
-                this.presentToast('QR Code is not registered');
+                this.presentToast('Dieser Code ist leider nicht korrekt');
             }
         })
     }
