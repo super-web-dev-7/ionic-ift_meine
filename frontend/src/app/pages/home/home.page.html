@@ -1,0 +1,144 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Home/menu.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="home">
+    <div class="main-container">
+        <div class="header-container">
+            <h1 class="ion-no-margin large">
+                MEINE ZEIT
+            </h1>
+            <h1 class="ion-no-margin large">
+                OHNE
+            </h1>
+            <ion-text color="light" class="ion-text-center">
+                <h2>
+                    -Login-
+                </h2>
+            </ion-text>
+        </div>
+
+        <div class="input-container">
+            <div class="input-container-box">
+                <ion-text color="light" class="ion-text-center">
+                    <h1 class="font-weight-bold header-line ion-no-margin">
+                        ___
+                    </h1>
+                </ion-text>
+                <form class="form-code">
+                    <ion-input class="input-code" [(ngModel)]="code" name="code"></ion-input>
+                    <ion-button expand="block" class="button-code" color="success" shape="round" (click)="code_check()">
+                        STARTE CHALLENGE
+                    </ion-button>
+                </form>
+                <ion-text color="light" class="ion-text-center">
+                    <h1>
+                        ODER
+                    </h1>
+                </ion-text>
+
+                <ion-text color="light" class="ion-text-center qr-scan">
+                    <h1 routerLink="/qr-code-scanner">
+                        QR CODE SCANNEN
+                    </h1>
+                </ion-text>
+            </div>
+            <div class="bar">
+                <div class="gradient-bar"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="ready">
+        <img src="/assets/image/Home/Bitmap.png" alt="Bitmap">
+        <div class="ready-question">
+            <p>Bist du bereit Dich selbst heraus zu fordern?!</p>
+            <p>Halte die folgenden Regeln ein und mach das Ungmögliche möglich.</p>
+            <p>Verzichte 14 Tage bewusst auf, das was Dir schadet.</p>
+        </div>
+    </div>
+
+    <div class="challenge">
+        <h1 class="challenge-title font-weight-bold">CHALLENGE REGELN</h1>
+        <img src="/assets/image/Home/Bitmap.png" alt="Bitmap">
+        <div class="challenge-lists">
+            <ion-grid>
+                <ion-row class="challenge-list">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/business.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            lch setze mir mein <b>eigenes Ziel</b>, das mich herausfordert.
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/electronics.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            ich gebe täglich Rückmeldung in der APP, ob ich mein <b>Ziel</b> am <b>Vortag</b> erreicht
+                            habe.
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/commerce-and-shopping.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Ich antworte nach jeder <b>Rückmeldung</b> auf zwei kurze Nachfragen.
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/healthcare-and-medical.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Nur, wenn ich mich täglich <b>zurückgemeldet</b> habe, kann ich meinen Challenge-Verlauf
+                            sehen
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/seo-and-web.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Nur, wenn ich meine Challenge komplett <b>bestanden</b> habe. erhalte ich eine Challenge-<b>Gewinner-Urkunde</b>.
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/sports-and-competition.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Ich setze mir mein <b>eigenes Ziel</b>, das mich herausfordert.
+                        </p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </div>
+</ion-content>
