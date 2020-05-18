@@ -72,6 +72,11 @@ ion-content {
         font-size: 20px;
     }
 
+    .sc-ion-input-md-h {
+        --placeholder-color: #fff;
+        --placeholder-opacity: 1;
+    }
+
     .form-code {
         width: 80vw;
     }
