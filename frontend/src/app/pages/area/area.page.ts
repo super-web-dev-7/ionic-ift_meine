@@ -1,5 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuController} from '@ionic/angular';
+import {MenuController, ToastController} from '@ionic/angular';
+import {UniqueDeviceID} from '@ionic-native/unique-device-id/ngx';
+import {Router} from '@angular/router';
+
+import {DispenseService} from '../../providers/dispense/dispense.service';
+import {HttpService} from "../../providers/http/http.service";
+
 
 @Component({
     selector: 'app-area',
@@ -8,17 +14,87 @@ import {MenuController} from '@ionic/angular';
 })
 export class AreaPage implements OnInit {
 
+    topic: any = null;
+    ownTopic: any = '';
+    isOwn = false;
+    isTopic = false;
+
     constructor(
-        private menu: MenuController
+        private menu: MenuController,
+        private uniqueDeviceID: UniqueDeviceID,
+        private dispenseService: DispenseService,
+        private router: Router,
+        private toastController: ToastController,
+        private httpRequest: HttpService
     ) {
     }
 
-    ngOnInit() {
+    async ngOnInit() {
+        this.httpRequest.get_dispenseByDeviceId(await this.uniqueDeviceID.get()).subscribe((res: any) => {
+            console.log(res.result[0]);
+        })
     }
 
     openMenu() {
-        this.menu.enable(true, 'menu')
+        this.menu.enable(true, 'menu');
         this.menu.open('menu')
+    }
+
+    onChange() {
+        if ((this.topic === null || this.topic === 'none') && this.ownTopic === '') {
+            this.isOwn = false;
+            this.isTopic = false;
+        }
+
+        if (this.topic !== null && this.topic !== 'none') {
+            this.ownTopic = '';
+            this.isOwn = true;
+            this.isTopic = false;
+        }
+
+        if (this.ownTopic !== '') {
+            this.topic = null;
+            this.isOwn = false;
+            this.isTopic = true;
+        }
+        console.log(this.topic)
+        console.log(this.ownTopic)
+    }
+
+    async saveTopic() {
+        // const deviceId = await this.uniqueDeviceID.get();
+
+        if (this.isOwn === false && this.isTopic === false) {
+            this.presentToast('Please input your topic you want.');
+            return;
+        }
+
+        let topic;
+        if (this.ownTopic === '') {
+            topic = this.topic;
+        } else {
+            topic = this.ownTopic;
+        }
+
+        const dispense = {
+            DeviceId: await this.uniqueDeviceID.get(),
+            Topic: topic,
+            Intensity: 100
+        };
+
+        console.log(dispense)
+
+        await this.dispenseService.setDispense(dispense);
+        await this.router.navigate(['/intensity']);
+    }
+
+    async presentToast(text) {
+        const toast = await this.toastController.create({
+            message: text,
+            duration: 2000,
+            position: 'top',
+        });
+        toast.present();
     }
 
 }

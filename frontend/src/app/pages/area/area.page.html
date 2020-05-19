@@ -30,10 +30,11 @@
 
         <mat-form-field>
             <mat-label>Wähle aus vorhanden Themen</mat-label>
-            <mat-select [(ngModel)]="select">
-                <mat-option value="a">A</mat-option>
-                <mat-option value="b">B</mat-option>
-                <mat-option value="c">C</mat-option>
+            <mat-select [(ngModel)]="topic" [disabled]="isTopic" (ngModelChange)="onChange()">
+                <mat-option value="none"></mat-option>
+                <mat-option value="alkohol">Alkohol</mat-option>
+                <mat-option value="zigaretten">Zigaretten</mat-option>
+                <mat-option value="marihuana">Marihuana</mat-option>
             </mat-select>
         </mat-form-field>
 
@@ -44,16 +45,16 @@
             Selbst etwas festlegen
         </h1>
 
-        <form>
-            <mat-form-field>
-                <mat-label>z.B. Online Shopping</mat-label>
-                <label>
-                    <input matInput>
-                </label>
-            </mat-form-field>
-            <ion-button expand="block" class="button" color="success" shape="round" routerLink="/intensity">WEITER
-            </ion-button>
-        </form>
+
+        <mat-form-field>
+            <mat-label>z.B. Online Shopping</mat-label>
+            <label>
+                <input matInput [(ngModel)]="ownTopic" [disabled]="isOwn" (ngModelChange)="onChange()">
+            </label>
+        </mat-form-field>
+        <ion-button expand="block" class="button" color="success" shape="round" (click)="saveTopic()">WEITER
+        </ion-button>
+
         <div class="gradient-bar"></div>
     </div>
 

@@ -28,19 +28,18 @@ export class CodeService {
     }
 
     public get currentCodeValue(): any {
-        console.log(this.currentCodeSubject.value)
         return this.currentCodeSubject.value;
     }
 
-    code_check(code: Number) {
+    code_check(code: number) {
         return this.httpRequest.code_check(code).pipe(map((res: any) => {
             console.log(res);
-            const code = jwt_decode(res.token);
+            const Code = jwt_decode(res.token);
             if (res) {
-                sessionStorage.setItem('currentCode', res.token)
+                sessionStorage.setItem('currentCode', res.token);
                 this.currentCodeSubject.next(jwt_decode(res.token));
             }
-            return code;
+            return Code;
         }))
     }
 }

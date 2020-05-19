@@ -9,10 +9,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx'
 import {FormsModule} from '@angular/forms';
+import {UniqueDeviceID} from '@ionic-native/unique-device-id/ngx';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-// import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 
 @NgModule({
     declarations: [AppComponent],
@@ -32,8 +32,8 @@ import {AppRoutingModule} from './app-routing.module';
     providers: [
         StatusBar,
         SplashScreen,
-        // QRScanner,
         BarcodeScanner,
+        UniqueDeviceID,
         {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
     ],
     bootstrap: [AppComponent]
