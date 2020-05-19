@@ -2,8 +2,7 @@
 SQLyog Community v12.18 (64 bit)
 MySQL - 10.4.8-MariaDB : Database - addiction
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -30,11 +29,29 @@ CREATE TABLE `code` (
 
 /*Data for the table `code` */
 
-insert  into `code`(`Id`,`Code`,`Created_at`) values 
+insert  into `code`(`Id`,`Code`,`Created_at`) values 
+(4,12345,'2020-05-16 19:49:01'),
+(5,45678,'2020-05-16 19:49:08');
 
-(1,12345,'2020-05-16 19:49:01'),
+/*Table structure for table `dispense` */
 
-(2,45678,'2020-05-16 19:49:08');
+DROP TABLE IF EXISTS `dispense`;
+
+CREATE TABLE `dispense` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Topic` varchar(50) NOT NULL,
+  `Intensity` int(5) NOT NULL,
+  `DeviceId` varchar(100) NOT NULL,
+  `Created_At` datetime NOT NULL,
+  `Updated_At` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`Id`),
+  KEY `Id` (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+/*Data for the table `dispense` */
+
+insert  into `dispense`(`Id`,`Topic`,`Intensity`,`DeviceId`,`Created_At`,`Updated_At`) values 
+(4,'zigaretten',75,'79a3e7db-c2cd-9545-3585-320625348478','2020-05-19 17:08:08','2020-05-19 17:08:18');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
