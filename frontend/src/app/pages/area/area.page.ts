@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController, ToastController} from '@ionic/angular';
-import {UniqueDeviceID} from '@ionic-native/unique-device-id/ngx';
 import {Router} from '@angular/router';
+import {DeviceUUID} from 'device-uuid'
 
 import {DispenseService} from '../../providers/dispense/dispense.service';
-import {HttpService} from "../../providers/http/http.service";
+import {HttpService} from '../../providers/http/http.service';
 
 
 @Component({
@@ -18,19 +18,20 @@ export class AreaPage implements OnInit {
     ownTopic: any = '';
     isOwn = false;
     isTopic = false;
+    deviceId: string;
 
     constructor(
         private menu: MenuController,
-        private uniqueDeviceID: UniqueDeviceID,
         private dispenseService: DispenseService,
         private router: Router,
         private toastController: ToastController,
         private httpRequest: HttpService
     ) {
+        this.deviceId = new DeviceUUID().get();
     }
 
     async ngOnInit() {
-        this.httpRequest.get_dispenseByDeviceId(await this.uniqueDeviceID.get()).subscribe((res: any) => {
+        this.httpRequest.get_dispenseByDeviceId(this.deviceId).subscribe((res: any) => {
             console.log(res.result[0]);
         })
     }
@@ -62,7 +63,6 @@ export class AreaPage implements OnInit {
     }
 
     async saveTopic() {
-        // const deviceId = await this.uniqueDeviceID.get();
 
         if (this.isOwn === false && this.isTopic === false) {
             this.presentToast('Please input your topic you want.');
@@ -77,7 +77,7 @@ export class AreaPage implements OnInit {
         }
 
         const dispense = {
-            DeviceId: await this.uniqueDeviceID.get(),
+            DeviceId: this.deviceId,
             Topic: topic,
             Intensity: 100
         };
