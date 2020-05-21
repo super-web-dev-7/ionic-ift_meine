@@ -24,4 +24,12 @@ export class HttpService {
         return this.http.get(`${UrlJSON.Dispense_URL}?deviceId=${deviceId}`);
     }
 
+    createChallenge(dispense) {
+        return this.http.post(`${UrlJSON.Dispense_URL}`, dispense);
+    }
+
+    daily_Success(isSuccess, dispense) {
+        return this.http.put(`${UrlJSON.Daily_URL}/${dispense.Id}`, {success: isSuccess, day: dispense.Day_After});
+    }
+
 }

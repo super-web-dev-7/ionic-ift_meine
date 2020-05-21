@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuController} from '@ionic/angular';
+import {MenuController, ToastController} from '@ionic/angular';
 import {DispenseService} from '../../providers/dispense/dispense.service';
 import {Router} from '@angular/router';
+import {HttpService} from '../../providers/http/http.service';
 
 @Component({
     selector: 'app-intensity',
@@ -15,13 +16,14 @@ export class IntensityPage implements OnInit {
     constructor(
         private menu: MenuController,
         private dispenseService: DispenseService,
-        private router: Router
+        private router: Router,
+        private httpRequest: HttpService,
+        public toastController: ToastController,
     ) {
         this.selectedPercentage = 100;
     }
 
     ngOnInit() {
-        console.log('>>>>>', this.dispenseService.dispenseValue)
     }
 
     openMenu() {
@@ -34,11 +36,26 @@ export class IntensityPage implements OnInit {
     }
 
     async start() {
-        const dispense = this.dispenseService.dispenseValue;
-        console.log(dispense)
+        const dispense = {...this.dispenseService.dispenseValue};
         dispense.Intensity = this.selectedPercentage;
-        await this.dispenseService.setDispense(dispense);
-        this.router.navigate(['/summary']);
+        this.httpRequest.createChallenge(dispense).subscribe((res:any) => {
+            if (res === 'Already exist') {
+                this.presentToast('Already Exist.');
+                this.router.navigate(['summary']);
+            } else {
+                this.dispenseService.setDispense(res[0]);
+                this.router.navigate(['summary']);
+            }
+        })
+    }
+
+    async presentToast(text) {
+        const toast = await this.toastController.create({
+            message: text,
+            duration: 2000,
+            position: 'top',
+        });
+        toast.present();
     }
 
 }

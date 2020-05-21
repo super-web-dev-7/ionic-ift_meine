@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController, ToastController} from '@ionic/angular';
 import {Router} from '@angular/router';
-import {DeviceUUID} from 'device-uuid'
+import {DeviceUUID} from 'device-uuid';
 
 import {DispenseService} from '../../providers/dispense/dispense.service';
 import {HttpService} from '../../providers/http/http.service';
-
 
 @Component({
     selector: 'app-area',
@@ -31,9 +30,6 @@ export class AreaPage implements OnInit {
     }
 
     async ngOnInit() {
-        this.httpRequest.get_dispenseByDeviceId(this.deviceId).subscribe((res: any) => {
-            console.log(res.result[0]);
-        })
     }
 
     openMenu() {
@@ -82,7 +78,7 @@ export class AreaPage implements OnInit {
             Intensity: 100
         };
 
-        console.log(dispense)
+        console.log(dispense);
 
         await this.dispenseService.setDispense(dispense);
         await this.router.navigate(['/intensity']);

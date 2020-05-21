@@ -20,6 +20,7 @@ export class SummaryPage implements OnInit {
 
     ngOnInit() {
         this.dispense = this.dispenseService.dispenseValue;
+        console.log(this.dispense)
     }
 
     openMenu() {

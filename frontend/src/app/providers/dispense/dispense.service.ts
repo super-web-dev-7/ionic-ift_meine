@@ -22,9 +22,6 @@ export class DispenseService {
     }
 
     public setDispense(data): void {
-        this.httpRequest.update_dispense(data).subscribe( res => {
-            console.log(res);
-            this.dispenseSubject.next(data)
-        });
+        this.dispenseSubject.next(data);
     }
 }

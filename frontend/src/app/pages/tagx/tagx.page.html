@@ -32,15 +32,15 @@
         </div>
 
         <div class="tag">
-            <div class="tag-circle">Tag <br>9</div>
+            <div class="tag-circle">Tag <br>{{dispense.Day_After + 1}}</div>
         </div>
 
         <p class="ion-text-center"><b>RÜCKMELDUNG ZU GESTERN</b></p>
 
         <p class="ion-text-center">Ich habe <b>gestern</b> mein <br> Challenge-Ziel erreicht</p>
 
-        <ion-button expand="block" color="success" shape="round">JA</ion-button>
-        <ion-button expand="block" color="success" shape="round">NEIN</ion-button>
+        <ion-button expand="block" color="success" shape="round" (click)="daily_Success(true)">JA</ion-button>
+        <ion-button expand="block" color="success" shape="round" (click)="daily_Success(false)">NEIN</ion-button>
 
         <div class="gradient-bar"></div>
 
