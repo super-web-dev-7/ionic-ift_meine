@@ -33,6 +33,33 @@ insert  into `code`(`Id`,`Code`,`Created_at`) values
 (4,12345,'2020-05-16 19:49:01'),
 (5,45678,'2020-05-16 19:49:08');
 
+/*Table structure for table `daily_challenge` */
+
+DROP TABLE IF EXISTS `daily_challenge`;
+
+CREATE TABLE `daily_challenge` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Dispense_Id` int(11) NOT NULL,
+  `day1` tinyint(1) DEFAULT NULL,
+  `day2` tinyint(1) DEFAULT NULL,
+  `day3` tinyint(1) DEFAULT NULL,
+  `day4` tinyint(1) DEFAULT NULL,
+  `day5` tinyint(1) DEFAULT NULL,
+  `day6` tinyint(1) DEFAULT NULL,
+  `day7` tinyint(1) DEFAULT NULL,
+  `day8` tinyint(1) DEFAULT NULL,
+  `day9` tinyint(1) DEFAULT NULL,
+  `day10` tinyint(1) DEFAULT NULL,
+  `day11` tinyint(1) DEFAULT NULL,
+  `day12` tinyint(1) DEFAULT NULL,
+  `day13` tinyint(1) DEFAULT NULL,
+  `day14` tinyint(1) DEFAULT NULL,
+  `day15` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+
+/*Data for the table `daily_challenge` */
+
 /*Table structure for table `dispense` */
 
 DROP TABLE IF EXISTS `dispense`;
@@ -44,14 +71,13 @@ CREATE TABLE `dispense` (
   `DeviceId` varchar(100) NOT NULL,
   `Created_At` datetime NOT NULL,
   `Updated_At` datetime NOT NULL DEFAULT current_timestamp(),
+  `Status` tinyint(1) NOT NULL DEFAULT 1,
+  `Day_After` int(3) NOT NULL DEFAULT 0,
   PRIMARY KEY (`Id`),
   KEY `Id` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 
 /*Data for the table `dispense` */
-
-insert  into `dispense`(`Id`,`Topic`,`Intensity`,`DeviceId`,`Created_At`,`Updated_At`) values 
-(4,'zigaretten',75,'79a3e7db-c2cd-9545-3585-320625348478','2020-05-19 17:08:08','2020-05-19 17:08:18');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
