@@ -55,8 +55,16 @@ const routes: Routes = [
                     .then(m => m.FeedbackConfirmationPageModule)
             },
         ],
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
+        data: {isAdmin: false}
     },
+    {
+        path: 'admin',
+        loadChildren: () => import('./pages/admin/dashboard/dashboard.module').then(m => m.DashboardPageModule),
+        canActivate: [AuthGuard],
+        data: {isAdmin: true}
+    },
+
 ];
 
 @NgModule({

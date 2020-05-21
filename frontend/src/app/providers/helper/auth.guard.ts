@@ -15,7 +15,16 @@ export class AuthGuard implements CanActivate {
 
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const currentCode = this.codeService.currentCodeValue;
+        console.log(route.data.isAdmin)
+        console.log(route)
+        console.log(currentCode)
         if (currentCode) {
+            if (route.routeConfig.path === 'admin') {
+                if (currentCode.isAdmin !== 1) {
+                    await this.router.navigate(['/home']);
+                    return false;
+                }
+            }
             return true;
         }
         // not logged in so redirect to login page with the return url
