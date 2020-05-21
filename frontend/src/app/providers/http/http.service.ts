@@ -33,7 +33,6 @@ export class HttpService {
     }
 
     get_feedback(dispense) {
-        console.log('dispense>>>>> ', dispense);
         return this.http.get(`${UrlJSON.Daily_URL}/${dispense.Id}`);
     }
 

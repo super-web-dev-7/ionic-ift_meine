@@ -35,7 +35,7 @@
         <div class="ion-text-center ion-justify-content-around">
             <p class="ion-text-center">Dein Feedback für TAG {{dispense.Day_After + 1}}  wurde erfolgreich gespeichert.</p>
             <br>
-            <div>
+            <div *ngIf="missedDays.length > 0">
                 <p>Missed Feedback</p>
                 <ion-grid>
                     <ion-row>

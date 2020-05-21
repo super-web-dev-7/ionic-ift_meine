@@ -4,7 +4,7 @@ import {DeviceUUID} from 'device-uuid';
 
 import {DispenseService} from '../../providers/dispense/dispense.service';
 import {HttpService} from '../../providers/http/http.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-tagx',
@@ -15,6 +15,8 @@ import {Router} from "@angular/router";
 export class TagxPage implements OnInit {
 
     private dispense: any;
+    private feedback: any;
+    private isFeedback = false;
 
     constructor(
         private menu: MenuController,
@@ -26,7 +28,6 @@ export class TagxPage implements OnInit {
 
     ngOnInit() {
         this.dispense = this.dispenseService.dispenseValue;
-        console.log(this.dispense);
     }
 
     ionViewWillEnter() {
@@ -36,7 +37,11 @@ export class TagxPage implements OnInit {
                 this.dispense = this.dispenseService.dispenseValue;
             }
         });
-        console.log('ion view will enter')
+
+        this.httpRequest.get_feedback(this.dispense).subscribe(res => {
+            this.feedback = res;
+            this.isFeedback = this.feedback['day' + (this.dispense.Day_After + 1)] !== null;
+        })
     }
 
     openMenu() {
@@ -49,5 +54,4 @@ export class TagxPage implements OnInit {
             this.router.navigate(['/feedback-confirmation']);
         });
     }
-
 }

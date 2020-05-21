@@ -11,7 +11,7 @@ import {HttpService} from '../../providers/http/http.service';
 export class FeedbackConfirmationPage implements OnInit {
 
     dispense: any;
-    missedDays: any;
+    missedDays = [];
 
     constructor(
         private menu: MenuController,
@@ -26,20 +26,17 @@ export class FeedbackConfirmationPage implements OnInit {
 
     ionViewWillEnter() {
         this.initialize();
-        this.missedDays = [1];
+        // this.missedDays = [1];
     }
 
     initialize() {
         this.httpRequest.get_feedback(this.dispense).subscribe(res => {
-            console.log(res)
-            console.log(this.dispense.Day_After);
             this.missedDays = [];
             for (let i = 0; i < this.dispense.Day_After; i++) {
                 if (res['day' + (i + 1)] === null) {
                     this.missedDays.push(i);
                 }
             }
-            console.log(this.missedDays);
         });
     }
 
@@ -49,7 +46,6 @@ export class FeedbackConfirmationPage implements OnInit {
     }
 
     giveFeedbackAlert(day) {
-        console.log(day);
         this.presentAlertConfirm(day, this.dispense).then();
     }
 
@@ -61,13 +57,11 @@ export class FeedbackConfirmationPage implements OnInit {
                 {
                     text: 'Yes',
                     handler: () => {
-                        console.log('Confirm Yes');
                         this.daily_Success(true, day);
                     }
                 }, {
                     text: 'No',
                     handler: () => {
-                        console.log('Confirm No');
                         this.daily_Success(false, day);
                     }
                 },
@@ -76,7 +70,6 @@ export class FeedbackConfirmationPage implements OnInit {
                     role: 'cancel',
                     cssClass: 'secondary',
                     handler: (blah) => {
-                        console.log('Confirm Cancel: blah');
                     }
                 },
             ]
@@ -88,7 +81,6 @@ export class FeedbackConfirmationPage implements OnInit {
 
     daily_Success(isSuccess, day) {
         this.httpRequest.daily_Success(isSuccess, this.dispense, day).subscribe(res => {
-            console.log(res)
             this.initialize();
         });
     }
