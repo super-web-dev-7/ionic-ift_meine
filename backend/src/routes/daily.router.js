@@ -6,5 +6,6 @@ const router = Router();
 
 router.route('/:id')    
     .put(dispenseController.updateDaily)
+    .get(dispenseController.getDaily)
         
 export default router;

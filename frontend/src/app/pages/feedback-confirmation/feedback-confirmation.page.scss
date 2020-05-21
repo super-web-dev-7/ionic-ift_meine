@@ -1,0 +1,15 @@
+ion-row {
+    border-bottom: 1px solid grey;
+
+    ion-col {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.feedback {
+    height: 30px;
+    font-size: 12px;
+}
+

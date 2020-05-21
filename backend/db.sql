@@ -2,7 +2,8 @@
 SQLyog Community v12.18 (64 bit)
 MySQL - 10.4.8-MariaDB : Database - addiction
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -29,8 +30,10 @@ CREATE TABLE `code` (
 
 /*Data for the table `code` */
 
-insert  into `code`(`Id`,`Code`,`Created_at`) values 
-(4,12345,'2020-05-16 19:49:01'),
+insert  into `code`(`Id`,`Code`,`Created_at`) values 
+
+(4,12345,'2020-05-16 19:49:01'),
+
 (5,45678,'2020-05-16 19:49:08');
 
 /*Table structure for table `daily_challenge` */
@@ -56,7 +59,7 @@ CREATE TABLE `daily_challenge` (
   `day14` tinyint(1) DEFAULT NULL,
   `day15` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /*Data for the table `daily_challenge` */
 
@@ -75,7 +78,7 @@ CREATE TABLE `dispense` (
   `Day_After` int(3) NOT NULL DEFAULT 0,
   PRIMARY KEY (`Id`),
   KEY `Id` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /*Data for the table `dispense` */
 

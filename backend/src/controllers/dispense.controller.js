@@ -28,7 +28,7 @@ exports.create = (req, res) => {
     })
 }
 
-exports.updateDaily = (req, res) => {   
+exports.updateDaily = (req, res) => {
     Dispense.updateDaily(req.params.id, req.body, (err, result) => {
         if (err) res.send(err);
         else {
@@ -37,7 +37,15 @@ exports.updateDaily = (req, res) => {
     })
 }
 
-cron.schedule('* * * * *', function () {
+exports.getDaily = (req, res) => {
+    Dispense.getDaily(req.params.id, (err, result) => {
+        console.log(result)
+        if (err) res.send(err);
+        else res.status(200).json(result);
+    })
+}
+
+cron.schedule('*/5 * * * *', function () {
     Dispense.updateCronJob();
     console.log('----------------Running cron jobs----------------')
 })

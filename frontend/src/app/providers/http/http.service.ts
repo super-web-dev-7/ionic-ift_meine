@@ -28,8 +28,13 @@ export class HttpService {
         return this.http.post(`${UrlJSON.Dispense_URL}`, dispense);
     }
 
-    daily_Success(isSuccess, dispense) {
-        return this.http.put(`${UrlJSON.Daily_URL}/${dispense.Id}`, {success: isSuccess, day: dispense.Day_After});
+    daily_Success(isSuccess, dispense, day) {
+        return this.http.put(`${UrlJSON.Daily_URL}/${dispense.Id}`, {success: isSuccess, day});
+    }
+
+    get_feedback(dispense) {
+        console.log('dispense>>>>> ', dispense);
+        return this.http.get(`${UrlJSON.Daily_URL}/${dispense.Id}`);
     }
 
 }

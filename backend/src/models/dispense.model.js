@@ -93,6 +93,14 @@ Dispense.updateDaily = (id, data, result) => {
     })
 }
 
+Dispense.getDaily = (id, result) => {
+    console.log(id);
+    db_connection.query("SELECT * FROM daily_challenge WHERE Dispense_Id=?", id, function(err, res) {
+        if (err) result(err, null);
+        else result(null, res[0])
+    })
+}
+
 Dispense.updateCronJob = (result) => {
     db_connection.query("Update dispense Set Day_After = Day_After + 1 Where Day_After < 14 And Status = 1")
     db_connection.query("Update dispense Set Status = 0 Where Day_After = 14");

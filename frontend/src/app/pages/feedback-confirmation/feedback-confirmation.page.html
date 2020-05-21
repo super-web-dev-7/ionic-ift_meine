@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="">
+            <ion-button [routerLink]="'/tagx'">
+                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="">
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="home">
+    <div class="container">
+
+        <div class="ion-text-center">
+            <h1 class="font-large">
+                MEINE ZEIT
+            </h1>
+
+            <h1 class="font-large">
+                OHNE
+            </h1>
+
+            <div>
+                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            </div>
+
+            <p class="ion-text-center font-size-18"><b>Feedback Rückmeldung</b></p>
+
+        </div>
+
+        <div class="ion-text-center ion-justify-content-around">
+            <p class="ion-text-center">Dein Feedback für TAG {{dispense.Day_After + 1}}  wurde erfolgreich gespeichert.</p>
+            <br>
+            <div>
+                <p>Missed Feedback</p>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>Day</ion-col>
+                        <ion-col>Action</ion-col>
+                    </ion-row>
+                    <ion-row *ngFor="let missedDay of missedDays">
+                        <ion-col>Day {{missedDay + 1}}</ion-col>
+                        <ion-col><ion-button (click)="giveFeedbackAlert(missedDay)" color="success" class="feedback">Feedback Now</ion-button></ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+            <br>
+            <ion-button class="button " color="success" shape="round" [routerLink]="'/tagx'">
+                Zurück kurz meinem <br> aktuellen Tag
+            </ion-button>
+        </div>
+
+
+
+        <div class="gradient-bar"></div>
+
+    </div>
+
+</ion-content>

@@ -4,6 +4,7 @@ import {DeviceUUID} from 'device-uuid';
 
 import {DispenseService} from '../../providers/dispense/dispense.service';
 import {HttpService} from '../../providers/http/http.service';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-tagx',
@@ -18,7 +19,8 @@ export class TagxPage implements OnInit {
     constructor(
         private menu: MenuController,
         private dispenseService: DispenseService,
-        private httpRequest: HttpService
+        private httpRequest: HttpService,
+        private router: Router
     ) {
     }
 
@@ -43,7 +45,8 @@ export class TagxPage implements OnInit {
     }
 
     daily_Success(isSuccess) {
-        this.httpRequest.daily_Success(isSuccess, this.dispense).subscribe(res => {
+        this.httpRequest.daily_Success(isSuccess, this.dispense, this.dispense.Day_After).subscribe(res => {
+            this.router.navigate(['/feedback-confirmation']);
         });
     }
 

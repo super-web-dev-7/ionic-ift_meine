@@ -44,7 +44,16 @@ const routes: Routes = [
             {
                 path: 'tagx',
                 loadChildren: () => import('./pages/tagx/tagx.module').then(m => m.TagxPageModule)
-            }
+            },
+            {
+                path: 'feedback',
+                loadChildren: () => import('./pages/feedback/feedback.module').then(m => m.FeedbackPageModule)
+            },
+            {
+                path: 'feedback-confirmation',
+                loadChildren: () => import('./pages/feedback-confirmation/feedback-confirmation.module')
+                    .then(m => m.FeedbackConfirmationPageModule)
+            },
         ],
         canActivate: [AuthGuard]
     },

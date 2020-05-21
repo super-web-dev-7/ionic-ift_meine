@@ -77,3 +77,11 @@ ion-content {
         font-size: 17px;
     }
 }
+
+.alert-button-group {
+    flex-direction: row !important;
+}
+
+.alert-button-group .alert-button-group-vertical {
+    flex-direction: row;
+}
