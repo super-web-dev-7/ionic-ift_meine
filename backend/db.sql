@@ -2,8 +2,7 @@
 SQLyog Community v12.18 (64 bit)
 MySQL - 10.4.8-MariaDB : Database - addiction
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -23,19 +22,18 @@ DROP TABLE IF EXISTS `code`;
 
 CREATE TABLE `code` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Code` int(10) NOT NULL,
+  `Code` varchar(50) NOT NULL,
   `isAdmin` tinyint(1) NOT NULL DEFAULT 0,
   `Created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `type` enum('qr','alphanumeric') NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `code` */
 
-insert  into `code`(`Id`,`Code`,`isAdmin`,`Created_at`) values 
-
-(1,12345,0,'2020-05-16 19:49:01'),
-
-(2,45678,1,'2020-05-16 19:49:08');
+insert  into `code`(`Id`,`Code`,`isAdmin`,`Created_at`,`type`) values 
+(4,'12345',0,'2020-05-16 19:49:01','alphanumeric'),
+(5,'45678',1,'2020-05-16 19:49:08','alphanumeric');
 
 /*Table structure for table `daily_challenge` */
 
@@ -60,7 +58,7 @@ CREATE TABLE `daily_challenge` (
   `day14` tinyint(1) DEFAULT NULL,
   `day15` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 /*Data for the table `daily_challenge` */
 
@@ -79,7 +77,7 @@ CREATE TABLE `dispense` (
   `Day_After` int(3) NOT NULL DEFAULT 0,
   PRIMARY KEY (`Id`),
   KEY `Id` (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
 
 /*Data for the table `dispense` */
 
