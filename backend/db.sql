@@ -24,17 +24,18 @@ DROP TABLE IF EXISTS `code`;
 CREATE TABLE `code` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Code` int(10) NOT NULL,
+  `isAdmin` tinyint(1) NOT NULL DEFAULT 0,
   `Created_at` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `code` */
 
-insert  into `code`(`Id`,`Code`,`Created_at`) values 
+insert  into `code`(`Id`,`Code`,`isAdmin`,`Created_at`) values 
 
-(4,12345,'2020-05-16 19:49:01'),
+(1,12345,0,'2020-05-16 19:49:01'),
 
-(5,45678,'2020-05-16 19:49:08');
+(2,45678,1,'2020-05-16 19:49:08');
 
 /*Table structure for table `daily_challenge` */
 

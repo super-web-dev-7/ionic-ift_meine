@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button color="primary" (click)="closeModal()">
+                <ion-icon name="close" color="light"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Create Code
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <div class="qrcode-container" (click)="scanQRCode()">
+        <div class="border-top ">
+            <div class="border-left border"></div>
+            <div class="border-right border"></div>
+        </div>
+        <div class="qrcode-image">
+            <img src="/assets/image/QR%20Code%20Scanner/Bitmap.png">
+        </div>
+
+        <div class="border-bottom ">
+            <div class="border-left border"></div>
+            <div class="border-right border"></div>
+        </div>
+    </div>
+
+    <br>
+    {{code}}
+    <br>
+
+    <ion-button expand="full" color="primary" (click)="addCode()" [disabled]="this.code === null">Create
+    </ion-button>
+
+
+</ion-content>

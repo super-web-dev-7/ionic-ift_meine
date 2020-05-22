@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button color="primary" (click)="closeModal()">
+                <ion-icon name="close" color="light"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Create Code
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <form [formGroup]="onRegisterForm" class="list-form">
+        <ion-item class="ion-no-padding animated fadeInUp">
+            <ion-label position="floating">
+<!--                <ion-icon name="person" item-start></ion-icon>-->
+                Please input new code
+            </ion-label>
+            <ion-input color="secondary" type="text" formControlName="name"></ion-input>
+        </ion-item>
+        <p class="text08"
+           *ngIf="onRegisterForm.get('name').touched && onRegisterForm.get('name').hasError('required')">
+            <ion-text color="warning">
+                This field is required.
+            </ion-text>
+        </p>
+
+        <br><br>
+
+        <ion-button expand="full" color="primary" (click)="addCode()" [disabled]="!onRegisterForm.valid">Create
+        </ion-button>
+    </form>
+
+
+</ion-content>
