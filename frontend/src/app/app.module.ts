@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx'
 import {FormsModule} from '@angular/forms';
 import {UniqueDeviceID} from '@ionic-native/unique-device-id/ngx';
+import { QRCodeModule } from 'angularx-qrcode';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -27,7 +28,8 @@ import {AppRoutingModule} from './app-routing.module';
         AppRoutingModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        QRCodeModule
     ],
     providers: [
         StatusBar,

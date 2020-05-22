@@ -10,6 +10,6 @@ const router = Router();
         
 router.route('/dashboard').get(adminController.getDashboard);
 router.route('/alldispenses').get(adminController.getAllDispenses);
-router.route('/allcodes').get(adminController.getAllCodes);
+router.route('/allcodes/:type').get(adminController.getAllCodes);
 router.route('/createCode').post(adminController.createCode);
 export default router;

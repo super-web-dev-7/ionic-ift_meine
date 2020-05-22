@@ -30,7 +30,8 @@ exports.getAllDispenses = function (req, res) {
 }
 
 exports.getAllCodes = function (req, res) {
-    Code.getAllCodes((err, result) => {
+    console.log(req.params.type)
+    Code.getAllCodes(req.params.type, (err, result) => {
         if (err) res.send(err);
         else res.status(200).json(result);
     })

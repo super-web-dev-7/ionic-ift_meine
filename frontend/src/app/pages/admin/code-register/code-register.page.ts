@@ -14,7 +14,7 @@ import {CodeRegisterComponent} from './Create/code-register.component';
 })
 export class CodeRegisterPage implements OnInit {
 
-    displayedColumns: string[] = ['Code', 'Created_AT'];
+    displayedColumns: string[] = ['Code', 'IsAdmin', 'Created_AT'];
 
     dataSource = new MatTableDataSource<any>();
 
@@ -33,7 +33,7 @@ export class CodeRegisterPage implements OnInit {
     }
 
     initialize() {
-        this.httpRequest.get_all_codes().subscribe((res: any) => {
+        this.httpRequest.get_all_codes('alphanumeric').subscribe((res: any) => {
             console.log(res);
             this.dataSource.data = res;
         });

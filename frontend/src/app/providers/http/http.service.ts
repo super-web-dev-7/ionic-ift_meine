@@ -46,8 +46,8 @@ export class HttpService {
         return this.http.get(`${UrlJSON.Admin_URL}/alldispenses`);
     }
 
-    get_all_codes() {
-        return this.http.get(`${UrlJSON.Admin_URL}/allcodes`);
+    get_all_codes(type) {
+        return this.http.get(`${UrlJSON.Admin_URL}/allcodes/${type}`);
     }
 
     addCode(data) {

@@ -15,6 +15,7 @@ import {CodeRegisterPageRoutingModule} from './code-register-routing.module';
 
 import {CodeRegisterPage} from './code-register.page';
 import {CodeRegisterComponent} from './Create/code-register.component';
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {CodeRegisterComponent} from './Create/code-register.component';
         MatSortModule,
         MatPaginatorModule,
         MatButtonModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatSelectModule
     ],
     declarations: [
         CodeRegisterPage,

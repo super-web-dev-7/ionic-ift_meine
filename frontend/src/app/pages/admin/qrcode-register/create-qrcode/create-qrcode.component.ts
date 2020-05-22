@@ -11,6 +11,7 @@ import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
 export class CreateQrcodeComponent implements OnInit {
 
     code: any = null;
+    isAdmin: any = '0';
 
 
     constructor(
@@ -37,12 +38,14 @@ export class CreateQrcodeComponent implements OnInit {
 
         const data = {
             code: this.code,
-            isAdmin: 0
+            isAdmin: this.isAdmin,
+            type: 'qr'
         };
+        console.log(data)
 
-        this.httpRequest.addCode(data).subscribe(result => {
-            this.modalCtrl.dismiss(data);
-        });
+        // this.httpRequest.addCode(data).subscribe(result => {
+        //     this.modalCtrl.dismiss(data);
+        // });
 
         loader.onWillDismiss().then(() => {
         });

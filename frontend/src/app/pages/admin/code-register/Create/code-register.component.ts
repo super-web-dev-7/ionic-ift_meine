@@ -24,7 +24,8 @@ export class CodeRegisterComponent implements OnInit {
         this.onRegisterForm = this.formBuilder.group({
             name: [null, Validators.compose([
                 Validators.required
-            ])]
+            ])],
+            isAdmin: ['0', Validators.compose([Validators.required])]
         });
     }
 
@@ -45,8 +46,10 @@ export class CodeRegisterComponent implements OnInit {
 
         const data = {
             code: this.f.name.value,
-            isAdmin: 0
+            isAdmin: this.f.isAdmin.value,
+            type: 'alphanumeric'
         };
+        console.log(data)
 
         this.httpRequest.addCode(data).subscribe(result => {
             this.modalCtrl.dismiss(data);

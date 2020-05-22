@@ -6,6 +6,7 @@ import {ModalController} from '@ionic/angular';
 
 import {HttpService} from '../../../providers/http/http.service';
 import {CreateQrcodeComponent} from './create-qrcode/create-qrcode.component';
+import {DownloadQrcodeComponent} from './download-qrcode/download-qrcode.component';
 
 @Component({
     selector: 'app-qrcode-register',
@@ -14,12 +15,16 @@ import {CreateQrcodeComponent} from './create-qrcode/create-qrcode.component';
 })
 export class QrcodeRegisterPage implements OnInit {
 
-    displayedColumns: string[] = ['Code', 'Created_AT'];
+    displayedColumns: string[] = ['Code', 'IsAdmin', 'Created_AT', 'Download'];
 
     dataSource = new MatTableDataSource<any>();
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
     @ViewChild(MatSort) sort: MatSort;
+
+    href: string;
+    elementType: 'url' | 'canvas' | 'img' = 'url';
+    value: string;
 
 
     constructor(
@@ -33,7 +38,7 @@ export class QrcodeRegisterPage implements OnInit {
     }
 
     initialize() {
-        this.httpRequest.get_all_codes().subscribe((res: any) => {
+        this.httpRequest.get_all_codes('qr').subscribe((res: any) => {
             console.log(res);
             this.dataSource.data = res;
         });
@@ -70,5 +75,18 @@ export class QrcodeRegisterPage implements OnInit {
         });
 
         return await modal.present();
+    }
+
+    async generateQRCode(qrcode) {
+        const modal = await this.modalCtrl.create({
+            component: DownloadQrcodeComponent,
+            componentProps: {
+                value: qrcode
+            },
+            cssClass: 'custom-modal'
+        });
+
+        modal.onDidDismiss().then(() => {});
+        return await modal.present()
     }
 }

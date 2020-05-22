@@ -17,6 +17,7 @@
             <div class="border-left border"></div>
             <div class="border-right border"></div>
         </div>
+
         <div class="qrcode-image">
             <img src="/assets/image/QR%20Code%20Scanner/Bitmap.png">
         </div>
@@ -30,6 +31,14 @@
     <br>
     {{code}}
     <br>
+
+    <mat-form-field>
+        <mat-label>User Type</mat-label>
+        <mat-select [(ngModel)]="isAdmin">
+            <mat-option value="0">User</mat-option>
+            <mat-option value="1">Admin</mat-option>
+        </mat-select>
+    </mat-form-field>
 
     <ion-button expand="full" color="primary" (click)="addCode()" [disabled]="this.code === null">Create
     </ion-button>

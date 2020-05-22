@@ -2,7 +2,8 @@ import db_connection from '../config/db';
 
 const Code = function (code) {
     this.code = code.code,
-    this.isAdmin = code.isAdmin
+    this.isAdmin = code.isAdmin,
+    this.type = code.type
 };
 
 Code.create = (newCode, result) => {
@@ -30,8 +31,8 @@ Code.check = (compareCode, result) => {
     });
 };
 
-Code.getAllCodes = (result) => {
-    db_connection.query("SELECT * FROM code", (err, res) => {
+Code.getAllCodes = (type, result) => {
+    db_connection.query("SELECT * FROM code WHERE type=?", type, (err, res) => {
         if (err) result(err, null);
         else result(null, res);
     })

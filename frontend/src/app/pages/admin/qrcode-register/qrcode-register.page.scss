@@ -6,3 +6,19 @@ table {
     margin-top: 5px;
     margin-left: 5px;
 }
+
+.custom-modal {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    display: block;
+}
+
+@media only screen and (min-height: 768px) and (min-width: 768px) {
+    .sc-ion-modal-md-h {
+        --width: 300px!important;
+        --height: 300px!important;
+    }
+}
+
+

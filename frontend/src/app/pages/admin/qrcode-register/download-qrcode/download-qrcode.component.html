@@ -1,0 +1,17 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-button color="primary" (click)="closeModal()">
+                <ion-icon name="close" color="light"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Download
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-text-center ion-padding-top">
+    <qrcode [qrdata]="value" [width]="256" [elementType]="'url'" [allowEmptyString]="true" [errorCorrectionLevel]="'M'"></qrcode>
+    <br><br>
+    <a [href]="href" (click)="download()" [download]="value + '.png'"><button mat-raised-button color="primary" class="ion-no-padding"><mat-icon>get_app</mat-icon>Download</button></a>
+</ion-content>

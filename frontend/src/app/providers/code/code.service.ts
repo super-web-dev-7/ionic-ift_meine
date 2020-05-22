@@ -31,7 +31,7 @@ export class CodeService {
         return this.currentCodeSubject.value;
     }
 
-    code_check(code: number) {
+    code_check(code: string) {
         return this.httpRequest.code_check(code).pipe(map((res: any) => {
             console.log(res);
             const Code = jwt_decode(res.token);
