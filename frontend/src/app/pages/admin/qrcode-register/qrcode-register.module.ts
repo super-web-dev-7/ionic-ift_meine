@@ -14,11 +14,10 @@ import {QrcodeRegisterPageRoutingModule} from './qrcode-register-routing.module'
 
 import {QrcodeRegisterPage} from './qrcode-register.page';
 import {CreateQrcodeComponent} from './create-qrcode/create-qrcode.component';
-import {MatSelectModule} from "@angular/material/select";
-import {MatIconModule} from "@angular/material/icon";
-import {NgxQRCodeModule} from "ngx-qrcode2";
-import {QRCodeModule} from "angularx-qrcode";
-import {DownloadQrcodeComponent} from "./download-qrcode/download-qrcode.component";
+import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
+import {QRCodeModule} from 'angularx-qrcode';
+import {DownloadQrcodeComponent} from './download-qrcode/download-qrcode.component';
 
 @NgModule({
     imports: [
@@ -35,7 +34,6 @@ import {DownloadQrcodeComponent} from "./download-qrcode/download-qrcode.compone
         ReactiveFormsModule,
         MatSelectModule,
         MatIconModule,
-        NgxQRCodeModule,
         QRCodeModule
     ],
     declarations: [
