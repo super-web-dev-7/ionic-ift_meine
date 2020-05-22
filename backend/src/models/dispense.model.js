@@ -101,6 +101,35 @@ Dispense.getDaily = (id, result) => {
     })
 }
 
+Dispense.getDashboard = (result) => {
+    let response = {}
+    db_connection.query("SELECT COUNT(Id) FROM dispense", (err, res) => {
+        console.log(res)
+        response.all = res[0]['COUNT(Id)'];
+        db_connection.query("SELECT COUNT(Id) FROM dispense WHERE Status=0 AND Day_After=14", (err, res) => {
+            console.log(res);
+            response.completed = res[0]['COUNT(Id)'];
+            db_connection.query("SELECT COUNT(Id) FROM dispense WHERE Status=1", (err, res) => {
+                console.log(res);
+                response.running = res[0]['COUNT(Id)'];
+                db_connection.query("SELECT COUNT(Id) FROM dispense WHERE Status=0 AND Day_After<14", (err, res) => {
+                    console.log(res);
+                    response.cancelled = res[0]['COUNT(Id)'];
+                    result(null, response);
+                    console.log(response)
+                });
+            });
+        });
+    })
+}
+
+Dispense.getAllDispenses = (result) => {
+    db_connection.query("SELECT * FROM dispense", (err, res) => {
+        if (err) result(err, null);
+        else result(null, res);
+    })
+}
+
 Dispense.updateCronJob = (result) => {
     db_connection.query("Update dispense Set Day_After = Day_After + 1 Where Day_After < 14 And Status = 1")
     db_connection.query("Update dispense Set Status = 0 Where Day_After = 14");

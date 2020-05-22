@@ -1,20 +1,43 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { IonicModule } from '@ionic/angular';
+import {IonicModule} from '@ionic/angular';
 
-import { CodeRegisterPageRoutingModule } from './code-register-routing.module';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatButtonModule} from '@angular/material/button';
 
-import { CodeRegisterPage } from './code-register.page';
+import {CodeRegisterPageRoutingModule} from './code-register-routing.module';
+
+import {CodeRegisterPage} from './code-register.page';
+import {CodeRegisterComponent} from './Create/code-register.component';
+
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    CodeRegisterPageRoutingModule
-  ],
-  declarations: [CodeRegisterPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        CodeRegisterPageRoutingModule,
+        MatFormFieldModule,
+        MatTableModule,
+        MatInputModule,
+        MatSortModule,
+        MatPaginatorModule,
+        MatButtonModule,
+        ReactiveFormsModule
+    ],
+    declarations: [
+        CodeRegisterPage,
+        CodeRegisterComponent
+    ],
+    entryComponents: [
+        CodeRegisterComponent
+    ]
 })
-export class CodeRegisterPageModule {}
+export class CodeRegisterPageModule {
+}

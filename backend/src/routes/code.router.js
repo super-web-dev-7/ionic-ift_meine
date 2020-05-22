@@ -6,6 +6,6 @@ const router = Router();
 
 router.route('/')
     .get(codeController.checkCode)
-    .post(codeController.createCode);
+    // .post(codeController.createCode);
 
 export default router;

@@ -1,9 +1,41 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>code-register</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>MEINE ZEIT OHNE - ADMIN 1.1</ion-title>
+        <ion-buttons slot="end" class="">
+            <ion-menu-button color="medium"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+    <button color="primary" class="new-button" (click)="showModal()" mat-raised-button>NEUER CODE</button>
+
+
+    <mat-form-field class="ion-float-right ion-margin-end">
+        <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off" placeholder="Filter">
+    </mat-form-field>
+
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+        <ng-container matColumnDef="Code">
+            <th mat-header-cell *matHeaderCellDef> Code</th>
+            <td mat-cell *matCellDef="let item"> {{item.Code}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Created_AT">
+            <th mat-header-cell *matHeaderCellDef> Created At</th>
+            <td mat-cell *matCellDef="let item">
+                {{DateFormat(item.Created_at)}}
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
 
 </ion-content>

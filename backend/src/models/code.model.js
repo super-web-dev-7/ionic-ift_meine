@@ -1,7 +1,8 @@
 import db_connection from '../config/db';
 
 const Code = function (code) {
-    this.code = code.code
+    this.code = code.code,
+    this.isAdmin = code.isAdmin
 };
 
 Code.create = (newCode, result) => {
@@ -22,11 +23,18 @@ Code.check = (compareCode, result) => {
             console.log('error: ', err);
             result(err, null);
         } else {
-            console.log(res.length);
-            if (res.length > 0) result(null, true);
-            else result(null, false);
+            result(null, res)
+            // if (res.length > 0) result(null, true);
+            // else result(null, false);
         }
     });
 };
+
+Code.getAllCodes = (result) => {
+    db_connection.query("SELECT * FROM code", (err, res) => {
+        if (err) result(err, null);
+        else result(null, res);
+    })
+}
 
 export default Code;

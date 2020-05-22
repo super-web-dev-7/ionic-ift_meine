@@ -1,9 +1,61 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>daten</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>MEINE ZEIT OHNE - ADMIN 1.1</ion-title>
+        <ion-buttons slot="end" class="">
+            <ion-menu-button color="medium"></ion-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+    <mat-form-field class="ion-float-right ion-margin-end">
+        <input matInput (keyup)="applyFilter($event.target.value)" autocomplete="off" placeholder="Filter">
+    </mat-form-field>
+
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+<!--        <ion-input type="text" placeholder="Input KeyWord"></ion-input>-->
+
+        <ng-container matColumnDef="DeviceID">
+            <th mat-header-cell *matHeaderCellDef> GeräteID </th>
+            <td mat-cell *matCellDef="let dispense"> {{dispense.DeviceId}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="EntryCode">
+            <th mat-header-cell *matHeaderCellDef> Login Code </th>
+            <td mat-cell *matCellDef="let dispense"> {{dispense.Topic}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="StartedAt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Begonnen am </th>
+            <td mat-cell *matCellDef="let dispense">
+<!--                {{dispense.Created_At.split("T")[0]}}-->
+                {{DateFormat(dispense.Created_At)}}
+
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="EndedAt">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Endete am </th>
+            <td mat-cell *matCellDef="let dispense" class="ion-text-center">
+                {{dispense.Status === 1 ? '---' : getEndDate(dispense.Created_At, dispense.Day_After)}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Status">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+            <td mat-cell *matCellDef="let dispense">
+                {{dispense.Status === 1 ? 'Running' : dispense.Day_After === 14 ? 'Completed' : 'Cancelled'}}
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+
 
 </ion-content>

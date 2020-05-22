@@ -6,5 +6,6 @@ const API_URL = environment.API_URL;
 export const UrlJSON = {
     Code_Check_URL: API_URL + 'code',
     Dispense_URL: API_URL + 'dispense',
-    Daily_URL: API_URL + 'daily'
+    Daily_URL: API_URL + 'daily',
+    Admin_URL: API_URL + 'admin'
 };

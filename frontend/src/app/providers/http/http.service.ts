@@ -36,4 +36,22 @@ export class HttpService {
         return this.http.get(`${UrlJSON.Daily_URL}/${dispense.Id}`);
     }
 
+    // Admin
+
+    get_dashboard_data() {
+        return this.http.get(`${UrlJSON.Admin_URL}/dashboard`);
+    }
+
+    get_all_dispenses() {
+        return this.http.get(`${UrlJSON.Admin_URL}/alldispenses`);
+    }
+
+    get_all_codes() {
+        return this.http.get(`${UrlJSON.Admin_URL}/allcodes`);
+    }
+
+    addCode(data) {
+        return this.http.post(`${UrlJSON.Admin_URL}/createCode`, data);
+    }
+
 }
