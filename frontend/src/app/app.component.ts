@@ -19,6 +19,11 @@ export class AppComponent implements OnInit {
     public selectedIndex = 0;
     public appPages = [
         {
+            title: 'Förderer',
+            url: '/impressum',
+            icon: 'mail'
+        },
+        {
             title: 'Impressum',
             url: '/impressum',
             icon: 'mail'
@@ -29,8 +34,8 @@ export class AppComponent implements OnInit {
             icon: 'paper-plane'
         },
         {
-            title: 'FAQ',
-            url: '/faq',
+            title: 'Copyright, Design',
+            url: '/copyright',
             icon: 'heart'
         }
     ];

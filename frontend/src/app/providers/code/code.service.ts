@@ -33,13 +33,11 @@ export class CodeService {
 
     code_check(code: string) {
         return this.httpRequest.code_check(code).pipe(map((res: any) => {
-            console.log(res);
-            const Code = jwt_decode(res.token);
             if (res) {
-                sessionStorage.setItem('currentCode', res.token);
+                localStorage.setItem('currentCode', res.token);
                 this.currentCodeSubject.next(jwt_decode(res.token));
             }
-            return Code;
+            return jwt_decode(res.token);
         }))
     }
 }

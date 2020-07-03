@@ -1,5 +1,8 @@
 <ion-header>
     <ion-toolbar>
+        <ion-avatar class="logo" slot="start">
+            <img src="/assets/icon/favicon.png" alt="logo">
+        </ion-avatar>
         <ion-buttons slot="end">
             <ion-button (click)="openMenu()">
                 <img src="/assets/image/Home/menu.png" alt="direction">
@@ -11,16 +14,13 @@
     <div class="main-container">
         <div class="header-container">
             <h1 class="ion-no-margin large">
-                MEINE ZEIT
+                Willkommen bei Meine Zeit ohne - Die Challenge
             </h1>
-            <h1 class="ion-no-margin large">
-                OHNE
-            </h1>
-            <ion-text color="light" class="ion-text-center">
-                <h2>
-                    -Login-
-                </h2>
-            </ion-text>
+<!--            <ion-text color="light" class="ion-text-center">-->
+<!--                <h2>-->
+<!--                    -Login- -->
+<!--                </h2>-->
+<!--            </ion-text>-->
         </div>
 
         <div class="input-container">
@@ -32,7 +32,8 @@
                 </ion-text>
                 <form class="form-code">
                     <ion-input class="input-code" [(ngModel)]="code" name="code" placeholder="Freischaltcode eingeben"></ion-input>
-                    <ion-button expand="block" class="button-code" color="success" shape="round" (click)="code_check()">
+                    <p class="mat-error" *ngIf="attemptCount !== 0">{{5 - attemptCount}}</p>
+                    <ion-button expand="block" [disabled]="code === '' || code === null" class="button-code" color="success" shape="round" (click)="code_check()">
                         STARTE CHALLENGE
                     </ion-button>
                 </form>

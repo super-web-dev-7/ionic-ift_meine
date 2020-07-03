@@ -26,6 +26,8 @@ ion-content {
                 text-align: center;
                 color: var(--ion-color-light);
                 font-family: Raleway-Regular;
+                line-height: 50px;
+                padding: 0 25px;
             }
 
             h2 {
@@ -74,7 +76,7 @@ ion-content {
 
     .sc-ion-input-md-h {
         --placeholder-color: #fff;
-        --placeholder-opacity: 1;
+        --placeholder-opacity: 0.6;
     }
 
     .form-code {

@@ -6,6 +6,7 @@ import {DeviceUUID} from 'device-uuid';
 import {CodeService} from '../../providers/code/code.service';
 import {HttpService} from '../../providers/http/http.service';
 import {DispenseService} from '../../providers/dispense/dispense.service';
+import {first} from "rxjs/operators";
 
 @Component({
     selector: 'app-home',
@@ -14,7 +15,8 @@ import {DispenseService} from '../../providers/dispense/dispense.service';
 })
 export class HomePage implements OnInit {
 
-    code: any;
+    code: any = '';
+    attemptCount = 0;
 
     constructor(
         private router: Router,
@@ -39,8 +41,7 @@ export class HomePage implements OnInit {
             this.presentToast('Bitte geben Sie Ihren Code ein.');
             return;
         }
-        this.codeService.code_check(this.code).subscribe(res => {
-            if (res.isExist === true) {
+        this.codeService.code_check(this.code).pipe(first()).subscribe(res => {
                 if (res.isAdmin === 1) this.router.navigate(['/admin']);
                 else {
                     this.httpRequest.get_dispenseByDeviceId(new DeviceUUID().get()).subscribe((response: any) => {
@@ -53,11 +54,16 @@ export class HomePage implements OnInit {
                     })
                 }
 
-            }
-            else {
+            }, error => {
+                this.attemptCount++;
+                if (this.attemptCount === 5) {
+                    this.attemptCount = 0;
+                }
+                console.log(this.attemptCount)
                 this.presentToast('Dieser Code ist leider nicht korrekt');
+                // this.error = error.error.message;
             }
-        })
+        )
     }
 
     async presentToast(text) {
