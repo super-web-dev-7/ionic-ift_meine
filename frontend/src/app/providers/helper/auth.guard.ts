@@ -15,9 +15,6 @@ export class AuthGuard implements CanActivate {
 
     async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const currentCode = this.codeService.currentCodeValue;
-        console.log(route.data.isAdmin)
-        console.log(route)
-        console.log(currentCode)
         if (currentCode) {
             if (route.routeConfig.path === 'admin') {
                 if (currentCode.isAdmin !== 1) {

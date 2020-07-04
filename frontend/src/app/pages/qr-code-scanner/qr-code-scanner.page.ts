@@ -41,14 +41,7 @@ export class QrCodeScannerPage implements OnInit {
             if (res.isExist === true) {
                 if (res.isAdmin === 1) this.router.navigate(['/admin']);
                 else {
-                    this.httpRequest.get_dispenseByDeviceId(new DeviceUUID().get()).subscribe((response: any) => {
-                        if (response.result.length > 0) {
-                            this.dispenseService.setDispense(response.result[0]);
-                            this.router.navigate(['/tagx']);
-                        } else {
-                            this.router.navigate(['/area']);
-                        }
-                    })
+                    this.router.navigate(['/video-guide']);
                 }
             }
             else {

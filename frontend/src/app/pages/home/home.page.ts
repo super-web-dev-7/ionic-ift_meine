@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController, ToastController} from '@ionic/angular';
 import {Router} from '@angular/router';
-import {DeviceUUID} from 'device-uuid';
+
 
 import {CodeService} from '../../providers/code/code.service';
 import {HttpService} from '../../providers/http/http.service';
@@ -44,14 +44,7 @@ export class HomePage implements OnInit {
         this.codeService.code_check(this.code).pipe(first()).subscribe(res => {
                 if (res.isAdmin === 1) this.router.navigate(['/admin']);
                 else {
-                    this.httpRequest.get_dispenseByDeviceId(new DeviceUUID().get()).subscribe((response: any) => {
-                        if (response.result.length > 0) {
-                            this.dispenseService.setDispense(response.result[0]);
-                            this.router.navigate(['/tagx']);
-                        } else {
-                            this.router.navigate(['/area']);
-                        }
-                    })
+                    this.router.navigate(['/video-guide']);
                 }
 
             }, error => {

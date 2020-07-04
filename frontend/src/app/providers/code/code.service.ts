@@ -34,7 +34,7 @@ export class CodeService {
     code_check(code: string) {
         return this.httpRequest.code_check(code).pipe(map((res: any) => {
             if (res) {
-                localStorage.setItem('currentCode', res.token);
+                sessionStorage.setItem('currentCode', res.token);
                 this.currentCodeSubject.next(jwt_decode(res.token));
             }
             return jwt_decode(res.token);

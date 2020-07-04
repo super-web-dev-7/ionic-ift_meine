@@ -36,12 +36,11 @@ export class TagxPage implements OnInit {
                 this.dispenseService.setDispense(response.result[0]);
                 this.dispense = this.dispenseService.dispenseValue;
             }
+            this.httpRequest.get_feedback(this.dispense).subscribe(res => {
+                this.feedback = res;
+                this.isFeedback = this.feedback['day' + (this.dispense.Day_After + 1)] !== null;
+            })
         });
-
-        this.httpRequest.get_feedback(this.dispense).subscribe(res => {
-            this.feedback = res;
-            this.isFeedback = this.feedback['day' + (this.dispense.Day_After + 1)] !== null;
-        })
     }
 
     openMenu() {

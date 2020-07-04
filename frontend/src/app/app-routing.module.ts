@@ -58,6 +58,11 @@ const routes: Routes = [
                 loadChildren: () => import('./pages/feedback-confirmation/feedback-confirmation.module')
                     .then(m => m.FeedbackConfirmationPageModule)
             },
+            {
+                path: 'video-guide',
+                loadChildren: () => import('./pages/video-explaination/video-explaination.module')
+                    .then(m => m.VideoExplainationPageModule)
+            }
         ],
         canActivate: [AuthGuard],
         data: {isAdmin: false}
@@ -67,13 +72,7 @@ const routes: Routes = [
         loadChildren: () => import('./pages/admin/dashboard/dashboard.module').then(m => m.DashboardPageModule),
         canActivate: [AuthGuard],
         data: {isAdmin: true}
-    },
-  {
-    path: 'forgot',
-    loadChildren: () => import('./pages/forgot/forgot.module').then(m => m.ForgotPageModule)
-  },
-
-
+    }
 ];
 
 @NgModule({

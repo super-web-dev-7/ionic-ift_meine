@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start" class="">
-            <ion-button [routerLink]="'/intensity'">
+            <ion-button [routerLink]="'/home'">
                 <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
             </ion-button>
         </ion-buttons>
@@ -12,27 +12,33 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
+
 <ion-content [fullscreen]="true" class="home">
     <div class="container">
-        <div class="ion-text-center">
-            <h1 class="ion-text-center font-large main-title">
+        <div>
+            <h1 class="ion-text-center font-large">
                 Meine Zeit ohne <br>
                 - Die challenge -
             </h1>
-            <div>
+            <div class="ion-text-center">
                 <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
             </div>
-
-            <p class="ion-text-center font-size-18"><b>Meine persönliche challenge <br> kann starten</b></p>
         </div>
 
-        <p class="ion-text-center">Ich verzichte in den <br> kommenden 14 Tagen</p>
+        <iframe width="100%"
+                height="315"
+                [src]="this.trustedVideoUrl"
+                (load)="getVideoUrl() ? this.loading ? handleIFrameLoadEvent() : null : null"
+                frameborder="0"
+                allowfullscreen></iframe>
 
-        <p class="ion-text-center">zu <b>{{dispense.Intensity}}</b>% auf:</p>
+        <div class="ion-text-center">
+            <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        </div>
 
-        <p class="ion-text-center"><b>{{dispense.Topic}}</b></p>
-
-        <ion-button expand="block" class="button" color="success" shape="round" routerLink="/taq">STARTE CHALLENGE</ion-button>
+        <ion-button expand="block" class="button" color="success" shape="round" (click)="gotoArea()">
+            Starte die Challenge
+        </ion-button>
 
         <div class="gradient-bar"></div>
     </div>
