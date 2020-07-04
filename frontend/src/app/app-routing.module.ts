@@ -19,6 +19,10 @@ const routes: Routes = [
                 path: 'qr-code-scanner',
                 loadChildren: () => import('./pages/qr-code-scanner/qr-code-scanner.module').then(m => m.QrCodeScannerPageModule)
             },
+            {
+                path: 'forgot',
+                loadChildren: () => import('./pages/forgot/forgot.module').then(m => m.ForgotPageModule)
+            }
         ]
     },
     {
@@ -64,6 +68,11 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         data: {isAdmin: true}
     },
+  {
+    path: 'forgot',
+    loadChildren: () => import('./pages/forgot/forgot.module').then(m => m.ForgotPageModule)
+  },
+
 
 ];
 

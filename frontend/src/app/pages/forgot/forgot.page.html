@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-avatar class="logo" slot="start">
+                <img src="/assets/icon/favicon.png" alt="logo">
+            </ion-avatar>
+            <ion-button [routerLink]="'/home'">
+                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Home/menu.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="home">
+    <div class="main-container">
+        <div class="header-container">
+            <h1 class="ion-no-margin large">
+                Willkommen bei Meine Zeit ohne - Die Challenge
+            </h1>
+        </div>
+
+        <div class="input-container">
+            <div class="input-container-box">
+                <ion-text color="light" class="ion-text-center">
+                    <h1 class="font-weight-bold header-line ion-no-margin">
+                        ___
+                    </h1>
+                </ion-text>
+                <form class="form-code">
+                    <ion-input class="input-code" [(ngModel)]="code" name="code"
+                               placeholder="Login nicht möglich?"></ion-input>
+                    <br/>
+                    <ion-button expand="block" class="button-code"
+                                color="success" shape="round" (click)="code_check()">
+                        Wende Dich an <br /> mzo@ift-nord.de
+                    </ion-button>
+                </form>
+            </div>
+            <div class="bar">
+                <div class="gradient-bar"></div>
+            </div>
+        </div>
+    </div>
+</ion-content>

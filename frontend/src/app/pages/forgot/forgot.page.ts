@@ -1,19 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuController, ToastController} from '@ionic/angular';
 import {Router} from '@angular/router';
+import {MenuController, ToastController} from '@ionic/angular';
+import {first} from 'rxjs/operators';
 import {DeviceUUID} from 'device-uuid';
 
 import {CodeService} from '../../providers/code/code.service';
 import {HttpService} from '../../providers/http/http.service';
 import {DispenseService} from '../../providers/dispense/dispense.service';
-import {first} from 'rxjs/operators';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.page.html',
-    styleUrls: ['./home.page.scss'],
+    selector: 'app-forgot',
+    templateUrl: './forgot.page.html',
+    styleUrls: ['./forgot.page.scss'],
 })
-export class HomePage implements OnInit {
+export class ForgotPage implements OnInit {
 
     code: any = '';
     attemptCount = 0;
