@@ -1,0 +1,114 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="">
+            <ion-avatar class="logo" slot="start">
+                <img src="/assets/icon/favicon.png" alt="logo">
+            </ion-avatar>
+            <ion-button [routerLink]="'/video-guide'">
+                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="">
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="home">
+    <div class="container">
+        <div>
+            <h1 class="ion-text-center font-large">
+                Meine Zeit ohne <br>
+                - Die challenge -
+            </h1>
+            <div class="ion-text-center">
+                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            </div>
+        </div>
+
+        <div class="category-select">
+            <ion-grid>
+                <ion-row class="challenge-list" [routerLink]="'/detail-select-page'" (click)="categoryService.setCategory({category: 'Alkohol', type: 'alkohol'})">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/business.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Alkohol
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row routerLink="smoking">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/electronics.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Rauchen / Dampfen
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row [routerLink]="'/detail-select-page'" (click)="categoryService.setCategory({category: 'Canabis', type: 'canabis'})">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/commerce-and-shopping.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Canabis
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row routerLink="internet">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/healthcare-and-medical.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Internet / Smartphone
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row routerLink="game">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/seo-and-web.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Gaming / Zocken
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row [routerLink]="'/detail-select-page'" (click)="categoryService.setCategory({category: 'glücksspiel', type: 'gluck'})">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <img src="/assets/image/Home/sports-and-competition.png" class="img-avatar" alt="Oval">
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            glücksspiel
+                        </p>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+
+        <div class="ion-text-center">
+            <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        </div>
+
+        <p class="ion-text-center mb-5">
+            Ich möchte meine Challenge in einem <br>
+            <span class="border-bottom" routerLink="/another-select-page">anderen Bereich</span> antreten
+        </p>
+
+        <div class="gradient-bar"></div>
+    </div>
+
+</ion-content>

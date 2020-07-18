@@ -21,7 +21,7 @@ exports.getByDeviceId = function(req, res) {
 
 exports.create = (req, res) => {
     Dispense.create(req.body, (err, result) => {
-        if (err) res.send(err);
+        if (err) res.status(500).json(err);
         else {
             res.status(201).json(result)
         }
@@ -30,7 +30,7 @@ exports.create = (req, res) => {
 
 exports.updateDaily = (req, res) => {
     Dispense.updateDaily(req.params.id, req.body, (err, result) => {
-        if (err) res.send(err);
+        if (err) res.status(500).json(err);
         else {
             res.status(200).json(result);
         }
@@ -42,6 +42,15 @@ exports.getDaily = (req, res) => {
         console.log(result)
         if (err) res.send(err);
         else res.status(200).json(result);
+    })
+}
+
+exports.cancel = (req, res) => {
+    Dispense.cancel(req.params.id, req.body, (err, result) => {
+        if (err) res.status(500).json(err);
+        else {
+            res.status(200).json(result);
+        }
     })
 }
 

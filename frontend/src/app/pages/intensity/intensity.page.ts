@@ -11,7 +11,7 @@ import {HttpService} from '../../providers/http/http.service';
 })
 export class IntensityPage implements OnInit {
 
-    private selectedPercentage: any;
+    public selectedPercentage: any;
 
     constructor(
         private menu: MenuController,

@@ -15,16 +15,11 @@ import {DispenseService} from '../../providers/dispense/dispense.service';
 })
 export class ForgotPage implements OnInit {
 
-    code: any = '';
-    attemptCount = 0;
+    message: any = '';
 
     constructor(
         private router: Router,
         private menu: MenuController,
-        private codeService: CodeService,
-        public toastController: ToastController,
-        private httpRequest: HttpService,
-        private dispenseService: DispenseService
     ) {
     }
 
@@ -36,46 +31,7 @@ export class ForgotPage implements OnInit {
         this.menu.open('menu');
     }
 
-    code_check() {
-        if (this.code === undefined || this.code === null || this.code === '') {
-            this.presentToast('Bitte geben Sie Ihren Code ein.');
-            return;
-        }
-        this.codeService.code_check(this.code).pipe(first()).subscribe(res => {
-                if (res.isAdmin === 1) this.router.navigate(['/admin']);
-                else {
-                    this.httpRequest.get_dispenseByDeviceId(new DeviceUUID().get()).subscribe((response: any) => {
-                        if (response.result.length > 0) {
-                            this.dispenseService.setDispense(response.result[0]);
-                            this.router.navigate(['/tagx']);
-                        } else {
-                            this.router.navigate(['/area']);
-                        }
-                    })
-                }
-
-            }, error => {
-                console.log(error);
-                this.attemptCount++;
-                if (this.attemptCount === 5) {
-                    this.attemptCount = 0;
-                    this.gotoForgot();
-                }
-                this.presentToast('Dieser Code ist leider nicht korrekt');
-            }
-        )
-    }
-
-    async presentToast(text) {
-        const toast = await this.toastController.create({
-            message: text,
-            duration: 2000,
-            position: 'top',
-        });
-        toast.present();
-    }
-
-    gotoForgot() {
-        this.router.navigate(['/forgot']);
+    open_mailApp() {
+        window.location.href = 'mailto:mzo@ift-nord.de?subject=' + this.message + '&body=';
     }
 }

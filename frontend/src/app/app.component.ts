@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {Platform} from '@ionic/angular';
+import {SplashScreen} from '@ionic-native/splash-screen/ngx';
+import {StatusBar} from '@ionic-native/status-bar/ngx';
+import {DeviceUUID} from 'device-uuid';
+
 import {CodeService} from './providers/code/code.service';
+import {HttpService} from './providers/http/http.service';
+import {DispenseService} from "./providers/dispense/dispense.service";
 
 export interface Code {
     isExist: boolean,
@@ -39,6 +43,80 @@ export class AppComponent implements OnInit {
             icon: 'heart'
         }
     ];
+
+    public appPages2 = [
+        {
+            title: 'Challenge - Verlauf',
+            url: '/challenge_verlauf',
+            icon: ''
+        },
+        {
+            title: 'MZo - Erklarvideo',
+            url: '/mzo_erklarvideo',
+            icon: ''
+        },
+        {
+            title: 'MZo - Challenge - Regeln',
+            url: '/mzo_challenge',
+            icon: ''
+        },
+        {
+            title: 'Kontakt',
+            url: '/kontakt',
+            icon: ''
+        },
+        {
+            title: 'Förderer',
+            url: '/impressum',
+            icon: 'mail'
+        },
+        {
+            title: 'Impressum',
+            url: '/impressum',
+            icon: 'mail'
+        },
+        {
+            title: 'Datenschutz',
+            url: '/datenschutz',
+            icon: 'paper-plane'
+        },
+        {
+            title: 'Copyright, Design',
+            url: '/copyright',
+            icon: 'heart'
+        }
+    ];
+
+    public appEndPages = [
+        {
+            title: 'Kontakt',
+            url: '/kontakt',
+            icon: ''
+        },
+        {
+            title: 'Förderer',
+            url: '/impressum',
+            icon: 'mail'
+        },
+        {
+            title: 'Impressum',
+            url: '/impressum',
+            icon: 'mail'
+        },
+        {
+            title: 'Datenschutz',
+            url: '/datenschutz',
+            icon: 'paper-plane'
+        },
+        {
+            title: 'Copyright, Design',
+            url: '/copyright',
+            icon: 'heart'
+        }
+    ];
+
+    public menuStatus = 0;
+
     public adminPages = [
         {
             title: 'Dashboard',
@@ -62,12 +140,15 @@ export class AppComponent implements OnInit {
         }
     ];
     public currentCode: Code;
+    public dispense: any;
 
     constructor(
         private platform: Platform,
         private splashScreen: SplashScreen,
         private statusBar: StatusBar,
-        private codeService: CodeService
+        private codeService: CodeService,
+        public httpRequest: HttpService,
+        public dispenseService: DispenseService
     ) {
         console.log('current code >>>>>>>>> ', this.currentCode);
         this.initializeApp();
@@ -82,11 +163,23 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.codeService.currentCodeSubject.subscribe((currentCode: any) => {
-            this.currentCode = currentCode;
-        });
+        this.currentCode = currentCode;
+    });
+    }
+
+    ionViewWillEnter() {
+        this.dispense = this.dispenseService.dispenseValue;
+        this.menuStatus = this.dispenseService.dispenseValue?.day_after > 0 ? 1 : this.menuStatus;
         const path = window.location.pathname.split('folder/')[1];
         if (path !== undefined) {
             this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
         }
+        const deviceId = new DeviceUUID().get();
+        this.httpRequest.get_dispenseByDeviceId(deviceId).subscribe((res: any) => {
+            console.log(res)
+            if (res.result.length > 0 && res.result[0].day_after > 0) {
+                this.menuStatus = 1;
+            }
+        })
     }
 }

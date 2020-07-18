@@ -24,6 +24,7 @@ export class VideoExplainationPage implements OnInit {
 
     trustedVideoUrl: any = this.getVideoUrl();
     loading: any;
+    loaded = false;
 
     constructor(
         private router: Router,
@@ -40,10 +41,11 @@ export class VideoExplainationPage implements OnInit {
     }
 
     async ionViewWillEnter() {
-        this.loading = await this.loadingCtrl.create({
-        });
-
-        this.loading.present();
+        // this.loading = await this.loadingCtrl.create({
+        // });
+        // if (!this.loaded) {
+        //     this.loading.present();
+        // }
     }
 
     getVideoUrl() {
@@ -56,17 +58,20 @@ export class VideoExplainationPage implements OnInit {
     }
 
     handleIFrameLoadEvent(): void {
-        this.loading.dismiss();
+        this.loaded = true;
+        // this.loading.dismiss();
     }
 
     gotoArea() {
         console.log(new DeviceUUID().get())
+        // this.router.navigate(['/category-select']);
         this.httpRequest.get_dispenseByDeviceId(new DeviceUUID().get()).subscribe((response: any) => {
             if (response.result.length > 0) {
+                console.log(response)
                 this.dispenseService.setDispense(response.result[0]);
-                this.router.navigate(['/tagx']);
+                this.router.navigate(['/before-feedback']);
             } else {
-                this.router.navigate(['/area']);
+                this.router.navigate(['/category-select']);
             }
         })
     }

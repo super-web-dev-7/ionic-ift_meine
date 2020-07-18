@@ -17,7 +17,7 @@ export class HttpService {
     }
 
     update_dispense(dispense) {
-        return this.http.put(`${UrlJSON.Dispense_URL}?deviceId=${dispense.DeviceId}`, dispense);
+        return this.http.put(`${UrlJSON.Dispense_URL}?deviceId=${dispense.deviceId}`, dispense);
     }
 
     get_dispenseByDeviceId(deviceId) {
@@ -29,11 +29,19 @@ export class HttpService {
     }
 
     daily_Success(isSuccess, dispense, day) {
-        return this.http.put(`${UrlJSON.Daily_URL}/${dispense.Id}`, {success: isSuccess, day});
+        return this.http.put(`${UrlJSON.Daily_URL}/${dispense.id}`, {success: isSuccess, day});
     }
 
     get_feedback(dispense) {
-        return this.http.get(`${UrlJSON.Daily_URL}/${dispense.Id}`);
+        return this.http.get(`${UrlJSON.Daily_URL}/${dispense.id}`);
+    }
+
+    cancelDispense(dispense, reason) {
+        return this.http.put(`${UrlJSON.Dispense_URL}/${dispense.id}`, {reason})
+    }
+
+    setReaction(id, data) {
+        return this.http.put(`${UrlJSON.ReactionUrl}/${id}`, data);
     }
 
     // Admin

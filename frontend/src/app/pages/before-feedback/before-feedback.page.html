@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="">
+            <ion-avatar class="logo" slot="start">
+                <img src="/assets/icon/favicon.png" alt="logo">
+            </ion-avatar>
+            <ion-button [routerLink]="'/video-guide'">
+                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="">
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="home">
+    <div class="container">
+        <div>
+            <h1 class="ion-text-center font-large">
+                Meine Zeit ohne <br>
+                - Die challenge -
+            </h1>
+            <div class="ion-text-center">
+                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            </div>
+        </div>
+
+<!--        <div *ngIf="['internet', 'game', 'smoking'].includes(selectedCategory?.type)" class="text-center">-->
+<!--            Ich rauche/dampfe täglich <br>-->
+<!--            maximal <span>{{selectedCategory?.maximumValue}} </span> <span-->
+<!--                class="font-weight-bold">{{selectedCategory?.category}}</span>-->
+<!--        </div>-->
+        <div class="text-center">
+            Ich verzichte für 14 Tage <br>
+            komplett auf <span class="font-weight-bold"> {{dispense?.category}}</span>
+        </div>
+
+        <div>
+            Tag{{dispense?.day_after + 1}} von 14
+        </div>
+
+        <div class="ion-text-center">
+            <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        </div>
+
+        <div class="text-center">
+            Hast du gestern <br>
+            dein Challenge-Ziel<br>
+            erreicht ?
+        </div>
+
+        <ion-button expand="block" class="button" color="success" shape="round" [routerLink]="'/daily-feedback'">
+            Meide dich zurück!
+        </ion-button>
+
+        <div class="gradient-bar"></div>
+    </div>
+
+</ion-content>

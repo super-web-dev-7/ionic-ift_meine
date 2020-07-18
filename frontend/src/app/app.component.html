@@ -1,7 +1,7 @@
 <ion-app>
     <ion-split-pane contentId="main-content">
         <ion-menu contentId="main-content" menuId="menu" type="overlay">
-            <ion-content *ngIf="currentCode === null || currentCode.isAdmin === 0">
+            <ion-content *ngIf="(currentCode === null || currentCode.isAdmin === 0) && menuStatus === 0">
                 <ion-list id="inbox-list">
                     <ion-avatar class="logo" slot="start">
                         <img src="/assets/icon/favicon.png" alt="logo">
@@ -12,6 +12,38 @@
                         <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
                                   detail="false" [class.selected]="selectedIndex == i">
 <!--                            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>-->
+                            <ion-label>{{ p.title }}</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+            </ion-content>
+            <ion-content *ngIf="(currentCode === null || currentCode.isAdmin === 0) && menuStatus === 1">
+                <ion-list id="inbox-list">
+                    <ion-avatar class="logo" slot="start">
+                        <img src="/assets/icon/favicon.png" alt="logo">
+                    </ion-avatar>
+                    <br>
+
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages2; let i = index">
+                        <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+                                  detail="false" [class.selected]="selectedIndex == i">
+                            <!--                            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>-->
+                            <ion-label>{{ p.title }}</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
+                </ion-list>
+            </ion-content>
+            <ion-content *ngIf="(currentCode === null || currentCode.isAdmin === 0) && menuStatus === 2">
+                <ion-list id="inbox-list">
+                    <ion-avatar class="logo" slot="start">
+                        <img src="/assets/icon/favicon.png" alt="logo">
+                    </ion-avatar>
+                    <br>
+
+                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appEndPages; let i = index">
+                        <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
+                                  detail="false" [class.selected]="selectedIndex == i">
+                            <!--                            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>-->
                             <ion-label>{{ p.title }}</ion-label>
                         </ion-item>
                     </ion-menu-toggle>

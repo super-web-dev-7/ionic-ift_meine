@@ -1,0 +1,125 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="">
+            <ion-avatar class="logo" slot="start">
+                <img src="/assets/icon/favicon.png" alt="logo">
+            </ion-avatar>
+            <ion-button [routerLink]="'/category-select'">
+                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="">
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="container">
+        <div>
+            <h1 class="ion-text-center font-large">
+                Meine Zeit ohne <br>
+                - Die challenge -
+            </h1>
+            <div class="ion-text-center">
+                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            </div>
+        </div>
+
+        <div class="w-100 d-flex flex-column align-items-center">
+            <p class="ion-text-center">
+                Ich verzichte fur 14 Tage <br>
+                komplett auf:
+            </p>
+            <br>
+
+            <ion-grid class="ion-no-margin w-100">
+                <ion-row class="percentage-list" (click)="selectCategory(0)">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <div class="green-dot" *ngIf="selectedCategory === 0"></div>
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Zigaretten
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="percentage-list" (click)="selectCategory(1)">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <div class="green-dot" *ngIf="selectedCategory === 1"></div>
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            E-Zigarette, zb. Blu, JUUL
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="percentage-list" (click)="selectCategory(2)">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <div class="green-dot" *ngIf="selectedCategory === 2"></div>
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            (E-)Shisha
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="percentage-list" (click)="selectCategory(3)">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <div class="green-dot" *ngIf="selectedCategory === 3"></div>
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            (E-)Zigarre
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="percentage-list" (click)="selectCategory(4)">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <div class="green-dot" *ngIf="selectedCategory === 4"></div>
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Wasserpfeife
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="percentage-list" (click)="selectCategory(5)">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <div class="green-dot" *ngIf="selectedCategory === 5"></div>
+                    </ion-col>
+                    <ion-col size="9">
+                        <p>
+                            Tabakerhitzer, zb. iQOS
+                        </p>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="percentage-list" (click)="selectCategory(6)">
+                    <ion-col size="3" class="avatar">
+                        <div class="circle"></div>
+                        <div class="green-dot" *ngIf="selectedCategory === 6"></div>
+                    </ion-col>
+                    <ion-col size="9">
+                        <ion-input maxlength="40" class="other-category" [(ngModel)]="anotherCategory" placeholder="Andere Art Rauchen / Dampfen"></ion-input>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+            <ion-button (click)="gotoDetailSelectPage()"
+                    expand="block" class="button green-button" color="success" shape="round">
+                Weiter
+            </ion-button>
+            <br>
+        </div>
+
+        <div class="gradient-bar"></div>
+    </div>
+</ion-content>

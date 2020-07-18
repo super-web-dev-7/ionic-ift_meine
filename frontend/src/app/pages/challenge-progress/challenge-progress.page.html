@@ -1,0 +1,114 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="">
+            <ion-avatar class="logo" slot="start">
+                <img src="/assets/icon/favicon.png" alt="logo">
+            </ion-avatar>
+            <ion-button [routerLink]="'/after-feedback'">
+                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="">
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="home">
+    <div class="container">
+        <div>
+            <h1 class="ion-text-center font-large">
+                Meine Zeit ohne <br>
+                - Die challenge -
+            </h1>
+            <div class="ion-text-center">
+                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            </div>
+        </div>
+
+        <div class="text-center">
+            Ich verzichte für 14 Tage <br>
+            komplett auf <span class="font-weight-bold"> {{dispense?.category}}</span>
+        </div>
+
+        <div class="text-center">
+            Tag {{dispense?.day_after + 1}} von 14
+        </div>
+
+        <div class="ion-text-center">
+            <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        </div>
+
+        <div class="text-center subtitle">
+            Mein bisheriger <br>
+            Challenge - Verlauf
+        </div>
+
+        <div style="width: 90%;">
+            <div class="d-flex flex-row justify-content-between align-items-center w-100">
+                <img src="assets/image/Tag%201/Bitmap.png" height="1" alt="arrow">
+                <div>Tag {{dispense?.day_after + 1}} von 14</div>
+            </div>
+            <div class="border border-dark w-100 d-flex flex-row justify-content-center align-items-center">
+                <div *ngFor="let i of day; let index = index;" [ngClass]="{'current-day': dispense?.day_after === index}">
+                    <div [ngClass]="{
+                     'box': true,
+                     'green': feedback && feedback['day' + (index + 1)] === 1,
+                     'red': feedback && feedback['day' + (index + 1)] === 0,
+                     'missing': feedback && feedback['day' + (index + 1)] === null
+                     }">
+                        {{feedback && feedback['day' + (index + 1)] === null && dispense?.day_after > index ? '?' : ''}}
+                    </div>
+                </div>
+            </div>
+            <div class="w-100 d-flex flex-row justify-content-center align-items-center">
+                <div class="number-box">1</div>
+                <div class="number-box">2</div>
+                <div class="number-box">3</div>
+                <div class="number-box">4</div>
+                <div class="number-box">5</div>
+                <div class="number-box">6</div>
+                <div class="number-box">7</div>
+                <div class="number-box">8</div>
+                <div class="number-box">9</div>
+                <div class="number-box">10</div>
+                <div class="number-box">11</div>
+                <div class="number-box">12</div>
+                <div class="number-box">13</div>
+                <div class="number-box">14</div>
+            </div>
+        </div>
+
+        <div class="mark-explain-container">
+            <div class="mark-explain-title">Legende</div>
+            <div class="mark-explain">
+                <div class="d-flex flex-row justify-content-start align-items-center">
+                    <div class="box green"></div>
+                    <div class="box-title">Challenge - Ziel erreicht</div>
+                </div>
+                <div class="d-flex flex-row justify-content-start align-items-center">
+                    <div class="box red"></div>
+                    <div class="box-title">Challenge - Ziel verfehlt</div>
+                </div>
+                <div class="d-flex flex-row justify-content-start align-items-center">
+                    <div class="box missing">?</div>
+                    <div class="box-title">Rückmeldung fehlt</div>
+                </div>
+                <div class="d-flex flex-row justify-content-start align-items-center">
+                    <div class="box"></div>
+                    <div class="box-title">Heutiger Tag</div>
+                </div>
+            </div>
+        </div>
+
+        <ion-button expand="block" class="button custom" color="success" shape="round"
+                    [routerLink]="'/challenge-cancel'">
+            MZo - Die Challenge abbrechen
+        </ion-button>
+
+        <div class="gradient-bar"></div>
+    </div>
+
+</ion-content>

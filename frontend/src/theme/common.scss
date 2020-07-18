@@ -5,6 +5,12 @@
 }
 
 @font-face {
+    font-family: "Symbola";
+    src: url("/assets/font/Symbola-Emoji.woff") format("woff"),
+    url("/assets/font/Symbola-Emoji.ttf") format("ttf");
+}
+
+@font-face {
     font-family: Raleway-Medium;
     font-style: normal;
     src: url("/assets/font/Raleway-Medium.ttf");
@@ -15,12 +21,12 @@
 }
 
 .font-large {
-    font-size: 36px!important;
-    font-family: Raleway-Regular!important;
+    font-size: 36px !important;
+    font-family: Raleway-Regular !important;
 }
 
 .main-title {
-    line-height: 50px!important;
+    line-height: 50px !important;
     padding: 0 25px;
 }
 
@@ -30,12 +36,12 @@
 
 .gradient-bar {
     height: 12px;
-    width: 100%;
-    background: linear-gradient(90deg, rgba(0,203,255,1) 22%, rgba(0,225,193,1) 48%, rgba(73,243,132,1) 100%);;
+    width: 100vw;
+    background: linear-gradient(90deg, rgba(0, 203, 255, 1) 22%, rgba(0, 225, 193, 1) 48%, rgba(73, 243, 132, 1) 100%);;
 }
 
 ion-toolbar {
-    --background: transparent!important;
+    --background: transparent !important;
     --background-image: none;
 
     ion-menu-button {
@@ -58,7 +64,7 @@ ion-content {
 
     .container {
         display: flex;
-        height: 100%;
+        min-height: 100%;
         justify-content: space-between;
         flex-direction: column;
         align-items: center;
@@ -78,8 +84,10 @@ ion-content {
     }
 
     .button {
-        height: 50px;
+        height: 45px;
         font-size: 17px;
+        width: 80vw;
+        text-transform: none;
     }
 }
 
@@ -104,4 +112,13 @@ ion-content {
     width: 40px;
     height: 40px;
     margin-left: 10px;
+}
+
+.other-category {
+    width: 90%;
+    background-color: #55575d;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    font-size: 15px;
 }

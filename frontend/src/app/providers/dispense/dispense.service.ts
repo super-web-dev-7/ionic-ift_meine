@@ -22,6 +22,7 @@ export class DispenseService {
     }
 
     public setDispense(data): void {
+        console.log('data >>>>>> ', data)
         this.dispenseSubject.next(data);
     }
 }

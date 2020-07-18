@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="">
+            <ion-avatar class="logo" slot="start">
+                <img src="/assets/icon/favicon.png" alt="logo">
+            </ion-avatar>
+            <ion-button [routerLink]="'/home'">
+                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end" class="">
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="home">
+    <div class="container">
+        <div>
+            <h1 class="ion-text-center font-large main-title">
+                Mein <br>
+                Challenge - Verlauf
+            </h1>
+            <div class="ion-text-center">
+                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <div class="d-flex flex-row justify-content-between">
+                    <img src="assets/shapes.svg" width="20" alt="arrow"/>
+                    <span>
+                        Tag 5 von 14
+                    </span>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+            <div>
+
+            </div>
+            <ion-button expand="block" class="button" color="success" shape="round">
+                MZo - Die Challenge abbrechen
+            </ion-button>
+        </div>
+
+
+        <div class="gradient-bar"></div>
+    </div>
+
+</ion-content>

@@ -28,7 +28,7 @@
         <iframe width="100%"
                 height="315"
                 [src]="this.trustedVideoUrl"
-                (load)="getVideoUrl() ? this.loading ? handleIFrameLoadEvent() : null : null"
+                (load)="getVideoUrl() ? handleIFrameLoadEvent() : null"
                 frameborder="0"
                 allowfullscreen></iframe>
 

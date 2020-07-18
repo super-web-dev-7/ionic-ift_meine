@@ -1,0 +1,40 @@
+.emoji-first::after {
+    content: '\01F601'
+}
+
+.emoji-second::after {
+    content: '\01F600'
+}
+
+.emoji-third::after {
+    content: '\01F642'
+}
+
+.emoji-fourth::after {
+    content: '\01F610'
+}
+
+.emoji-fifth::after {
+    content: '\01F615'
+}
+
+.emoji-sixth::after {
+    content: '\01F61E'
+}
+
+.emoji-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    div {
+        font-size: 30px;
+    }
+}
+
+.input-category {
+    --padding-start: 0;
+    --padding-bottom: 0;
+    --padding-top: 0;
+    width: 50px;
+}
