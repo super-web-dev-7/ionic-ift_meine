@@ -69,7 +69,11 @@ export class VideoExplainationPage implements OnInit {
             if (response.result.length > 0) {
                 console.log(response)
                 this.dispenseService.setDispense(response.result[0]);
-                this.router.navigate(['/before-feedback']);
+                if (response.result[0].day_after === 14) {
+                    this.router.navigate(['/challenge-progress'])
+                } else {
+                    this.router.navigate(['/before-feedback']);
+                }
             } else {
                 this.router.navigate(['/category-select']);
             }

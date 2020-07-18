@@ -147,8 +147,8 @@ Dispense.getAllDispenses = (result) => {
 }
 
 Dispense.updateCronJob = (result) => {
-    db_connection.query("Update dispense Set day_after = day_after + 1 Where day_after < 14 And status = 1")
-    db_connection.query("Update dispense Set status = 0 Where day_after = 14");
+    db_connection.query("Update dispense Set day_after = day_after + 1 Where day_after < 15 And status = 1")
+    db_connection.query("Update dispense Set status = 0 Where day_after = 15");
     db_connection.query("SELECT * FROM dispense WHERE status=1", function(err1, dispenses) {
         for (let dispense of dispenses) {
             console.log(dispense.id, dispense.day_after)

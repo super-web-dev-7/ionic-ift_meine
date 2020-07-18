@@ -17,7 +17,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="home">
-    <div class="container">
+    <div class="container" [ngClass]="{'h-150': dispense?.day_after === 6 || dispense?.day_after === 13}">
         <div>
             <h1 class="ion-text-center font-large">
                 Meine Zeit ohne <br>
@@ -28,25 +28,60 @@
             </div>
         </div>
 
+        <div class="text-center speech-bubble"  *ngIf="dispense?.day_after === 13">
+            Wow !
+            Heute ist Tag 14 deiner <br> Challenge.
+        </div>
+
+        <div class="text-center speech-bubble"  *ngIf="dispense?.day_after === 13">
+            Erreichst du dein Ziel?
+        </div>
+
 <!--        <div *ngIf="['internet', 'game', 'smoking'].includes(selectedCategory?.type)" class="text-center">-->
 <!--            Ich rauche/dampfe täglich <br>-->
 <!--            maximal <span>{{selectedCategory?.maximumValue}} </span> <span-->
 <!--                class="font-weight-bold">{{selectedCategory?.category}}</span>-->
 <!--        </div>-->
-        <div class="text-center">
+        <div class="w-100 d-flex flex-row justify-content-end" *ngIf="dispense?.day_after === 6">
+            <div class="float-right">
+                Tag {{dispense?.day_after + 1}} von 14
+            </div>
+        </div>
+
+        <div class="text-center"  *ngIf="dispense?.day_after !== 6">
             Ich verzichte für 14 Tage <br>
             komplett auf <span class="font-weight-bold"> {{dispense?.category}}</span>
         </div>
 
-        <div>
-            Tag{{dispense?.day_after + 1}} von 14
+        <div *ngIf="dispense?.day_after !== 6">
+            Tag {{dispense?.day_after + 1}} von 14
+        </div>
+
+        <div class="text-center speech-bubble"  *ngIf="dispense?.day_after === 13">
+            Nach deiner Rückmeldung für <br>
+            den heutigen, d.h. letzten Tag <br>
+            der Challenge, erhälst du eine <br>
+            Teilnehmer - Urkunde. <br>
+            Bleib dran !
+        </div>
+
+        <div class="text-center bolder-text" *ngIf="dispense?.day_after === 6">
+            Bergfest! <br>
+            Die Hälfte <br>
+            der Challenge <br>
+            ist geschafft!
         </div>
 
         <div class="ion-text-center">
             <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
         </div>
 
-        <div class="text-center">
+        <div class="text-center"  *ngIf="dispense?.day_after === 6">
+            Ich verzichte für 14 Tage <br>
+            komplett auf <span class="font-weight-bold"> {{dispense?.category}}</span>
+        </div>
+
+        <div class="text-center speech-bubble">
             Hast du gestern <br>
             dein Challenge-Ziel<br>
             erreicht ?

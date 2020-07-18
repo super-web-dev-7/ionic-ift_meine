@@ -17,7 +17,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="home">
-    <div class="container">
+    <div class="container" *ngIf="dispense?.day_after !== 14">
         <div>
             <h1 class="ion-text-center font-large">
                 Meine Zeit ohne <br>
@@ -28,17 +28,50 @@
             </div>
         </div>
 
-        <div class="text-center">
+        <div class="w-100 d-flex flex-row justify-content-end" *ngIf="dispense?.day_after === 6">
+            <div class="float-right">
+                Tag{{dispense?.day_after + 1}} von 14
+            </div>
+        </div>
+
+        <div class="text-center bolder-text" *ngIf="dispense?.day_after === 6">
+            Bergfest! <br>
+            Die Hälfte <br>
+            der Challenge <br>
+            ist geschafft!
+        </div>
+
+        <div class="text-center speech-bubble" *ngIf="dispense?.day_after === 13">
+            Wow ! <br>
+            Heute ist Tag 14 deiner <br> Challenge.
+        </div>
+
+        <div class="text-center speech-bubble" *ngIf="dispense?.day_after === 13">
+            Erreichst du dein Ziel?
+        </div>
+
+        <div class="text-center" *ngIf="dispense?.day_after !== 6">
             Ich verzichte für 14 Tage <br>
             komplett auf <span class="font-weight-bold"> {{dispense?.category}}</span>
         </div>
 
-        <div class="text-center">
+        <div class="text-center" *ngIf="dispense?.day_after !== 6">
             Tag {{dispense?.day_after + 1}} von 14
         </div>
 
         <div class="ion-text-center">
             <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        </div>
+
+        <div class="text-center" *ngIf="dispense?.day_after === 6">
+            Ich verzichte für 14 Tage <br>
+            komplett auf <span class="font-weight-bold"> {{dispense?.category}}</span>
+        </div>
+
+        <div class="text-center speech-bubble" *ngIf="dispense?.day_after === 13">
+            Nach deiner Rückmeldung für <br> den heutigen, d.h. letzten Tag <br>
+            der Challenge, erhälst du eine <br> Teilnehmer - Urkunde. <br>
+            Bleib dran !
         </div>
 
         <div class="text-center subtitle">
@@ -110,5 +143,53 @@
 
         <div class="gradient-bar"></div>
     </div>
+    <div class="container" *ngIf="dispense?.day_after === 14">
+        <div>
+            <h1 class="ion-text-center font-large">
+                Meine Zeit ohne <br>
+                - Die challenge -
+            </h1>
+            <div class="ion-text-center">
+                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            </div>
+        </div>
 
+        <div class="text-center speech-bubble">
+            14 Tage MZo - Die Challenge <br>
+            ist nun beendet!
+        </div>
+
+        <div class="text-center speech-bubble">
+            Melde dich zurück und lade dir <br> deine Teilnahme - Urkunde <br> herunter.
+        </div>
+
+        <div class="ion-text-center">
+            <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        </div>
+
+        <div class="text-center subtitle">
+            Challenge - Verlaufs - <br> Diagramm
+        </div>
+
+        <div style="width: 90%;">
+            <div class="d-flex flex-row justify-content-between align-items-center w-100">
+                <img src="assets/image/Tag%201/Bitmap.png" height="1" alt="arrow">
+                <div>Tag {{dispense?.day_after}} von 14</div>
+            </div>
+            <div class="border border-dark w-100 d-flex flex-row justify-content-center align-items-center">
+                <div *ngFor="let i of day; let index = index;" [ngClass]="{'current-day': dispense?.day_after === index}">
+                    <div [ngClass]="{
+                     'box': true,
+                     'green': feedback && feedback['day' + (index + 1)] === 1,
+                     'red': feedback && feedback['day' + (index + 1)] === 0,
+                     'missing': feedback && feedback['day' + (index + 1)] === null
+                     }">
+                        {{feedback && feedback['day' + (index + 1)] === null && dispense?.day_after > index ? '?' : ''}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gradient-bar"></div>
+    </div>
 </ion-content>
