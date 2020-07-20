@@ -49,7 +49,7 @@
                     </ion-menu-toggle>
                 </ion-list>
             </ion-content>
-            <ion-content class="admin-menu" color="dark" *ngIf="currentCode.isAdmin">
+            <ion-content class="admin-menu" color="dark" *ngIf="currentCode?.isAdmin">
                 <ion-list>
                     <ion-menu-toggle auto-hide="false" *ngFor="let p of adminPages; let i = index">
                         <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
