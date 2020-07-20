@@ -16,13 +16,13 @@ import {DispenseService} from '../../providers/dispense/dispense.service';
 
 export class QrCodeScannerPage implements OnInit {
     constructor(
-        private scanner: BarcodeScanner,
-        private codeService: CodeService,
-        private router: Router,
-        private menu: MenuController,
+        public scanner: BarcodeScanner,
+        public codeService: CodeService,
+        public router: Router,
+        public menu: MenuController,
         public toastController: ToastController,
-        private httpRequest: HttpService,
-        private dispenseService: DispenseService
+        public httpRequest: HttpService,
+        public dispenseService: DispenseService
 
     ) {
     }

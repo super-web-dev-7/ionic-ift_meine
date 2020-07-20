@@ -9,7 +9,7 @@ import {UrlJSON} from '../../utils/UrlJson';
 
 export class HttpService {
 
-    constructor(private http: HttpClient) {
+    constructor(public http: HttpClient) {
     }
 
     code_check(code) {

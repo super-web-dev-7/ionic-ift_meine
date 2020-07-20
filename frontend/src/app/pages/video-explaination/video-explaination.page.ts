@@ -27,10 +27,10 @@ export class VideoExplainationPage implements OnInit {
     loaded = false;
 
     constructor(
-        private router: Router,
-        private menu: MenuController,
+        public router: Router,
+        public menu: MenuController,
         public loadingCtrl: LoadingController,
-        private domSanitizer: DomSanitizer,
+        public domSanitizer: DomSanitizer,
         public httpRequest: HttpService,
         public dispenseService: DispenseService
     ) {

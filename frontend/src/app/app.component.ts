@@ -143,10 +143,10 @@ export class AppComponent implements OnInit {
     public dispense: any;
 
     constructor(
-        private platform: Platform,
-        private splashScreen: SplashScreen,
-        private statusBar: StatusBar,
-        private codeService: CodeService,
+        public platform: Platform,
+        public splashScreen: SplashScreen,
+        public statusBar: StatusBar,
+        public codeService: CodeService,
         public httpRequest: HttpService,
         public dispenseService: DispenseService
     ) {

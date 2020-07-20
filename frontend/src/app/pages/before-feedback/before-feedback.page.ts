@@ -12,7 +12,7 @@ export class BeforeFeedbackPage implements OnInit {
     dispense: any;
 
     constructor(
-        private menu: MenuController,
+        public menu: MenuController,
         public dispenseService: DispenseService
     ) {
     }

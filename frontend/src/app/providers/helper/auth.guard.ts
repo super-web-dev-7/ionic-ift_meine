@@ -8,8 +8,8 @@ import {CodeService} from '../code/code.service';
 export class AuthGuard implements CanActivate {
 
     constructor(
-        private router: Router,
-        private codeService: CodeService,
+        public router: Router,
+        public codeService: CodeService,
     ) {
     }
 

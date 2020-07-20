@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class ChallengeCancelResultPage implements OnInit {
 
     constructor(
-        private menu: MenuController,
+        public menu: MenuController,
         public router: Router,
     ) {
     }

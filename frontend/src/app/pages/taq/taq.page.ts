@@ -9,7 +9,7 @@ import {MenuController} from '@ionic/angular';
 export class TaqPage implements OnInit {
 
     constructor(
-        private menu: MenuController
+        public menu: MenuController
     ) {
     }
 

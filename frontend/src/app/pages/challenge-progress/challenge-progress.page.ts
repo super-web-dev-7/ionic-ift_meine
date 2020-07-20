@@ -16,7 +16,7 @@ export class ChallengeProgressPage implements OnInit {
     feedback: any;
 
     constructor(
-        private menu: MenuController,
+        public menu: MenuController,
         public router: Router,
         public dispenseService: DispenseService,
         public httpRequest: HttpService

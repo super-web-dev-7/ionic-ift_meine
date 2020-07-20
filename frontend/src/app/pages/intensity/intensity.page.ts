@@ -14,10 +14,10 @@ export class IntensityPage implements OnInit {
     public selectedPercentage: any;
 
     constructor(
-        private menu: MenuController,
-        private dispenseService: DispenseService,
-        private router: Router,
-        private httpRequest: HttpService,
+        public menu: MenuController,
+        public dispenseService: DispenseService,
+        public router: Router,
+        public httpRequest: HttpService,
         public toastController: ToastController,
     ) {
         this.selectedPercentage = 100;

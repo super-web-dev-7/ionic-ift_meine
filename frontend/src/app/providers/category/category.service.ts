@@ -11,7 +11,7 @@ export class CategoryService {
     public category: Observable<any>;
 
     constructor(
-        private httpRequest: HttpService
+        public httpRequest: HttpService
     ) {
         this.categorySubject = new BehaviorSubject<any>(null);
         this.category = this.categorySubject.asObservable();

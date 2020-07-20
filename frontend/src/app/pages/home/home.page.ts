@@ -19,12 +19,12 @@ export class HomePage implements OnInit {
     attemptCount = 0;
 
     constructor(
-        private router: Router,
-        private menu: MenuController,
-        private codeService: CodeService,
+        public router: Router,
+        public menu: MenuController,
+        public codeService: CodeService,
         public toastController: ToastController,
-        private httpRequest: HttpService,
-        private dispenseService: DispenseService
+        public httpRequest: HttpService,
+        public dispenseService: DispenseService
     ) {
     }
 

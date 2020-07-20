@@ -14,10 +14,10 @@ export class CodeRegisterComponent implements OnInit {
 
 
     constructor(
-        private formBuilder: FormBuilder,
-        private modalCtrl: ModalController,
+        public formBuilder: FormBuilder,
+        public modalCtrl: ModalController,
         public loadingCtrl: LoadingController,
-        private httpRequest: HttpService,
+        public httpRequest: HttpService,
     ) { }
 
     ngOnInit() {

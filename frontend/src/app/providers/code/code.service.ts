@@ -15,7 +15,7 @@ export class CodeService {
     public currentCode: Observable<any>;
 
     constructor(
-        private httpRequest: HttpService,
+        public httpRequest: HttpService,
     ) {
 
         if (sessionStorage.getItem('currentCode') != null) {

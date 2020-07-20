@@ -14,7 +14,7 @@ export class DailyFeedbackPage implements OnInit {
     dispense: any;
 
     constructor(
-        private menu: MenuController,
+        public menu: MenuController,
         public router: Router,
         public dispenseService: DispenseService,
         public httpRequest: HttpService

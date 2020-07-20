@@ -18,7 +18,7 @@ export class ChallengeCancelPage implements OnInit {
     ];
 
     constructor(
-        private menu: MenuController,
+        public menu: MenuController,
         public router: Router,
         public httpRequest: HttpService,
         public dispenseService: DispenseService

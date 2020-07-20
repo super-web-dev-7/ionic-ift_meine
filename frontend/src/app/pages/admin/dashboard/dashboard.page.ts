@@ -8,7 +8,7 @@ import {HttpService} from '../../../providers/http/http.service';
 })
 export class DashboardPage implements OnInit {
 
-    private data = {
+    data = {
         all: 0,
         completed: 0,
         running: 0,

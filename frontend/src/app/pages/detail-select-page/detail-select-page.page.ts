@@ -19,7 +19,7 @@ export class DetailSelectPagePage implements OnInit {
     deviceId: any;
 
     constructor(
-        private menu: MenuController,
+        public menu: MenuController,
         public router: Router,
         public categoryService: CategoryService,
         public httpRequest: HttpService

@@ -14,9 +14,9 @@ export class FeedbackConfirmationPage implements OnInit {
     missedDays = [];
 
     constructor(
-        private menu: MenuController,
-        private dispenseService: DispenseService,
-        private httpRequest: HttpService,
+        public menu: MenuController,
+        public dispenseService: DispenseService,
+        public httpRequest: HttpService,
         public alertController: AlertController
     ) { }
 

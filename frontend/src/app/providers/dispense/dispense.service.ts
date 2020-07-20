@@ -11,7 +11,7 @@ export class DispenseService {
     public dispense: Observable<any>;
 
     constructor(
-        private httpRequest: HttpService
+        public httpRequest: HttpService
     ) {
         this.dispenseSubject = new BehaviorSubject<any>(null);
         this.dispense = this.dispenseSubject.asObservable();

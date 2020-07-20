@@ -12,8 +12,8 @@ export class DownloadQrcodeComponent implements OnInit {
     href: string;
 
     constructor(
-        private navParams: NavParams,
-        private modalCtrl: ModalController,
+        public navParams: NavParams,
+        public modalCtrl: ModalController,
     ) { }
 
     ngOnInit() {

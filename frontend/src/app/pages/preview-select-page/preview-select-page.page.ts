@@ -14,7 +14,7 @@ export class PreviewSelectPagePage implements OnInit {
     showLastSpeech = false;
 
     constructor(
-        private menu: MenuController,
+        public menu: MenuController,
         public categoryService: CategoryService,
         public httpRequest: HttpService
     ) {

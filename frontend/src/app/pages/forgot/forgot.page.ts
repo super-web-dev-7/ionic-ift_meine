@@ -18,8 +18,8 @@ export class ForgotPage implements OnInit {
     message: any = '';
 
     constructor(
-        private router: Router,
-        private menu: MenuController,
+        public router: Router,
+        public menu: MenuController,
     ) {
     }
 

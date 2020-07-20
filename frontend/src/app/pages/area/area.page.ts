@@ -20,11 +20,11 @@ export class AreaPage implements OnInit {
     deviceId: string;
 
     constructor(
-        private menu: MenuController,
-        private dispenseService: DispenseService,
-        private router: Router,
-        private toastController: ToastController,
-        private httpRequest: HttpService
+        public menu: MenuController,
+        public dispenseService: DispenseService,
+        public router: Router,
+        public toastController: ToastController,
+        public httpRequest: HttpService
     ) {
         this.deviceId = new DeviceUUID().get();
     }

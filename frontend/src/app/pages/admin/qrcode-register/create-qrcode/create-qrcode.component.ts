@@ -15,10 +15,10 @@ export class CreateQrcodeComponent implements OnInit {
 
 
     constructor(
-        private modalCtrl: ModalController,
+        public modalCtrl: ModalController,
         public loadingCtrl: LoadingController,
-        private httpRequest: HttpService,
-        private scanner: BarcodeScanner,
+        public httpRequest: HttpService,
+        public scanner: BarcodeScanner,
     ) { }
 
     ngOnInit() {

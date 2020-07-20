@@ -11,7 +11,7 @@ export class AnotherSelectPagePage implements OnInit {
     otherCategory: any;
 
     constructor(
-        private menu: MenuController,
+        public menu: MenuController,
         public categoryService: CategoryService
     ) {
     }

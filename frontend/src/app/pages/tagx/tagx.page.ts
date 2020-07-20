@@ -14,15 +14,15 @@ import {Router} from '@angular/router';
 
 export class TagxPage implements OnInit {
 
-    private dispense: any;
-    private feedback: any;
-    private isFeedback = false;
+    dispense: any;
+    feedback: any;
+    isFeedback = false;
 
     constructor(
-        private menu: MenuController,
-        private dispenseService: DispenseService,
-        private httpRequest: HttpService,
-        private router: Router
+        public menu: MenuController,
+        public dispenseService: DispenseService,
+        public httpRequest: HttpService,
+        public router: Router
     ) {
     }
 

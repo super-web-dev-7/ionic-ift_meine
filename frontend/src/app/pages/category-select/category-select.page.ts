@@ -10,7 +10,7 @@ import {CategoryService} from '../../providers/category/category.service';
 export class CategorySelectPage implements OnInit {
 
     constructor(
-        private menu: MenuController,
+        public menu: MenuController,
         public categoryService: CategoryService
     ) {
     }

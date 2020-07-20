@@ -10,11 +10,11 @@ import {DispenseService} from '../../providers/dispense/dispense.service';
 })
 export class SummaryPage implements OnInit {
 
-    private dispense: any;
+    dispense: any;
 
     constructor(
-        private menu: MenuController,
-        private dispenseService: DispenseService
+        public menu: MenuController,
+        public dispenseService: DispenseService
     ) {
     }
 
