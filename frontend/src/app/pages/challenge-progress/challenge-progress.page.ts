@@ -30,7 +30,6 @@ export class ChallengeProgressPage implements OnInit {
         this.dispense = this.dispenseService.dispenseValue;
         await this.httpRequest.get_feedback(this.dispense).subscribe(
             res => {
-                console.log(res)
                 this.feedback = res;
             }, error => console.log(error)
         )

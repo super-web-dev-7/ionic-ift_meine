@@ -39,7 +39,6 @@ exports.updateDaily = (req, res) => {
 
 exports.getDaily = (req, res) => {
     Dispense.getDaily(req.params.id, (err, result) => {
-        console.log(result)
         if (err) res.send(err);
         else res.status(200).json(result);
     })

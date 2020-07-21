@@ -22,7 +22,6 @@ export class CategoryService {
     }
 
     public setCategory(data): void {
-        console.log('data >>>>>> ', data)
         this.categorySubject.next(data);
     }
 }

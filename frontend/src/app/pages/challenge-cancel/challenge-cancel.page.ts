@@ -56,7 +56,6 @@ export class ChallengeCancelPage implements OnInit {
         }
         this.httpRequest.cancelDispense(this.dispenseService.dispenseValue, cancelReason).subscribe(
             res => {
-                console.log(res)
                 this.dispenseService.setDispense({});
             }, error => console.log(error)
         )

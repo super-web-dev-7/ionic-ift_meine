@@ -19,7 +19,6 @@ export class DashboardPage implements OnInit {
         public httpRequest: HttpService
     ) {
         this.httpRequest.get_dashboard_data().subscribe((res: any) => {
-            console.log(res)
             this.data = res;
         })
     }

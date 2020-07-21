@@ -26,7 +26,6 @@ export class PreviewSelectPagePage implements OnInit {
     ionViewWillEnter() {
         this.showLastSpeech = false;
         this.selectedCategory = this.categoryService.categoryValue;
-        console.log(this.selectedCategory)
     }
 
     openMenu() {
@@ -36,10 +35,7 @@ export class PreviewSelectPagePage implements OnInit {
 
     reaction(emoji: number) {
         this.showLastSpeech = true;
-        console.log(emoji)
-        console.log(this.selectedCategory)
         this.httpRequest.setReaction(this.selectedCategory.id, {value: emoji, field: 'reaction'}).subscribe(res => {
-            console.log(res)
         }, error => {
             console.log(error)
         })

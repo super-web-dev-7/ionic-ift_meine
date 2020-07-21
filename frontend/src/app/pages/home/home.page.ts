@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController, ToastController} from '@ionic/angular';
 import {Router} from '@angular/router';
+import {DeviceUUID} from 'device-uuid';
 
 
 import {CodeService} from '../../providers/code/code.service';
@@ -45,7 +46,18 @@ export class HomePage implements OnInit {
         this.codeService.code_check(this.code).pipe(first()).subscribe(res => {
                 if (res.isAdmin === 1) this.router.navigate(['/admin']);
                 else {
-                    this.router.navigate(['/video-guide']);
+                    this.httpRequest.get_dispenseByDeviceId(new DeviceUUID().get()).subscribe((response: any) => {
+                        if (response.result.length > 0) {
+                            this.dispenseService.setDispense(response.result[0]);
+                            if (response.result[0].day_after === 14) {
+                                this.router.navigate(['/challenge-progress'])
+                            } else {
+                                this.router.navigate(['/before-feedback']);
+                            }
+                        } else {
+                            this.router.navigate(['/video-guide']);
+                        }
+                    })
                 }
 
             }, error => {

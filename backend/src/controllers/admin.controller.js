@@ -30,7 +30,6 @@ exports.getAllDispenses = function (req, res) {
 }
 
 exports.getAllCodes = function (req, res) {
-    console.log(req.params.type)
     Code.getAllCodes(req.params.type, (err, result) => {
         if (err) res.send(err);
         else res.status(200).json(result);
@@ -38,7 +37,6 @@ exports.getAllCodes = function (req, res) {
 }
 
 exports.createCode = function (req, res) {
-    console.log(req.body)
     const new_Code = new Code(req.body);
 
     if (!new_Code.code) {
@@ -49,8 +47,4 @@ exports.createCode = function (req, res) {
             res.status(201).json(code)
         });
     }
-    // Code.createCode(req.body, (err, result) => {
-    //     if (err) res.send(err);
-    //     else res.status(201).json(result);
-    // })
 }

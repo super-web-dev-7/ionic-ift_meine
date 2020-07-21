@@ -49,7 +49,6 @@ export class CodeRegisterComponent implements OnInit {
             isAdmin: this.f.isAdmin.value,
             type: 'alphanumeric'
         };
-        console.log(data)
 
         this.httpRequest.addCode(data).subscribe(result => {
             this.modalCtrl.dismiss(data);

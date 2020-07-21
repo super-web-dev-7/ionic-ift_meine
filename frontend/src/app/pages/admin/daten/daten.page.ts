@@ -26,7 +26,6 @@ export class DatenPage implements OnInit {
 
     ngOnInit() {
         this.httpRequest.get_all_dispenses().subscribe((res: any) => {
-            console.log(res);
             this.dataSource.data = res;
         });
 
@@ -39,7 +38,6 @@ export class DatenPage implements OnInit {
 
     DateFormat(datetime) {
         const d = new Date(datetime)
-        // return d.toString('MMMM yyyy')
         return d.getFullYear() + '-' + this.appendLeadingZeroes(d.getMonth() + 1) + '-' + this.appendLeadingZeroes(d.getDate());
     }
 

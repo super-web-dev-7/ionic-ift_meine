@@ -34,11 +34,8 @@ export class AfterFeedbackPage implements OnInit {
     }
 
     reaction(value: number) {
-        console.log(value)
-        console.log(this.dispense)
         this.httpRequest.setReaction(this.dispense.id, {value, field: 'day' + this.dispense.day_after}).subscribe(
             res => {
-                console.log(res)
                 this.router.navigate(['/challenge-progress']);
             }, error => {
                 console.log(error)

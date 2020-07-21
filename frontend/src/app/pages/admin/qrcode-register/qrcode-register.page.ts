@@ -39,7 +39,6 @@ export class QrcodeRegisterPage implements OnInit {
 
     initialize() {
         this.httpRequest.get_all_codes('qr').subscribe((res: any) => {
-            console.log(res);
             this.dataSource.data = res;
         });
     }

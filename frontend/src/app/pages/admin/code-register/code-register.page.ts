@@ -34,7 +34,6 @@ export class CodeRegisterPage implements OnInit {
 
     initialize() {
         this.httpRequest.get_all_codes('alphanumeric').subscribe((res: any) => {
-            console.log(res);
             this.dataSource.data = res;
         });
     }

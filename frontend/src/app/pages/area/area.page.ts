@@ -54,8 +54,6 @@ export class AreaPage implements OnInit {
             this.isOwn = false;
             this.isTopic = true;
         }
-        console.log(this.topic)
-        console.log(this.ownTopic)
     }
 
     async saveTopic() {
@@ -77,8 +75,6 @@ export class AreaPage implements OnInit {
             Topic: topic,
             Intensity: 100
         };
-
-        console.log(dispense);
 
         await this.dispenseService.setDispense(dispense);
         await this.router.navigate(['/intensity']);

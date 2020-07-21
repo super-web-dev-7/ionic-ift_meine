@@ -41,7 +41,6 @@ export class CreateQrcodeComponent implements OnInit {
             isAdmin: this.isAdmin,
             type: 'qr'
         };
-        console.log(data)
 
         // this.httpRequest.addCode(data).subscribe(result => {
         //     this.modalCtrl.dismiss(data);

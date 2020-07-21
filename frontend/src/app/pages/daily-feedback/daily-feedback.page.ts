@@ -34,13 +34,10 @@ export class DailyFeedbackPage implements OnInit {
     }
 
     setFeedback(feedback: boolean) {
-        console.log(feedback);
-        console.log(this.dispense);
         if (this.dispense.day_after === 0) {
             return;
         }
         this.httpRequest.daily_Success(feedback, this.dispense, this.dispense.day_after).subscribe(res => {
-            console.log(res)
             this.router.navigate(['/after-feedback']);
         }, error => console.log(error))
     }
