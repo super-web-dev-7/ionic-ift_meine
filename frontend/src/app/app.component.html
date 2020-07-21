@@ -1,7 +1,7 @@
 <ion-app>
     <ion-split-pane contentId="main-content">
         <ion-menu contentId="main-content" menuId="menu" type="overlay">
-            <ion-content *ngIf="(!currentCode) && menuStatus === 0">
+            <ion-content *ngIf="!currentCode?.isAdmin && menuStatus === 0">
                 <ion-list id="inbox-list">
                     <ion-avatar class="logo" slot="start">
                         <img src="/assets/icon/favicon.png" alt="logo">
@@ -17,7 +17,7 @@
                     </ion-menu-toggle>
                 </ion-list>
             </ion-content>
-            <ion-content *ngIf="(!currentCode) && menuStatus === 1">
+            <ion-content *ngIf="!currentCode?.isAdmin && menuStatus === 1">
                 <ion-list id="inbox-list">
                     <ion-avatar class="logo" slot="start">
                         <img src="/assets/icon/favicon.png" alt="logo">
@@ -33,7 +33,7 @@
                     </ion-menu-toggle>
                 </ion-list>
             </ion-content>
-            <ion-content *ngIf="(!currentCode) && menuStatus === 2">
+            <ion-content *ngIf="!currentCode?.isAdmin && menuStatus === 2">
                 <ion-list id="inbox-list">
                     <ion-avatar class="logo" slot="start">
                         <img src="/assets/icon/favicon.png" alt="logo">

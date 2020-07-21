@@ -163,23 +163,26 @@ export class AppComponent implements OnInit {
 
     ngOnInit() {
         this.codeService.currentCodeSubject.subscribe((currentCode: any) => {
-        this.currentCode = currentCode;
-    });
+            this.currentCode = currentCode;
+        });
+        this.dispenseService.dispenseSubject.subscribe((val: any) => {
+            console.log('ddddddddddddddddddddddddddddddddddddddddd', val)
+            this.menuStatus = val?.day_after > 0 ? 1 : this.menuStatus;
+        })
     }
 
     ionViewWillEnter() {
-        this.dispense = this.dispenseService.dispenseValue;
-        this.menuStatus = this.dispenseService.dispenseValue?.day_after > 0 ? 1 : this.menuStatus;
+        console.log(this.menuStatus)
         const path = window.location.pathname.split('folder/')[1];
         if (path !== undefined) {
             this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
         }
-        const deviceId = new DeviceUUID().get();
-        this.httpRequest.get_dispenseByDeviceId(deviceId).subscribe((res: any) => {
-            console.log(res)
-            if (res.result.length > 0 && res.result[0].day_after > 0) {
-                this.menuStatus = 1;
-            }
-        })
+        // const deviceId = new DeviceUUID().get();
+        // this.httpRequest.get_dispenseByDeviceId(deviceId).subscribe((res: any) => {
+        //     console.log('>>>>>>>>>>', res)
+        //     if (res.result.length > 0 && res.result[0].day_after > 0) {
+        //         this.menuStatus = 1;
+        //     }
+        // })
     }
 }
