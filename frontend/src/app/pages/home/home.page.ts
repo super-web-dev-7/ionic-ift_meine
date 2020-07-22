@@ -84,4 +84,8 @@ export class HomePage implements OnInit {
     gotoForgot() {
         this.router.navigate(['/forgot']);
     }
+
+    gotoBackup() {
+        this.router.navigate(['/backup']);
+    }
 }

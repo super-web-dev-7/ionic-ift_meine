@@ -33,11 +33,14 @@
                 <form class="form-code">
                     <ion-input class="input-code" [(ngModel)]="code" name="code" placeholder="Freischaltcode eingeben"></ion-input>
                     <p class="mat-error ion-text-center" *ngIf="attemptCount !== 0">You have {{5 - attemptCount}} attempts.</p>
-                    <p class="forgot-code" (click)="gotoForgot()">Teilnahme-Code vergessen?</p>
+                    <p class="forgot-code" (click)="gotoBackup()">Teilnahme-Code vergessen?</p>
                     <ion-button expand="block" [disabled]="!code" class="button-code" color="success" shape="round" (click)="code_check()">
                         STARTE CHALLENGE
                     </ion-button>
                 </form>
+                <ion-text color="light" class="ion-text-center"  (click)="gotoForgot()">
+                    <h1>PW 5 nicht richtig <br> eingegeben TEST</h1>
+                </ion-text>
             </div>
             <div class="bar">
                 <div class="gradient-bar"></div>

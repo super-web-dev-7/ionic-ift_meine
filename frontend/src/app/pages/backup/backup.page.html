@@ -31,14 +31,17 @@
                     </h1>
                 </ion-text>
                 <form class="form-code">
-                    <ion-input class="input-code" [(ngModel)]="message" name="code"
-                               placeholder="Login nicht möglich?"></ion-input>
+                    <ion-input class="input-code" [(ngModel)]="backupPassword" name="code"
+                               placeholder="Backup Passwort"></ion-input>
                     <br/>
-                    <ion-button expand="block" class="button-code" [disabled]="!message"
-                                color="success" shape="round" (click)="open_mailApp()">
-                        Wende Dich an <br /> mzo@ift-nord.de
+                    <ion-button expand="block" class="button-code" [disabled]="!backupPassword"
+                                color="success" shape="round">
+                        Einloggen
                     </ion-button>
                 </form>
+                <ion-text color="light" class="ion-text-center"  (click)="gotoForgot()">
+                    <h1>PW 5 nicht richtig <br> eingegeben TEST</h1>
+                </ion-text>
             </div>
             <div class="bar">
                 <div class="gradient-bar"></div>

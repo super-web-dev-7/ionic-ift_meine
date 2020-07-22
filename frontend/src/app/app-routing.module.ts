@@ -16,6 +16,10 @@ const routes: Routes = [
                 loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
             },
             {
+                path: 'backup',
+                loadChildren: () => import('./pages/backup/backup.module').then(m => m.BackupPageModule)
+            },
+            {
                 path: 'qr-code-scanner',
                 loadChildren: () => import('./pages/qr-code-scanner/qr-code-scanner.module').then(m => m.QrCodeScannerPageModule)
             },
@@ -121,8 +125,6 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         data: {isAdmin: true}
     },
-
-
 ];
 
 @NgModule({
