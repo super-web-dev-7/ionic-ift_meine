@@ -5,7 +5,7 @@ import { AfterFeedbackPage } from './after-feedback.page';
 
 const routes: Routes = [
   {
-    path: '',
+    path: ':day',
     component: AfterFeedbackPage
   }
 ];

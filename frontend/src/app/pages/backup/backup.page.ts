@@ -56,8 +56,9 @@ export class BackupPage implements OnInit {
             return;
         }
         this.codeService.backup_password(this.backupPassword).pipe(first()).subscribe(res => {
-                if (res.isAdmin === 1) this.router.navigate(['/admin']);
-                else {
+                if (res.isAdmin === 1) {
+                    this.router.navigate(['/admin']);
+                } else {
                     this.httpRequest.get_dispenseByDeviceId(new DeviceUUID().get()).subscribe((response: any) => {
                         this.backupPassword = '';
                         if (response.result.length > 0) {

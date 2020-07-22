@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController} from '@ionic/angular';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DispenseService} from '../../providers/dispense/dispense.service';
 import {HttpService} from '../../providers/http/http.service';
 
@@ -12,16 +12,19 @@ import {HttpService} from '../../providers/http/http.service';
 export class AfterFeedbackPage implements OnInit {
 
     dispense: any;
+    day: any;
 
     constructor(
         public menu: MenuController,
         public router: Router,
+        public route: ActivatedRoute,
         public dispenseService: DispenseService,
         public httpRequest: HttpService
     ) {
     }
 
     ngOnInit() {
+        this.day = this.route.snapshot.paramMap.get('day');
     }
 
     ionViewWillEnter() {
@@ -34,7 +37,7 @@ export class AfterFeedbackPage implements OnInit {
     }
 
     reaction(value: number) {
-        this.httpRequest.setReaction(this.dispense.id, {value, field: 'day' + this.dispense.day_after}).subscribe(
+        this.httpRequest.setReaction(this.dispense.id, {value, field: 'day' + this.day}).subscribe(
             res => {
                 this.router.navigate(['/challenge-progress']);
             }, error => {

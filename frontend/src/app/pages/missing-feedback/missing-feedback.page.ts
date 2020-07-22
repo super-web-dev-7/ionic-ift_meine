@@ -1,19 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {DispenseService} from '../../providers/dispense/dispense.service';
 import {MenuController} from '@ionic/angular';
 import {Router} from '@angular/router';
+import {DispenseService} from '../../providers/dispense/dispense.service';
 import {HttpService} from '../../providers/http/http.service';
+import {of} from "rxjs";
 
 @Component({
-    selector: 'app-challenge-progress',
-    templateUrl: './challenge-progress.page.html',
-    styleUrls: ['./challenge-progress.page.scss'],
+    selector: 'app-missing-feedback',
+    templateUrl: './missing-feedback.page.html',
+    styleUrls: ['./missing-feedback.page.scss'],
 })
-export class ChallengeProgressPage implements OnInit {
+export class MissingFeedbackPage implements OnInit {
 
     dispense: any;
-    day = new Array(14)
     feedback: any;
+    missingFeedback = [];
+    day = new Array(14);
 
     constructor(
         public menu: MenuController,
@@ -31,6 +33,15 @@ export class ChallengeProgressPage implements OnInit {
         await this.httpRequest.get_feedback(this.dispense).subscribe(
             res => {
                 this.feedback = res;
+                for (let index = 0; index < 14; index++) {
+                    if (this.feedback
+                        && this.feedback['day' + (index + 1)] === null
+                        && this.dispense?.day_after > index) {
+                        this.missingFeedback.push(index + 1)
+                    }
+                }
+                console.log(this.missingFeedback)
+                console.log(this.feedback)
             }, error => console.log(error)
         )
     }
@@ -40,11 +51,8 @@ export class ChallengeProgressPage implements OnInit {
         this.menu.open('menu')
     }
 
-    // this.router.navigate(['/after-feedback']);
-
-    missing_box(index) {
-        if (this.feedback && this.feedback['day' + (index + 1)] === null) {
-            this.router.navigate(['/missing-feedback']);
-        }
+    setFeedback(day) {
+        this.router.navigate(['/daily-feedback/' + day]);
     }
+
 }

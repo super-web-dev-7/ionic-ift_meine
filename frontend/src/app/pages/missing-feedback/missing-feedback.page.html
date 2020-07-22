@@ -4,7 +4,7 @@
             <ion-avatar class="logo" slot="start">
                 <img src="/assets/icon/favicon.png" alt="logo">
             </ion-avatar>
-            <ion-button [routerLink]="'/daily-feedback/' + dispense?.day_after">
+            <ion-button [routerLink]="'/before-feedback'">
                 <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
             </ion-button>
         </ion-buttons>
@@ -29,23 +29,18 @@
         </div>
 
         <div class="text-center speech-bubble">
-            Sehr gut ! Klasse, das du dein <br>
-            Ziel erreicht hast.
+            Du hast dich länger nicht <br> zurückgemeldet
         </div>
 
         <div class="text-center speech-bubble">
-            Wie zuversichtlich bist du, <br> dass du morgen dein Ziel auch <br> erreichst?
+            Hast du deine täglichen <br> Challengeziele erreicht?
         </div>
 
-        <div class="emoji-group speech-bubble">
-            <div class="emoji-first" (click)="reaction(0)"></div>
-            <div class="emoji-second" (click)="reaction(1)"></div>
-            <div class="emoji-third" (click)="reaction(2)"></div>
-            <div class="emoji-fourth" (click)="reaction(3)"></div>
-            <div class="emoji-fifth" (click)="reaction(4)"></div>
-            <div class="emoji-sixth" (click)="reaction(5)"></div>
+        <div>
+            <ion-button *ngFor="let day of missingFeedback" expand="block" class="button custom" color="success" shape="round" (click)="setFeedback(day)">
+                Rückmeldung Tag {{day}}
+            </ion-button>
         </div>
-
 
         <div class="gradient-bar"></div>
     </div>

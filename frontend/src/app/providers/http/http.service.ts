@@ -32,8 +32,8 @@ export class HttpService {
         return this.http.post(`${UrlJSON.Dispense_URL}`, dispense);
     }
 
-    daily_Success(isSuccess, dispense, day) {
-        return this.http.put(`${UrlJSON.Daily_URL}/${dispense.id}`, {success: isSuccess, day});
+    daily_Success(isSuccess, dispenseId, day) {
+        return this.http.put(`${UrlJSON.Daily_URL}/${dispenseId}`, {success: isSuccess, day});
     }
 
     get_feedback(dispense) {

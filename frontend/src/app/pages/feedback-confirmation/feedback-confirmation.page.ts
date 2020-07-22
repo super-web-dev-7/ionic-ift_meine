@@ -80,7 +80,7 @@ export class FeedbackConfirmationPage implements OnInit {
     }
 
     daily_Success(isSuccess, day) {
-        this.httpRequest.daily_Success(isSuccess, this.dispense, day).subscribe(res => {
+        this.httpRequest.daily_Success(isSuccess, this.dispense.id, day).subscribe(res => {
             this.initialize();
         });
     }

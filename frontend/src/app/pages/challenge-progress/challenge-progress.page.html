@@ -4,7 +4,7 @@
             <ion-avatar class="logo" slot="start">
                 <img src="/assets/icon/favicon.png" alt="logo">
             </ion-avatar>
-            <ion-button [routerLink]="'/after-feedback'">
+            <ion-button [routerLink]="'/after-feedback/' + dispense?.day_after">
                 <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
             </ion-button>
         </ion-buttons>
@@ -85,7 +85,9 @@
                 <div>Tag {{dispense?.day_after + 1}} von 14</div>
             </div>
             <div class="border border-dark w-100 d-flex flex-row justify-content-center align-items-center">
-                <div *ngFor="let i of day; let index = index;" [ngClass]="{'current-day': dispense?.day_after === index}">
+                <div *ngFor="let i of day; let index = index;"
+                     (click)="missing_box(index)"
+                     [ngClass]="{'current-day': dispense?.day_after === index}">
                     <div [ngClass]="{
                      'box': true,
                      'green': feedback && feedback['day' + (index + 1)] === 1,
@@ -177,7 +179,10 @@
                 <div>Tag {{dispense?.day_after}} von 14</div>
             </div>
             <div class="border border-dark w-100 d-flex flex-row justify-content-center align-items-center">
-                <div *ngFor="let i of day; let index = index;" [ngClass]="{'current-day': dispense?.day_after === index}">
+                <div (click)="missing_box(index)"
+                     *ngFor="let i of day; let index = index;"
+                     [ngClass]="{'current-day': dispense?.day_after === index}"
+                >
                     <div [ngClass]="{
                      'box': true,
                      'green': feedback && feedback['day' + (index + 1)] === 1,

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController} from '@ionic/angular';
 import {DispenseService} from '../../providers/dispense/dispense.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {HttpService} from "../../providers/http/http.service";
 
 @Component({
@@ -12,16 +12,19 @@ import {HttpService} from "../../providers/http/http.service";
 export class DailyFeedbackPage implements OnInit {
 
     dispense: any;
+    day: any;
 
     constructor(
         public menu: MenuController,
         public router: Router,
+        public route: ActivatedRoute,
         public dispenseService: DispenseService,
         public httpRequest: HttpService
     ) {
     }
 
     ngOnInit() {
+         this.day = this.route.snapshot.paramMap.get('day');
     }
 
     ionViewWillEnter() {
@@ -37,8 +40,9 @@ export class DailyFeedbackPage implements OnInit {
         if (this.dispense.day_after === 0) {
             return;
         }
-        this.httpRequest.daily_Success(feedback, this.dispense, this.dispense.day_after).subscribe(res => {
-            this.router.navigate(['/after-feedback']);
+        console.log(this.dispense)
+        this.httpRequest.daily_Success(feedback, this.dispense.id, this.day).subscribe(res => {
+            this.router.navigate(['/after-feedback/' + this.day]);
         }, error => console.log(error))
     }
 }

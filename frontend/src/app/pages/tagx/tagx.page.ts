@@ -49,7 +49,7 @@ export class TagxPage implements OnInit {
     }
 
     daily_Success(isSuccess) {
-        this.httpRequest.daily_Success(isSuccess, this.dispense, this.dispense.Day_After).subscribe(res => {
+        this.httpRequest.daily_Success(isSuccess, this.dispense.id, this.dispense.Day_After).subscribe(res => {
             this.router.navigate(['/feedback-confirmation']);
         });
     }

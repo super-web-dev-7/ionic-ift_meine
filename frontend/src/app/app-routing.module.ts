@@ -115,6 +115,10 @@ const routes: Routes = [
                 loadChildren: () => import('./pages/challenge-cancel-result/challenge-cancel-result.module')
                     .then(m => m.ChallengeCancelResultPageModule)
             },
+            {
+                path: 'missing-feedback',
+                loadChildren: () => import('./pages/missing-feedback/missing-feedback.module').then(m => m.MissingFeedbackPageModule)
+            },
         ],
         canActivate: [AuthGuard],
         data: {isAdmin: false}
