@@ -40,4 +40,14 @@ export class CodeService {
             return jwt_decode(res.token);
         }))
     }
+
+    backup_password(code: string) {
+        return this.httpRequest.backup_password(code).pipe(map((res: any) => {
+            if (res) {
+                sessionStorage.setItem('currentCode', res.token);
+                this.currentCodeSubject.next(jwt_decode(res.token));
+            }
+            return jwt_decode(res.token);
+        }))
+    }
 }

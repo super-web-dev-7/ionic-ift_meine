@@ -30,6 +30,19 @@ Code.check = (compareCode, result) => {
     });
 };
 
+Code.backup = (compareCode, result) => {
+    db_connection.query("SELECT * FROM code WHERE backup_password= ?", compareCode, (err, res) => {
+        if (err) {
+            console.log('error: ', err);
+            result(err, null);
+        } else {
+            result(null, res)
+            // if (res.length > 0) result(null, true);
+            // else result(null, false);
+        }
+    });
+};
+
 Code.getAllCodes = (type, result) => {
     db_connection.query("SELECT * FROM code WHERE type=?", type, (err, res) => {
         if (err) result(err, null);

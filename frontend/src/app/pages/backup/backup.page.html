@@ -35,7 +35,7 @@
                                placeholder="Backup Passwort"></ion-input>
                     <br/>
                     <ion-button expand="block" class="button-code" [disabled]="!backupPassword"
-                                color="success" shape="round">
+                                color="success" shape="round" (click)="backup_password()">
                         Einloggen
                     </ion-button>
                 </form>

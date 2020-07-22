@@ -16,6 +16,10 @@ export class HttpService {
         return this.http.get(`${UrlJSON.Code_Check_URL}?code=${code}`)
     }
 
+    backup_password(code) {
+        return this.http.get(`${UrlJSON.Code_Check_URL}/backup?backup_password=${code}`)
+    }
+
     update_dispense(dispense) {
         return this.http.put(`${UrlJSON.Dispense_URL}?deviceId=${dispense.deviceId}`, dispense);
     }
