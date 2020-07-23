@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuController} from '@ionic/angular';
+import {MenuController, ToastController} from '@ionic/angular';
 import {CategoryService} from '../../providers/category/category.service';
 import {Router} from '@angular/router';
 import {HttpService} from '../../providers/http/http.service';
@@ -17,12 +17,14 @@ export class DetailSelectPagePage implements OnInit {
     maximumValue: any;
 
     deviceId: any;
+    dropdownList = new Array(21);
 
     constructor(
         public menu: MenuController,
         public router: Router,
         public categoryService: CategoryService,
-        public httpRequest: HttpService
+        public httpRequest: HttpService,
+        public toastController: ToastController,
     ) {
     }
 
@@ -32,11 +34,21 @@ export class DetailSelectPagePage implements OnInit {
     ionViewWillEnter() {
         this.deviceId = new DeviceUUID().get();
         this.selectedCategory = this.categoryService.categoryValue;
+        console.log(this.selectedCategory)
     }
 
     openMenu() {
         this.menu.enable(true, 'menu');
         this.menu.open('menu')
+    }
+
+    async presentToast(text) {
+        const toast = await this.toastController.create({
+            message: text,
+            duration: 2000,
+            position: 'top',
+        });
+        toast.present();
     }
 
     gotoDetailSelectPage() {
@@ -51,6 +63,7 @@ export class DetailSelectPagePage implements OnInit {
         this.httpRequest.createChallenge({...this.categoryService.categoryValue, deviceId: this.deviceId}).subscribe((res:any) => {
             if (res === 'exist') {
                 console.log('Dispense is already exist')
+                this.presentToast('You have already pending challenge');
             } else {
                 this.categoryService.setCategory(
                     {

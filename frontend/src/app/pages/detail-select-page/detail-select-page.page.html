@@ -29,25 +29,47 @@
         </div>
 
         <div class="text-center">
-            <p>Ich rauche täglich</p>
+            <p *ngIf="selectedCategory?.type === 'smoking'">Ich rauche täglich</p>
+            <p *ngIf="selectedCategory?.type === 'internet'">Ich nutze täglich</p>
+            <p *ngIf="selectedCategory?.type === 'game'">Ich spiele täglich</p>
             <div class="d-flex flex-row align-items-start">
-                <ion-input type="number" [(ngModel)]="currentValue" class="border-bottom border-dark input-category"></ion-input>
-                <p>{{selectedCategory?.category}}</p>
+                <ion-input type="number" [(ngModel)]="currentValue"
+                           class="border-bottom border-dark input-category"></ion-input>
+                <p *ngIf="selectedCategory?.type === 'smoking'">{{selectedCategory?.category}}</p>
+                <p *ngIf="selectedCategory?.type === 'internet'"> Minuten {{selectedCategory?.category}}</p>
+                <p *ngIf="selectedCategory?.type === 'game'"> Minuten {{selectedCategory?.category}}</p>
             </div>
-            <p>und möchte täglich</p>
+            <p *ngIf="selectedCategory?.type === 'smoking'">und möchte täglich</p>
+            <p *ngIf="selectedCategory?.type === 'internet'">und möchte auf</p>
+            <p *ngIf="selectedCategory?.type === 'game'">und möchte auf</p>
             <div class="d-flex flex-row align-items-start">
-                <ion-input type="number" [(ngModel)]="hopeValue" class="border-bottom border-dark input-category"></ion-input>
-                <p>{{selectedCategory?.category}}</p>
+                <ion-input *ngIf="selectedCategory?.type === 'smoking'" type="number" [(ngModel)]="hopeValue"
+                           class="border-bottom border-dark input-category"></ion-input>
+                <ion-select [(ngModel)]="hopeValue" *ngIf="selectedCategory?.type === 'internet' || selectedCategory?.type === 'game'" placeholder="">
+                    <ion-select-option *ngFor="let item of dropdownList; let index = index;" [value]="(index * 10)">{{index * 10}}</ion-select-option>
+                </ion-select>
+
+                <p *ngIf="selectedCategory?.type === 'smoking'">{{selectedCategory?.category}}</p>
+                <p *ngIf="selectedCategory?.type === 'internet'"> Minuten {{selectedCategory?.category}}</p>
+                <p *ngIf="selectedCategory?.type === 'game'"> Minuten {{selectedCategory?.category}}</p>
             </div>
-            <p>weniger rauchen.</p>
+            <p *ngIf="selectedCategory?.type === 'smoking'">weniger rauchen.</p>
+            <p *ngIf="selectedCategory?.type === 'internet'">verzichten.</p>
+            <p *ngIf="selectedCategory?.type === 'game'">verzichten.</p>
         </div>
 
         <div class="text-center speech-bubble">
             <p>Ich rauche täglich</p>
+            <p *ngIf="selectedCategory?.type === 'smoking'">Ich rauche täglich</p>
+            <p *ngIf="selectedCategory?.type === 'internet'">Ich nutze täglich</p>
+            <p *ngIf="selectedCategory?.type === 'game'">Ich spiele täglich</p>
             <div class="d-flex flex-row align-items-start">
                 <p>maximal </p>
-                <ion-input type="number" [(ngModel)]="maximumValue" class="border-bottom border-dark input-category"></ion-input>
-                <p>{{selectedCategory?.category}}</p>
+                <ion-input type="number" [(ngModel)]="maximumValue"
+                           class="border-bottom border-dark input-category"></ion-input>
+                <p *ngIf="selectedCategory?.type === 'smoking'">{{selectedCategory?.category}}</p>
+                <p *ngIf="selectedCategory?.type === 'internet'"> Minuten {{selectedCategory?.category}}</p>
+                <p *ngIf="selectedCategory?.type === 'game'"> Minuten {{selectedCategory?.category}}</p>
             </div>
         </div>
 
@@ -55,7 +77,7 @@
             <div class="ion-text-center">
                 <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
             </div>
-            <ion-button (click)="gotoDetailSelectPage()"  [routerLink]="'/detail-select-page'"
+            <ion-button (click)="gotoDetailSelectPage()" [routerLink]="'/detail-select-page'"
                         expand="block" class="button green-button" color="success" shape="round">
                 Jetzt gehts los
             </ion-button>

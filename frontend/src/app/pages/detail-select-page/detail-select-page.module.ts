@@ -7,14 +7,18 @@ import { IonicModule } from '@ionic/angular';
 import { DetailSelectPagePageRoutingModule } from './detail-select-page-routing.module';
 
 import { DetailSelectPagePage } from './detail-select-page.page';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    DetailSelectPagePageRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        DetailSelectPagePageRoutingModule,
+        MatFormFieldModule,
+        MatSelectModule
+    ],
   declarations: [DetailSelectPagePage]
 })
 export class DetailSelectPagePageModule {}

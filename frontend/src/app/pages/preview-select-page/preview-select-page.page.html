@@ -45,15 +45,15 @@
             <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
         </div>
 
-        <div class="text-center">
+        <div class="text-center speech-bubble">
             Ab morgen kannst du <br> täglich zurückmelden, ob <br> Du Dein Challenge - Ziel <br> erreicht hast
         </div>
 
-        <div class="text-center">
+        <div class="text-center speech-bubble">
             Wie zuversichtlich bist du, <br> dass du morgen dein Ziel <br> erreichst?
         </div>
 
-        <div class="emoji-group">
+        <div class="emoji-group speech-bubble">
             <div class="emoji-first" (click)="reaction(0)"></div>
             <div class="emoji-second" (click)="reaction(1)"></div>
             <div class="emoji-third" (click)="reaction(2)"></div>
@@ -62,7 +62,7 @@
             <div class="emoji-sixth" (click)="reaction(5)"></div>
         </div>
 
-        <div *ngIf="showLastSpeech" class="text-center">
+        <div *ngIf="showLastSpeech" class="text-center speech-bubble">
             Danke für deine Einschätzung! <br>
             Viel Erfolg!
         </div>

@@ -35,7 +35,7 @@
 
         <div class="category-select mt-5">
             <ion-grid>
-                <ion-row class="challenge-list" [routerLink]="'/detail-select-page'" (click)="categoryService.setCategory({category: 'Alkohol', type: 'alkohol'})">
+                <ion-row class="challenge-list" (click)="categoryService.setCategory({category: 'Alkohol', type: 'alkohol'}); gotoDetailPage()">
                     <ion-col size="3" class="avatar">
                         <div class="circle"></div>
                         <img src="/assets/image/Home/business.png" class="img-avatar" alt="Oval">
@@ -57,7 +57,7 @@
                         </p>
                     </ion-col>
                 </ion-row>
-                <ion-row [routerLink]="'/detail-select-page'" (click)="categoryService.setCategory({category: 'Canabis', type: 'canabis'})">
+                <ion-row (click)="categoryService.setCategory({category: 'Canabis', type: 'canabis'}); gotoDetailPage()">
                     <ion-col size="3" class="avatar">
                         <div class="circle"></div>
                         <img src="/assets/image/Home/commerce-and-shopping.png" class="img-avatar" alt="Oval">
@@ -90,7 +90,7 @@
                         </p>
                     </ion-col>
                 </ion-row>
-                <ion-row [routerLink]="'/detail-select-page'" (click)="categoryService.setCategory({category: 'glücksspiel', type: 'gluck'})">
+                <ion-row (click)="categoryService.setCategory({category: 'glücksspiel', type: 'gluck'}); gotoDetailPage()">
                     <ion-col size="3" class="avatar">
                         <div class="circle"></div>
                         <img src="/assets/image/Home/sports-and-competition.png" class="img-avatar" alt="Oval">

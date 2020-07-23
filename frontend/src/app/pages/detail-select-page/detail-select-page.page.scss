@@ -38,3 +38,19 @@
     --padding-top: 0;
     width: 50px;
 }
+
+.custom-mat-select {
+    width: 60px;
+    height: 50px;
+    ::ng-deep .mat-form-field-wrapper {
+        padding: 0;
+    }
+}
+
+ion-select {
+    --padding-top: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-bottom: 0;
+    border-bottom: 1px solid black;
+}

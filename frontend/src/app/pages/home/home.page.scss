@@ -58,7 +58,7 @@ ion-content {
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
-            height: 100%;
+            height: 80%;
 
             .header-line {
                 font-weight: bold;
@@ -173,6 +173,7 @@ ion-content {
         margin-top: 10px;
         text-align: center;
         color: white;
+        font-size: 13px;
     }
 }
 
