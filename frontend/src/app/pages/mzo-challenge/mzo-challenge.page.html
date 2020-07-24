@@ -1,0 +1,97 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start" class="">
+            <ion-avatar class="logo" slot="start">
+                <img src="/assets/icon/favicon.png" alt="logo">
+            </ion-avatar>
+        </ion-buttons>
+        <ion-buttons slot="end" class="">
+            <ion-button (click)="openMenu()">
+                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="home">
+    <div class="container">
+        <div>
+            <h1 class="ion-text-center">
+                Meine Zeit ohne <br>
+                - Die challenge -
+            </h1>
+            <div class="ion-text-center">
+                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            </div>
+        </div>
+
+        <div class="challenge">
+            <h1 class="challenge-title">Challenge - Regeln</h1>
+            <div class="challenge-lists">
+                <ion-grid>
+                    <ion-row class="challenge-list">
+                        <ion-col size="3" class="avatar">
+                            <div class="circle"></div>
+                            <img src="/assets/image/Home/business.png" class="img-avatar" alt="Oval">
+                        </ion-col>
+                        <ion-col size="9">
+                            <p>
+                                lch setze mir mein <b>eigenes Ziel</b>, das mich herausfordert.
+                            </p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="3" class="avatar">
+                            <div class="circle"></div>
+                            <img src="/assets/image/Home/electronics.png" class="img-avatar" alt="Oval">
+                        </ion-col>
+                        <ion-col size="9">
+                            <p>
+                                ich gebe <b>täglich Rückmeldung</b> in der APP, ob ich mein Ziel am Vortag erreicht
+                                habe.
+                            </p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="3" class="avatar">
+                            <div class="circle"></div>
+                            <img src="/assets/image/Home/commerce-and-shopping.png" class="img-avatar" alt="Oval">
+                        </ion-col>
+                        <ion-col size="9">
+                            <p>
+                                Ich antworte nach jeder Rückmeldung auf eine kurze <b>Nachfrage</b>.
+                            </p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="3" class="avatar">
+                            <div class="circle"></div>
+                            <img src="/assets/image/Home/healthcare-and-medical.png" class="img-avatar" alt="Oval">
+                        </ion-col>
+                        <ion-col size="9">
+                            <p>
+                                Nur, wenn ich mich täglich zurückgemeldet habe, kann ich meinen <b>Challenge-Verlauf</b>
+                                sehen
+                            </p>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="3" class="avatar">
+                            <div class="circle"></div>
+                            <img src="/assets/image/Home/seo-and-web.png" class="img-avatar" alt="Oval">
+                        </ion-col>
+                        <ion-col size="9">
+                            <p>
+                                Nur, wenn ich meine Challenge komplett <b>bestanden</b> habe, erhalte ich eine <b>Challenge-Gewinner-Urkunde</b>.
+                            </p>
+                        </ion-col>
+                    </ion-row>
+
+                </ion-grid>
+            </div>
+        </div>
+
+        <div class="gradient-bar"></div>
+    </div>
+
+</ion-content>

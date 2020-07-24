@@ -133,19 +133,19 @@ Dispense.getAllDispenses = (result) => {
 Dispense.updateCronJob = (result) => {
     db_connection.query("Update dispense Set day_after = day_after + 1 Where day_after < 15 And status = 1")
     db_connection.query("Update dispense Set status = 0 Where day_after = 15");
-    db_connection.query("SELECT * FROM dispense WHERE status=1", function(err1, dispenses) {
-        for (let dispense of dispenses) {
-            db_connection.query("SELECT * FROM daily_challenge WHERE Dispense_Id=?", dispense.id, function(err2, feedback) {
-                let count = 0;
-                for (let i = 0; i < dispense.day_after; i++) {
-                    if (feedback[0]['day' + (i + 1)] === null) count++;
-                }
-                // if (count > 2) {
-                //     db_connection.query("UPDATE dispense SET status=0 WHERE id=?", dispense.id);
-                // }
-            })
-        }
-    })
+    // db_connection.query("SELECT * FROM dispense WHERE status=1", function(err1, dispenses) {
+    //     for (let dispense of dispenses) {
+    //         db_connection.query("SELECT * FROM daily_challenge WHERE Dispense_Id=?", dispense.id, function(err2, feedback) {
+    //             let count = 0;
+    //             for (let i = 0; i < dispense.day_after; i++) {
+    //                 if (feedback[0]['day' + (i + 1)] === null) count++;
+    //             }
+    //             // if (count > 2) {
+    //             //     db_connection.query("UPDATE dispense SET status=0 WHERE id=?", dispense.id);
+    //             // }
+    //         })
+    //     }
+    // })
 }
 
 export default Dispense;

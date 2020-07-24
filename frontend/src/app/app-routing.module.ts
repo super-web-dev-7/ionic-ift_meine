@@ -119,6 +119,10 @@ const routes: Routes = [
                 path: 'missing-feedback',
                 loadChildren: () => import('./pages/missing-feedback/missing-feedback.module').then(m => m.MissingFeedbackPageModule)
             },
+            {
+                path: 'mzo-challenge',
+                loadChildren: () => import('./pages/mzo-challenge/mzo-challenge.module').then(m => m.MzoChallengePageModule)
+            },
         ],
         canActivate: [AuthGuard],
         data: {isAdmin: false}

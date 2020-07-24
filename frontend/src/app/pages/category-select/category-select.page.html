@@ -46,7 +46,7 @@
                         </p>
                     </ion-col>
                 </ion-row>
-                <ion-row routerLink="smoking">
+                <ion-row (click)="checkAndGotoNextPage('/smoking')">
                     <ion-col size="3" class="avatar">
                         <div class="circle"></div>
                         <img src="/assets/image/Home/electronics.png" class="img-avatar" alt="Oval">
@@ -68,7 +68,7 @@
                         </p>
                     </ion-col>
                 </ion-row>
-                <ion-row routerLink="internet">
+                <ion-row (click)="checkAndGotoNextPage('/internet')">
                     <ion-col size="3" class="avatar">
                         <div class="circle"></div>
                         <img src="/assets/image/Home/healthcare-and-medical.png" class="img-avatar" alt="Oval">
@@ -79,7 +79,7 @@
                         </p>
                     </ion-col>
                 </ion-row>
-                <ion-row routerLink="game">
+                <ion-row (click)="checkAndGotoNextPage('/game')">
                     <ion-col size="3" class="avatar">
                         <div class="circle"></div>
                         <img src="/assets/image/Home/seo-and-web.png" class="img-avatar" alt="Oval">

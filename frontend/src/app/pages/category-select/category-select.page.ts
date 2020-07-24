@@ -45,6 +45,17 @@ export class CategorySelectPage implements OnInit {
         toast.present();
     }
 
+    checkAndGotoNextPage(url) {
+        this.httpRequest.get_dispenseByDeviceId(this.deviceId).subscribe((res: any) => {
+            if (res.result.length === 0) {
+                this.router.navigateByUrl('category-select' + url)
+            } else {
+                this.presentToast('You have already pending challenge');
+            }
+        }, error => {
+        });
+    }
+
     gotoDetailPage() {
         this.httpRequest.createChallenge({...this.categoryService.categoryValue, deviceId: this.deviceId}).subscribe((res:any) => {
             if (res === 'exist') {

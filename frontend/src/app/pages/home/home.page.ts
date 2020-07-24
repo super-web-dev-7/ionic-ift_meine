@@ -2,12 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {MenuController, ToastController} from '@ionic/angular';
 import {Router} from '@angular/router';
 import {DeviceUUID} from 'device-uuid';
-
+import {first} from 'rxjs/operators';
 
 import {CodeService} from '../../providers/code/code.service';
 import {HttpService} from '../../providers/http/http.service';
 import {DispenseService} from '../../providers/dispense/dispense.service';
-import {first} from 'rxjs/operators';
 
 @Component({
     selector: 'app-home',

@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
     public appPages2 = [
         {
             title: 'Challenge - Verlauf',
-            url: '/challenge_verlauf',
+            url: '/challenge-progress',
             icon: ''
         },
         {
@@ -57,7 +57,7 @@ export class AppComponent implements OnInit {
         },
         {
             title: 'MZo - Challenge - Regeln',
-            url: '/mzo_challenge',
+            url: '/mzo-challenge',
             icon: ''
         },
         {

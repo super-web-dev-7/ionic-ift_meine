@@ -43,7 +43,7 @@ export class ChallengeProgressPage implements OnInit {
     // this.router.navigate(['/after-feedback']);
 
     missing_box(index) {
-        if (this.feedback && this.feedback['day' + (index + 1)] === null) {
+        if (this.feedback && this.feedback['day' + (index + 1)] === null && this.dispense?.day_after > index) {
             this.router.navigate(['/missing-feedback']);
         }
     }
