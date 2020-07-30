@@ -46,7 +46,7 @@ ion-content {
     }
 
     .input-container {
-        background-color: rgba(37, 36, 36, 0.68);
+        background-color: rgba(37, 36, 36, 0.38);
         border-top-left-radius: 25px;
         border-top-right-radius: 25px;
         display: flex;
@@ -78,7 +78,7 @@ ion-content {
 
     .sc-ion-input-md-h {
         --placeholder-color: #fff;
-        --placeholder-opacity: 0.6;
+        --placeholder-opacity: 1;
     }
 
     .form-code {

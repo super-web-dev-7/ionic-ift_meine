@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
         },
         {
             title: 'Datenschutz',
-            url: '/datenschutz',
+            url: '/privacy',
             icon: 'paper-plane'
         },
         {
@@ -77,7 +77,7 @@ export class AppComponent implements OnInit {
         },
         {
             title: 'Datenschutz',
-            url: '/datenschutz',
+            url: '/privacy',
             icon: 'paper-plane'
         },
         {
@@ -105,7 +105,7 @@ export class AppComponent implements OnInit {
         },
         {
             title: 'Datenschutz',
-            url: '/datenschutz',
+            url: '/privacy',
             icon: 'paper-plane'
         },
         {
@@ -165,7 +165,7 @@ export class AppComponent implements OnInit {
             this.currentCode = currentCode;
         });
         this.dispenseService.dispenseSubject.subscribe((val: any) => {
-            this.menuStatus = val?.day_after > 0 ? 1 : this.menuStatus;
+            this.menuStatus = val?.day_after > 0 ? 1 : 0;
         })
     }
 

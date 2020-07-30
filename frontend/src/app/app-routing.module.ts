@@ -26,7 +26,11 @@ const routes: Routes = [
             {
                 path: 'forgot',
                 loadChildren: () => import('./pages/forgot/forgot.module').then(m => m.ForgotPageModule)
-            }
+            },
+            {
+                path: 'privacy',
+                loadChildren: () => import('./pages/privacy/privacy.module').then( m => m.PrivacyPageModule)
+              },
         ]
     },
     {

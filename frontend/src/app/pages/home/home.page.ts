@@ -16,6 +16,7 @@ import {DispenseService} from '../../providers/dispense/dispense.service';
 export class HomePage implements OnInit {
 
     code: any = '';
+    isChecked: boolean = false;
     attemptCount = 0;
 
     constructor(
@@ -35,6 +36,10 @@ export class HomePage implements OnInit {
     openMenu() {
         this.menu.enable(true, 'menu');
         this.menu.open('menu');
+    }
+
+    onChange() {
+        this.isChecked = !this.isChecked;
     }
 
     code_check() {
@@ -64,7 +69,7 @@ export class HomePage implements OnInit {
                 this.attemptCount++;
                 if (this.attemptCount === 5) {
                     this.attemptCount = 0;
-                    this.gotoForgot();
+                    this.gotoBackup();
                 }
                 this.presentToast('Dieser Code ist leider nicht korrekt');
             }
