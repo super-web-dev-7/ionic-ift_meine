@@ -14,13 +14,39 @@ ion-content {
         flex-direction: column;
         justify-content: space-around;
         height: 100%;
-
-        ion-text {
-            width: 50%;
-        }
     }
 
-    .slide-button {
+    .youtube-iframe {
+        border-radius: 12px;
+    }
+
+    .swipe-toggle {
+        --background: var(--ion-color-secondary);
+        --background-checked: var(--ion-color-secondary);
+
+        --handle-background: #fff url("/assets/image/New/icon-swipe.png") no-repeat center;
+        --handle-background-checked: #fff url("/assets/image/New/icon-swipe.png") no-repeat center;
+        width: 245px;
+        height: 50px;
+        --handle-border-radius: 50px;
+        --border-radius: 50px;
+        --handle-width: 40px;
+        --handle-height: 40px;
+        --handle-spacing: 5px;
+    }
+
+    ion-toggle::before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: "Swipe to continue";
+        color: white;
+        font-size: 15px;
+        z-index: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    slide-button {
         div.slide-button-container {
             position: relative;
             border: 1px solid red!important;

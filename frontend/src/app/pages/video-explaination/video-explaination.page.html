@@ -12,31 +12,23 @@
     <div class="container">
         <div class="white-pane bottom-right-round">
             <div class="white-pane-content">
-                <iframe width="100%"
-                        height="315"
+                <iframe width="345"
+                        height="309"
+                        class="youtube-iframe"
                         [src]="this.trustedVideoUrl"
                         (load)="getVideoUrl() ? handleIFrameLoadEvent() : null"
                         frameborder="0"
                         allowfullscreen></iframe>
                 <ion-text color="primary">
                     <h1 class="primary-color">
-                        Meine Zeit ohne <span class="secondary-color">Die Challenge</span>
+                        Meine Zeit ohne <br>
+                        <span class="secondary-color">Die Challenge</span>
                     </h1>
                 </ion-text>
             </div>
         </div>
 
-        <div class="slide-button-container" no-margin no-padding>
-            <button ion-button icon-right large>
-                aaaa
-                <ion-icon name="arrow-forward"></ion-icon>
-            </button>
-            <p>ssssssssss</p>
-        </div>
-
-        <ion-button expand="block" class="button" color="success" shape="round" (click)="gotoArea()">
-            Starte die Challenge
-        </ion-button>
+        <ion-toggle class="swipe-toggle" [checked]="toggleValue" [(ngModel)]="toggleValue" (ionChange)="toggleChange()" (click)="toggleClick($event)"></ion-toggle>
         <div class="bar">
             <div class="footer-bar footer-bar-white"></div>
         </div>

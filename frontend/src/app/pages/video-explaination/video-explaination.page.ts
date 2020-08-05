@@ -25,6 +25,7 @@ export class VideoExplainationPage implements OnInit {
     trustedVideoUrl: any = this.getVideoUrl();
     loading: any;
     loaded = false;
+    toggleValue: any = false;
 
     constructor(
         public router: Router,
@@ -41,6 +42,7 @@ export class VideoExplainationPage implements OnInit {
     }
 
     async ionViewWillEnter() {
+        this.toggleValue = false;
         // this.loading = await this.loadingCtrl.create({
         // });
         // if (!this.loaded) {
@@ -64,5 +66,17 @@ export class VideoExplainationPage implements OnInit {
 
     gotoArea() {
         this.router.navigate(['/category-select']);
+    }
+
+    toggleClick($event: MouseEvent) {
+        $event.stopImmediatePropagation();
+    }
+
+    toggleChange() {
+        if (this.toggleValue) {
+            setTimeout(() => {
+                this.gotoArea();
+            }, 500);
+        }
     }
 }
