@@ -1,7 +1,7 @@
 @font-face {
-    font-family: Raleway-Regular;
+    font-family: SFProFont-Regular;
     font-style: normal;
-    src: url("/assets/font/Raleway-Regular.ttf");
+    src: url("/assets/font/SFProFont/SF-Pro-Display-Regular.otf");
 }
 
 @font-face {
@@ -11,9 +11,9 @@
 }
 
 @font-face {
-    font-family: Raleway-Medium;
+    font-family: SFProFont-Medium;
     font-style: normal;
-    src: url("/assets/font/Raleway-Medium.ttf");
+    src: url("/assets/font/SFProFont/SF-Pro-Display-Medium.otf");
 }
 
 .font-weight-bold {
@@ -22,7 +22,7 @@
 
 .font-large {
     font-size: 36px !important;
-    font-family: Raleway-Regular !important;
+    font-family: SFProFont-Regular !important;
 }
 
 .main-title {
@@ -35,7 +35,7 @@
 }
 
 ion-toolbar {
-    --background: #f5f6f6 !important;
+    --background: #ffffff !important;
     --background-image: none;
 
     ion-menu-button {
@@ -47,14 +47,18 @@ ion-toolbar {
     background-image: none;
 }
 
+.mat-h1, .mat-headline, .mat-typography h1 {
+    font-family: SFProFont-Medium, sans-serif !important;
+}
+
 ion-content {
 
     p {
         font-size: 16px;
     }
 
-    --ion-font-family: Raleway-Medium;
-    --background: #f5f6f6;
+    --ion-font-family: SFProFont-Regular, sans-serif!important;
+    --background: #ffffff;
 
     .container {
         display: flex;
@@ -65,9 +69,9 @@ ion-content {
         color: var(--ion-color-medium);
     }
 
-    .container > div:first-child {
-        margin-top: 20px;
-    }
+    //.container > div:first-child {
+    //    margin-top: 20px;
+    //}
 
     .container > div:first-child img {
         margin: 20px;
@@ -78,9 +82,10 @@ ion-content {
     }
 
     .button {
-        height: 45px;
-        font-size: 17px;
-        width: 80vw;
+        height: 50px;
+        font-size: 15px;
+        width: 245px;
+        line-height: 18px;
         text-transform: none;
     }
 
@@ -105,14 +110,15 @@ ion-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-around;
+            justify-content: space-between;
             height: 100%;
-            padding: 35px 40px;
+            padding: 35px 40px 27px;
 
             h1 {
                 font-size: 28px;
                 line-height: 33px;
                 font-style: normal;
+                //font-weight: 600;
             }
 
             .input-code {
@@ -120,7 +126,6 @@ ion-content {
                 border: 1px solid #e6e1e1;
                 border-radius: 4px;
                 color: var(--ion-color-primary);
-                text-align: center;
                 font-size: 20px;
                 height: 48px;
             }
@@ -138,6 +143,8 @@ ion-content {
             .sc-ion-input-md-h {
                 --padding-top: 8px;
                 --padding-bottom: 8px;
+                --padding-start: 8px;
+                --padding-end: 8px;
             }
 
             .bar {
@@ -290,3 +297,16 @@ p, .primary-color {
     background-color: #ffffff;
 }
 
+.white-pane {
+    background-color: white;
+    height: 70vh;
+    width: 100%;
+}
+
+.bottom-right-round {
+    border-bottom-right-radius: 75px;
+}
+
+.border-top-right-radius {
+    border-top-right-radius: 75px;
+}

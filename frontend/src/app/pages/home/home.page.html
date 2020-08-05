@@ -23,7 +23,7 @@
                                placeholder="Geben Sie Ihr Teilnahme-Code"></ion-input>
                     <p class="mat-error ion-text-center" *ngIf="attemptCount !== 0">You have {{5 - attemptCount}}
                         attempts.</p>
-                    <p class="text-center mt-3" (click)="gotoBackup()">Teilnahme-Code vergessen?</p>
+                    <p class="text-center mt-3 mb-4" (click)="gotoBackup()">Teilnahme-Code vergessen?</p>
                     <div class="privacy-checkbox">
                         <ion-checkbox color="primary" [checked]="isChecked" (ionChange)="onChange()"></ion-checkbox>
                         <ion-label color="primary">
@@ -34,10 +34,12 @@
                             einverstanden
                         </ion-label>
                     </div>
-                    <ion-button expand="block" [disabled]="!code || !isChecked" class="button-code" color="success"
-                                shape="round" (click)="code_check()">
-                        Einloggen
-                    </ion-button>
+                    <div class="text-center">
+                        <ion-button [disabled]="!code || !isChecked" class="button-code" color="secondary"
+                                    shape="round" (click)="code_check()">
+                            Einloggen
+                        </ion-button>
+                    </div>
                 </form>
             </div>
             <div class="bar">

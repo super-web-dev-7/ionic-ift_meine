@@ -38,10 +38,12 @@
                                 einverstanden
                             </ion-label>
                         </div>
-                        <ion-button expand="block" class="button-code" [disabled]="!backupPassword || !isChecked"
-                                    color="success" shape="round" (click)="backup_password()">
-                            Einloggen
-                        </ion-button>
+                        <div class="text-center">
+                            <ion-button class="button-code" [disabled]="!backupPassword || !isChecked"
+                                        color="secondary" shape="round" (click)="backup_password()">
+                                Einloggen
+                            </ion-button>
+                        </div>
                     </div>
                 </form>
             </div>
