@@ -16,7 +16,7 @@ import {DispenseService} from '../../providers/dispense/dispense.service';
 export class HomePage implements OnInit {
 
     code: any = '';
-    isChecked: boolean = false;
+    isChecked = false;
     attemptCount = 0;
 
     constructor(

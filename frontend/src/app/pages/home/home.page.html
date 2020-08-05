@@ -1,50 +1,47 @@
 <ion-header>
     <ion-toolbar>
-        <ion-avatar class="logo" slot="start">
-            <img src="/assets/icon/favicon.png" alt="logo">
-        </ion-avatar>
         <ion-buttons slot="end">
-            <ion-button (click)="openMenu()">
-                <img src="/assets/image/Home/menu.png" alt="direction">
+            <ion-button class="menu-button" (click)="openMenu()">
+                <ion-icon size="large" name="reorder-two-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="home">
     <div class="main-container">
-        <div class="header-container">
-            <h1 class="ion-no-margin large">
-                Willkommen bei Meine Zeit ohne - Die Challenge
-            </h1>
-<!--            <ion-text color="light" class="ion-text-center">-->
-<!--                <h2>-->
-<!--                    -Login- -->
-<!--                </h2>-->
-<!--            </ion-text>-->
-        </div>
+        <div class="blank-100"></div>
 
         <div class="input-container">
             <div class="input-container-box">
-                <ion-text color="light" class="ion-text-center">
-                    <h1 class="font-weight-bold header-line ion-no-margin">
-                        ___
+                <ion-text color="primary" class="ion-text-center">
+                    <h1 class="primary-color">
+                        Willkommen bei meine Zeit ohne <span class="secondary-color">Die Challenge</span>
                     </h1>
                 </ion-text>
-                <form class="form-code">
-                    <ion-input class="input-code" [(ngModel)]="code" name="code" placeholder="Freischaltcode eingeben"></ion-input>
-                    <p class="mat-error ion-text-center" *ngIf="attemptCount !== 0">You have {{5 - attemptCount}} attempts.</p>
-                    <p class="forgot-code" (click)="gotoBackup()">Teilnahme-Code vergessen?</p>
+                <form>
+                    <ion-input class="input-code" [(ngModel)]="code" name="code"
+                               placeholder="Geben Sie Ihr Teilnahme-Code"></ion-input>
+                    <p class="mat-error ion-text-center" *ngIf="attemptCount !== 0">You have {{5 - attemptCount}}
+                        attempts.</p>
+                    <p class="text-center mt-3" (click)="gotoBackup()">Teilnahme-Code vergessen?</p>
                     <div class="privacy-checkbox">
                         <ion-checkbox color="primary" [checked]="isChecked" (ionChange)="onChange()"></ion-checkbox>
-                        <ion-label color="light">Ich erkläre mich himit mit der <span class="border-bottom" [routerLink]="'/privacy'">Datenschutzerklärung</span> einverstanden</ion-label>
+                        <ion-label color="primary">
+                            Ich erkläre mich himit mit der
+                            <span class="border-bottom" [routerLink]="'/privacy'">
+                                <b>Datenschutzerklärung</b>
+                            </span>
+                            einverstanden
+                        </ion-label>
                     </div>
-                    <ion-button expand="block" [disabled]="!code || !isChecked" class="button-code" color="success" shape="round" (click)="code_check()">
-                        STARTE CHALLENGE
+                    <ion-button expand="block" [disabled]="!code || !isChecked" class="button-code" color="success"
+                                shape="round" (click)="code_check()">
+                        Einloggen
                     </ion-button>
                 </form>
             </div>
             <div class="bar">
-                <div class="gradient-bar"></div>
+                <div class="footer-bar footer-bar-grey"></div>
             </div>
         </div>
     </div>

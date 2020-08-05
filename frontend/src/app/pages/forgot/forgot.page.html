@@ -1,47 +1,35 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-avatar class="logo" slot="start">
-                <img src="/assets/icon/favicon.png" alt="logo">
-            </ion-avatar>
-            <ion-button [routerLink]="'/home'">
-                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            <ion-button class="back-button" [routerLink]="'/home'">
+                <ion-icon size="large" name="arrow-back-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
         <ion-buttons slot="end">
-            <ion-button (click)="openMenu()">
-                <img src="/assets/image/Home/menu.png" alt="direction">
+            <ion-button class="menu-button" (click)="openMenu()">
+                <ion-icon size="large" name="reorder-two-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="home">
     <div class="main-container">
-        <div class="header-container">
-            <h1 class="ion-no-margin large">
-                Willkommen bei Meine Zeit ohne - Die Challenge
-            </h1>
-        </div>
+        <div class="blank-100"></div>
 
         <div class="input-container">
             <div class="input-container-box">
-                <ion-text color="light" class="ion-text-center">
-                    <h1 class="font-weight-bold header-line ion-no-margin">
-                        ___
+                <ion-text color="primary" class="ion-text-center">
+                    <h1 class="primary-color">
+                        Willkommen bei meine Zeit ohne <span class="secondary-color">Die Challenge</span>
                     </h1>
                 </ion-text>
-                <form class="form-code">
-                    <ion-input class="input-code" [(ngModel)]="message" name="code"
-                               placeholder="Login nicht möglich?"></ion-input>
-                    <br/>
-                    <ion-button expand="block" class="button-code" [disabled]="!message"
-                                color="success" shape="round" (click)="open_mailApp()">
-                        Wende Dich an <br /> mzo@ift-nord.de
-                    </ion-button>
-                </form>
+                <div class="open-mail">
+                    <p class="text-center">Login nicht möglich?</p>
+                    <h3 (click)="open_mailApp()">Wende Dich an mzo@ift-nord.de</h3>
+                </div>
             </div>
             <div class="bar">
-                <div class="gradient-bar"></div>
+                <div class="footer-bar footer-bar-grey"></div>
             </div>
         </div>
     </div>

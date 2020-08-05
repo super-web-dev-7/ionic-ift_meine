@@ -18,6 +18,7 @@ export class BackupPage implements OnInit {
 
     backupPassword: any = '';
     attemptCount = 0;
+    isChecked = false;
 
     constructor(
         public router: Router,
@@ -39,6 +40,10 @@ export class BackupPage implements OnInit {
 
     gotoForgot() {
         this.router.navigate(['/forgot']);
+    }
+
+    onChange() {
+        this.isChecked = !this.isChecked;
     }
 
     async presentToast(text) {
