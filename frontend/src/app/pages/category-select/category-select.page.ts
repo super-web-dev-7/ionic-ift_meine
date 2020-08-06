@@ -34,27 +34,27 @@ export class CategorySelectPage implements OnInit {
     slideData = [
         {
             title: 'Alkohol',
-            image: '',
+            image: 'Asset-1.svg',
         },
         {
             title: 'Rauchen / Dampfen',
-            image: '',
+            image: 'Asset-4.svg',
         },
         {
             title: 'Canabis',
-            image: '',
+            image: 'Asset-5.svg',
         },
         {
             title: 'Internet / Smartphone',
-            image: '',
+            image: 'Asset-2.svg',
         },
         {
             title: 'Gaming / Zocken',
-            image: '',
+            image: 'Asset-10.svg',
         },
         {
             title: 'glücksspiel',
-            image: '',
+            image: 'Asset-3.svg',
         }
     ]
 

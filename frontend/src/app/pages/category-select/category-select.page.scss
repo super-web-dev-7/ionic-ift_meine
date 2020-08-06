@@ -104,8 +104,8 @@ ion-slide {
 
 ion-slide.swiper-slide-active {
     ion-card {
-        width: 160px;
-        height: 160px;
+        width: 180px;
+        height: 180px;
 
         ion-card-title {
             font-size: 16px;
@@ -114,6 +114,11 @@ ion-slide.swiper-slide-active {
 
         ion-card-header {
             padding: 12px;
+
+            ion-card-content img {
+                width: 100px;
+                height: 100px;
+            }
         }
     }
 }
