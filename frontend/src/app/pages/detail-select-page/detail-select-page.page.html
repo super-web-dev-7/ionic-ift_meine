@@ -1,16 +1,13 @@
 <ion-header>
     <ion-toolbar>
-        <ion-buttons slot="start" class="">
-            <ion-avatar class="logo" slot="start">
-                <img src="/assets/icon/favicon.png" alt="logo">
-            </ion-avatar>
-            <ion-button [routerLink]="'/category-select'">
-                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+        <ion-buttons slot="start">
+            <ion-button class="back-button" [routerLink]="'/category-select'">
+                <ion-icon name="arrow-back-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
-        <ion-buttons slot="end" class="">
-            <ion-button (click)="openMenu()">
-                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+        <ion-buttons slot="end">
+            <ion-button class="menu-button" (click)="openMenu()">
+                <ion-icon size="large" name="reorder-two-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
@@ -18,73 +15,117 @@
 
 <ion-content [fullscreen]="true" class="home">
     <div class="container">
-        <div>
-            <h1 class="ion-text-center font-large">
-                Meine Zeit ohne <br>
-                - Die challenge -
-            </h1>
-            <div class="ion-text-center">
-                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        <div class="w-100">
+            <div>
+                <div>
+                    <ion-text color="primary">
+                        <h1 class="primary-color">
+                            Meine Zeit ohne <br>
+                            <span class="secondary-color">Die Challenge</span>
+                        </h1>
+                    </ion-text>
+                </div>
+                <div class="mt-30 mb-30 select-container">
+                    <app-input-number
+                            [(model)]="currentValue"
+                            [step]="2"
+                            [maxValue]="50"
+                            [placeholder]="placeholder"
+                            [label]="label[0]">
+                    </app-input-number>
+                    <app-input-number
+                            [(model)]="hopeValue"
+                            [step]="2"
+                            [maxValue]="50"
+                            [placeholder]="placeholder"
+                            [label]="label[1]">
+                    </app-input-number>
+                    <app-input-number
+                            [(model)]="maximumValue"
+                            [step]="2"
+                            [maxValue]="50"
+                            [placeholder]="placeholder"
+                            [label]="label[2]">
+                    </app-input-number>
+                </div>
             </div>
         </div>
-
-        <div class="text-center">
-            <p *ngIf="selectedCategory?.type === 'smoking'">Ich rauche täglich</p>
-            <p *ngIf="selectedCategory?.type === 'internet'">Ich nutze täglich</p>
-            <p *ngIf="selectedCategory?.type === 'game'">Ich spiele täglich</p>
-            <div class="d-flex flex-row align-items-start">
-                <ion-input type="number" [(ngModel)]="currentValue"
-                           class="border-bottom border-dark input-category"></ion-input>
-                <p *ngIf="selectedCategory?.type === 'smoking'">{{selectedCategory?.category}}</p>
-                <p *ngIf="selectedCategory?.type === 'internet'"> Minuten {{selectedCategory?.category}}</p>
-                <p *ngIf="selectedCategory?.type === 'game'"> Minuten {{selectedCategory?.category}}</p>
-            </div>
-            <p *ngIf="selectedCategory?.type === 'smoking'">und möchte täglich</p>
-            <p *ngIf="selectedCategory?.type === 'internet'">und möchte auf</p>
-            <p *ngIf="selectedCategory?.type === 'game'">und möchte auf</p>
-            <div class="d-flex flex-row align-items-start">
-                <ion-input *ngIf="selectedCategory?.type === 'smoking'" type="number" [(ngModel)]="hopeValue"
-                           class="border-bottom border-dark input-category"></ion-input>
-                <ion-select [(ngModel)]="hopeValue" *ngIf="selectedCategory?.type === 'internet' || selectedCategory?.type === 'game'" placeholder="">
-                    <ion-select-option *ngFor="let item of dropdownList; let index = index;" [value]="(index * 10)">{{index * 10}}</ion-select-option>
-                </ion-select>
-
-                <p *ngIf="selectedCategory?.type === 'smoking'">{{selectedCategory?.category}}</p>
-                <p *ngIf="selectedCategory?.type === 'internet'"> Minuten {{selectedCategory?.category}}</p>
-                <p *ngIf="selectedCategory?.type === 'game'"> Minuten {{selectedCategory?.category}}</p>
-            </div>
-            <p *ngIf="selectedCategory?.type === 'smoking'">weniger rauchen.</p>
-            <p *ngIf="selectedCategory?.type === 'internet'">verzichten.</p>
-            <p *ngIf="selectedCategory?.type === 'game'">verzichten.</p>
-        </div>
-
-        <div class="text-center speech-bubble">
-            <p>Ich rauche täglich</p>
-            <p *ngIf="selectedCategory?.type === 'smoking'">Ich rauche täglich</p>
-            <p *ngIf="selectedCategory?.type === 'internet'">Ich nutze täglich</p>
-            <p *ngIf="selectedCategory?.type === 'game'">Ich spiele täglich</p>
-            <div class="d-flex flex-row align-items-start">
-                <p>maximal </p>
-                <ion-input type="number" [(ngModel)]="maximumValue"
-                           class="border-bottom border-dark input-category"></ion-input>
-                <p *ngIf="selectedCategory?.type === 'smoking'">{{selectedCategory?.category}}</p>
-                <p *ngIf="selectedCategory?.type === 'internet'"> Minuten {{selectedCategory?.category}}</p>
-                <p *ngIf="selectedCategory?.type === 'game'"> Minuten {{selectedCategory?.category}}</p>
-            </div>
-        </div>
-
-        <div class="w-100 d-flex flex-column align-items-center">
-            <div class="ion-text-center">
-                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
-            </div>
-            <ion-button (click)="gotoDetailSelectPage()" [routerLink]="'/detail-select-page'"
+        <div class="text-center button-container">
+            <ion-button (click)="gotoDetailSelectPage()"
                         expand="block" class="button green-button" color="success" shape="round">
-                Jetzt gehts los
+                Weiter
             </ion-button>
         </div>
+<!--        <div>-->
+<!--            <h1 class="ion-text-center font-large">-->
+<!--                Meine Zeit ohne <br>-->
+<!--                - Die challenge - -->
+<!--            </h1>-->
+<!--            <div class="ion-text-center">-->
+<!--                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">-->
+<!--            </div>-->
+<!--        </div>-->
 
+<!--        <div class="text-center">-->
+<!--            <p *ngIf="selectedCategory?.type === 'smoking'">Ich rauche täglich</p>-->
+<!--            <p *ngIf="selectedCategory?.type === 'internet'">Ich nutze täglich</p>-->
+<!--            <p *ngIf="selectedCategory?.type === 'game'">Ich spiele täglich</p>-->
+<!--            <div class="d-flex flex-row align-items-start">-->
+<!--                <ion-input type="number" [(ngModel)]="currentValue"-->
+<!--                           class="border-bottom border-dark input-category"></ion-input>-->
+<!--                <p *ngIf="selectedCategory?.type === 'smoking'">{{selectedCategory?.category}}</p>-->
+<!--                <p *ngIf="selectedCategory?.type === 'internet'"> Minuten {{selectedCategory?.category}}</p>-->
+<!--                <p *ngIf="selectedCategory?.type === 'game'"> Minuten {{selectedCategory?.category}}</p>-->
+<!--            </div>-->
+<!--            <p *ngIf="selectedCategory?.type === 'smoking'">und möchte täglich</p>-->
+<!--            <p *ngIf="selectedCategory?.type === 'internet'">und möchte auf</p>-->
+<!--            <p *ngIf="selectedCategory?.type === 'game'">und möchte auf</p>-->
+<!--            <div class="d-flex flex-row align-items-start">-->
+<!--                <ion-input *ngIf="selectedCategory?.type === 'smoking'" type="number" [(ngModel)]="hopeValue"-->
+<!--                           class="border-bottom border-dark input-category"></ion-input>-->
+<!--                <ion-select [(ngModel)]="hopeValue" *ngIf="selectedCategory?.type === 'internet' || selectedCategory?.type === 'game'" placeholder="">-->
+<!--                    <ion-select-option *ngFor="let item of dropdownList; let index = index;" [value]="(index * 10)">{{index * 10}}</ion-select-option>-->
+<!--                </ion-select>-->
 
-        <div class="gradient-bar"></div>
+<!--                <p *ngIf="selectedCategory?.type === 'smoking'">{{selectedCategory?.category}}</p>-->
+<!--                <p *ngIf="selectedCategory?.type === 'internet'"> Minuten {{selectedCategory?.category}}</p>-->
+<!--                <p *ngIf="selectedCategory?.type === 'game'"> Minuten {{selectedCategory?.category}}</p>-->
+<!--            </div>-->
+<!--            <p *ngIf="selectedCategory?.type === 'smoking'">weniger rauchen.</p>-->
+<!--            <p *ngIf="selectedCategory?.type === 'internet'">verzichten.</p>-->
+<!--            <p *ngIf="selectedCategory?.type === 'game'">verzichten.</p>-->
+<!--        </div>-->
+
+<!--        <div class="text-center speech-bubble">-->
+<!--            <p>Ich rauche täglich</p>-->
+<!--            <p *ngIf="selectedCategory?.type === 'smoking'">Ich rauche täglich</p>-->
+<!--            <p *ngIf="selectedCategory?.type === 'internet'">Ich nutze täglich</p>-->
+<!--            <p *ngIf="selectedCategory?.type === 'game'">Ich spiele täglich</p>-->
+<!--            <div class="d-flex flex-row align-items-start">-->
+<!--                <p>maximal </p>-->
+<!--                <ion-input type="number" [(ngModel)]="maximumValue"-->
+<!--                           class="border-bottom border-dark input-category"></ion-input>-->
+<!--                <p *ngIf="selectedCategory?.type === 'smoking'">{{selectedCategory?.category}}</p>-->
+<!--                <p *ngIf="selectedCategory?.type === 'internet'"> Minuten {{selectedCategory?.category}}</p>-->
+<!--                <p *ngIf="selectedCategory?.type === 'game'"> Minuten {{selectedCategory?.category}}</p>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="w-100 d-flex flex-column align-items-center">-->
+<!--            <div class="ion-text-center">-->
+<!--                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">-->
+<!--            </div>-->
+<!--            <ion-button (click)="gotoDetailSelectPage()" [routerLink]="'/detail-select-page'"-->
+<!--                        expand="block" class="button green-button" color="success" shape="round">-->
+<!--                Jetzt gehts los-->
+<!--            </ion-button>-->
+<!--        </div>-->
+
     </div>
-
 </ion-content>
+
+<ion-footer>
+    <div class="bar">
+        <div class="footer-bar footer-bar-grey"></div>
+    </div>
+</ion-footer>

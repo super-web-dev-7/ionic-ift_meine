@@ -1,0 +1,17 @@
+<div>
+    <p>{{label}}</p>
+    <div class="text-field input-number">
+        <div class="opacity-3">{{placeholder}}</div>
+        <div class="number-container">
+            <ion-buttons>
+                <ion-button (click)="decrease()">
+                    <ion-icon name="remove-outline"></ion-icon>
+                </ion-button>
+                <div>{{model}}</div>
+                <ion-button (click)="increase()">
+                    <ion-icon name="add-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </div>
+    </div>
+</div>

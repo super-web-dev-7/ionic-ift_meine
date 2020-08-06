@@ -20,6 +20,7 @@ export class SmokingSelectComponent implements OnInit {
         'Tabakerhitzer, zb. iQOS',
         'Andere Art Rauchen / Dampfen',
     ];
+
     anotherCategory: any;
 
     constructor(
