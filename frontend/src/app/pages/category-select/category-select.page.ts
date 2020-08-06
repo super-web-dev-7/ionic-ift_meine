@@ -29,6 +29,7 @@ export class CategorySelectPage implements OnInit {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
+        loop: true
     };
     slideData = [
         {
