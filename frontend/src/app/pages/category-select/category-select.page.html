@@ -1,16 +1,13 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start" class="">
-            <ion-avatar class="logo" slot="start">
-                <img src="/assets/icon/favicon.png" alt="logo">
-            </ion-avatar>
-            <ion-button [routerLink]="'/video-guide'">
-                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
+            <ion-button class="back-button" [routerLink]="'/video-guide'">
+                <ion-icon size="large" name="arrow-back-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
         <ion-buttons slot="end" class="">
-            <ion-button (click)="openMenu()">
-                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+            <ion-button class="menu-button" (click)="openMenu()">
+                <ion-icon size="large" name="reorder-two-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
@@ -18,102 +15,61 @@
 
 <ion-content [fullscreen]="true" class="home">
     <div class="container">
-        <div>
-            <h1 class="ion-text-center font-large">
-                Meine Zeit ohne <br>
-                - Die challenge -
-            </h1>
-            <div class="ion-text-center">
-                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        <div class="blank-30"></div>
+        <div class="white-pane border-top-right-radius">
+            <ion-text color="primary">
+                <h1 class="primary-color">
+                    Meine Zeit ohne <br>
+                    <span class="secondary-color">Die Challenge</span>
+                </h1>
+            </ion-text>
+            <div class="bubble bubble-right">
+                <p class="opacity-3">
+                    In den nächsten 14 Tagen trete ich MZo - Die Challenge an. Ich werde meine Gewohnheiten in folgendem Bereich testen
+                </p>
+                <img src="/assets/image/New/bubble-right.png" alt="bubble-right">
             </div>
+            <div class="mt-2 position-relative">
+                <ion-slides [options]="sliderConfig" pager="true" #slides>
+                    <ion-slide *ngFor="let item of slideData">
+                        <div>
+                            <ion-card (click)="slideAction(item.title)">
+                                <ion-card-header>
+                                    <ion-card-title>
+                                        {{item.title}}
+                                    </ion-card-title>
+                                    <ion-card-content>
+                                        image
+                                    </ion-card-content>
+                                </ion-card-header>
+                            </ion-card>
+                        </div>
+                    </ion-slide>
+                </ion-slides>
+                <div class="slider-button">
+                    <ion-buttons>
+                        <ion-button color="medium" (click)="prevSlide()">
+                            <ion-icon name="chevron-back-outline"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                    <ion-buttons>
+                        <ion-button color="medium" (click)="nextSlide()">
+                            <ion-icon name="chevron-forward-outline"></ion-icon>
+                        </ion-button>
+                    </ion-buttons>
+                </div>
+            </div>
+            <p class="ion-text-center mt-5">
+                Ich möchte meine Challenge in einem <br>
+                <span class="border-bottom font-weight-bold" routerLink="/another-select-page">anderen Bereich</span> antreten
+            </p>
         </div>
-
-        <div class="text-center speech-bubble mb-5">
-            In den nächsten 14 Tagen trete <br> ich MZo - Die Challenge an.<br><br>
-            Ich werde meine Gewohnheiten<br> in folgendem Bereich testen:
-        </div>
-
-        <div class="category-select mt-5">
-            <ion-grid>
-                <ion-row class="challenge-list" (click)="categoryService.setCategory({category: 'Alkohol', type: 'alkohol'}); gotoDetailPage()">
-                    <ion-col size="3" class="avatar">
-                        <div class="circle"></div>
-                        <img src="/assets/image/Home/business.png" class="img-avatar" alt="Oval">
-                    </ion-col>
-                    <ion-col size="9">
-                        <p>
-                            Alkohol
-                        </p>
-                    </ion-col>
-                </ion-row>
-                <ion-row (click)="checkAndGotoNextPage('/smoking')">
-                    <ion-col size="3" class="avatar">
-                        <div class="circle"></div>
-                        <img src="/assets/image/Home/electronics.png" class="img-avatar" alt="Oval">
-                    </ion-col>
-                    <ion-col size="9">
-                        <p>
-                            Rauchen / Dampfen
-                        </p>
-                    </ion-col>
-                </ion-row>
-                <ion-row (click)="categoryService.setCategory({category: 'Canabis', type: 'canabis'}); gotoDetailPage()">
-                    <ion-col size="3" class="avatar">
-                        <div class="circle"></div>
-                        <img src="/assets/image/Home/commerce-and-shopping.png" class="img-avatar" alt="Oval">
-                    </ion-col>
-                    <ion-col size="9">
-                        <p>
-                            Canabis
-                        </p>
-                    </ion-col>
-                </ion-row>
-                <ion-row (click)="checkAndGotoNextPage('/internet')">
-                    <ion-col size="3" class="avatar">
-                        <div class="circle"></div>
-                        <img src="/assets/image/Home/healthcare-and-medical.png" class="img-avatar" alt="Oval">
-                    </ion-col>
-                    <ion-col size="9">
-                        <p>
-                            Internet / Smartphone
-                        </p>
-                    </ion-col>
-                </ion-row>
-                <ion-row (click)="checkAndGotoNextPage('/game')">
-                    <ion-col size="3" class="avatar">
-                        <div class="circle"></div>
-                        <img src="/assets/image/Home/seo-and-web.png" class="img-avatar" alt="Oval">
-                    </ion-col>
-                    <ion-col size="9">
-                        <p>
-                            Gaming / Zocken
-                        </p>
-                    </ion-col>
-                </ion-row>
-                <ion-row (click)="categoryService.setCategory({category: 'glücksspiel', type: 'gluck'}); gotoDetailPage()">
-                    <ion-col size="3" class="avatar">
-                        <div class="circle"></div>
-                        <img src="/assets/image/Home/sports-and-competition.png" class="img-avatar" alt="Oval">
-                    </ion-col>
-                    <ion-col size="9">
-                        <p>
-                            glücksspiel
-                        </p>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </div>
-
-        <div class="ion-text-center">
-            <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
-        </div>
-
-        <p class="ion-text-center mb-5">
-            Ich möchte meine Challenge in einem <br>
-            <span class="border-bottom" routerLink="/another-select-page">anderen Bereich</span> antreten
-        </p>
-
-        <div class="gradient-bar"></div>
     </div>
 
 </ion-content>
+
+<ion-footer class="ion-no-border">
+    <div class="bar">
+        <div class="footer-bar footer-bar-grey"></div>
+    </div>
+</ion-footer>

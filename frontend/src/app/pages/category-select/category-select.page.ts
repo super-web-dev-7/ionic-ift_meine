@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {MenuController, ToastController} from '@ionic/angular';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MenuController, ToastController, IonSlides} from '@ionic/angular';
 import {Router} from '@angular/router';
 import {DeviceUUID} from 'device-uuid';
 import {CategoryService} from '../../providers/category/category.service';
@@ -13,7 +13,49 @@ import {HttpService} from '../../providers/http/http.service';
 })
 export class CategorySelectPage implements OnInit {
 
+    @ViewChild('slides') slides: IonSlides;
+
     deviceId: any;
+    sliderConfig = {
+        slidesPerView: 2,
+        spaceBetween: 2,
+        centeredSlides: true,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            bulletElement: 'span'
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    };
+    slideData = [
+        {
+            title: 'Alkohol',
+            image: '',
+        },
+        {
+            title: 'Rauchen / Dampfen',
+            image: '',
+        },
+        {
+            title: 'Canabis',
+            image: '',
+        },
+        {
+            title: 'Internet / Smartphone',
+            image: '',
+        },
+        {
+            title: 'Gaming / Zocken',
+            image: '',
+        },
+        {
+            title: 'glücksspiel',
+            image: '',
+        }
+    ]
 
     constructor(
         public menu: MenuController,
@@ -74,5 +116,32 @@ export class CategorySelectPage implements OnInit {
         }, error => {
             console.log(error)
         })
+    }
+
+    slideAction(title: string) {
+        if (title === 'Alkohol') {
+            this.categoryService.setCategory({category: 'Alkohol', type: 'alkohol'});
+            this.gotoDetailPage();
+        } else if (title === 'Rauchen / Dampfen') {
+            this.checkAndGotoNextPage('/smoking')
+        } else if (title === 'Canabis') {
+            this.categoryService.setCategory({category: 'Canabis', type: 'canabis'});
+            this.gotoDetailPage();
+        } else if (title === 'Internet / Smartphone') {
+            this.checkAndGotoNextPage('/internet');
+        } else if (title === 'Gaming / Zocken') {
+            this.checkAndGotoNextPage('/game');
+        } else if (title === 'glücksspiel') {
+            this.categoryService.setCategory({category: 'glücksspiel', type: 'gluck'});
+            this.gotoDetailPage();
+        }
+    }
+
+    prevSlide() {
+        this.slides.slidePrev();
+    }
+
+    nextSlide() {
+        this.slides.slideNext();
     }
 }

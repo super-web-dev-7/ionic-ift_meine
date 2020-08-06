@@ -147,13 +147,6 @@ ion-content {
                 --padding-end: 8px;
             }
 
-            .bar {
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-end;
-                align-items: flex-end;
-            }
-
             .button-code {
                 margin-top: 20px;
             }
@@ -297,6 +290,17 @@ p, .primary-color {
     background-color: #ffffff;
 }
 
+.bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+ion-footer {
+  background: #ffffff;
+}
+
 .white-pane {
     background-color: white;
     height: 70vh;
@@ -314,4 +318,36 @@ p, .primary-color {
 ion-text h1 {
     font-size: 28px!important;
     line-height: 33px!important;
+}
+
+.bubble {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 13px 10px;
+    background-color: var(--ion-color-medium);
+
+    p {
+        font-size: 14px;
+        line-height: 24px;
+        padding-right: 10px;
+        margin: 0;
+    }
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.bubble-right {
+    border-radius: 12px 12px 0 12px;
+}
+
+.bubble-left {
+    border-radius: 12px 12px 12px 0;
+}
+
+.opacity-3 {
+    opacity: 0.3;
 }
