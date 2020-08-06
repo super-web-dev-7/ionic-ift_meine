@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class InternetSelectSocialComponent implements OnInit {
 
-    public selectedCategory: any;
+    public selectedCategory: any = null;
     public category = [
         'Facebook',
         'TikTok',
@@ -42,7 +42,7 @@ export class InternetSelectSocialComponent implements OnInit {
     }
 
     gotoDetailSelectPage() {
-        if (!this.selectedCategory) {
+        if (this.selectedCategory === null) {
             return;
         }
         if (this.selectedCategory === 6) {

@@ -9,7 +9,7 @@ import {CategoryService} from '../../../providers/category/category.service';
     styleUrls: ['./game-select.component.scss'],
 })
 export class GameSelectComponent implements OnInit {
-    public selectedCategory: any;
+    public selectedCategory: any = null;
     public category = [
         'Fortnite',
         'League of Legends',
@@ -41,7 +41,7 @@ export class GameSelectComponent implements OnInit {
     }
 
     gotoDetailSelectPage() {
-        if (!this.selectedCategory) {
+        if (this.selectedCategory === null) {
             return;
         }
         if (this.selectedCategory === 6) {

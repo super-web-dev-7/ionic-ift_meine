@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController} from '@ionic/angular';
-import {CategoryService} from "../../../providers/category/category.service";
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
+import {CategoryService} from '../../../providers/category/category.service';
 
 @Component({
     selector: 'app-internet-select-stream',
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class InternetSelectStreamComponent implements OnInit {
 
-    public selectedCategory: any;
+    public selectedCategory: any = null;
     public category = [
         'YouTube',
         'Amazon',
@@ -18,7 +18,7 @@ export class InternetSelectStreamComponent implements OnInit {
         'Sky',
         'Apple TV+',
         'Joyn+',
-        'Anderer Straeming - Dienst',
+        'Anderer App',
     ];
     anotherCategory: any;
 
@@ -42,7 +42,7 @@ export class InternetSelectStreamComponent implements OnInit {
     }
 
     gotoDetailSelectPage() {
-        if (!this.selectedCategory) {
+        if (this.selectedCategory === null) {
             return;
         }
         if (this.selectedCategory === 6) {
