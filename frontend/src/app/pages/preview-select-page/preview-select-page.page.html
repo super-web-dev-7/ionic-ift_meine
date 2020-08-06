@@ -1,13 +1,8 @@
 <ion-header>
     <ion-toolbar>
-        <ion-buttons slot="start" class="">
-            <ion-avatar class="logo" slot="start">
-                <img src="/assets/icon/favicon.png" alt="logo">
-            </ion-avatar>
-        </ion-buttons>
         <ion-buttons slot="end" class="">
-            <ion-button (click)="openMenu()">
-                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+            <ion-button class="menu-button" (click)="openMenu()">
+                <ion-icon size="large" name="reorder-two-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
@@ -16,55 +11,62 @@
 <ion-content [fullscreen]="true" class="home">
     <div class="container">
         <div>
-            <h1 class="ion-text-center font-large">
-                Meine Zeit ohne <br>
-                - Die challenge -
-            </h1>
-            <div class="ion-text-center">
-                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
-            </div>
+            <ion-text color="primary">
+                <h1 class="primary-color">
+                    Meine Zeit ohne <br>
+                    <span class="secondary-color">Die Challenge</span>
+                </h1>
+            </ion-text>
+            <p *ngIf="['internet', 'game', 'smoking'].includes(selectedCategory?.type)">
+                Ich rauche/dampfe täglich maximal <b>{{selectedCategory?.maximumValue}} {{selectedCategory?.category}}</b>
+            </p>
+            <p *ngIf="['alkohol', 'canabis', 'gluck', 'other'].includes(selectedCategory?.type)">
+                In den nächsten 14 Tage komplett auf <b>{{selectedCategory?.category}}</b>
+            </p>
         </div>
 
-        <div *ngIf="['internet', 'game', 'smoking'].includes(selectedCategory?.type)" class="text-center">
-            Ich rauche/dampfe täglich <br>
-            maximal <span>{{selectedCategory?.maximumValue}} </span> <span class="font-weight-bold">{{selectedCategory?.category}}</span>
-        </div>
-        <div *ngIf="['alkohol', 'canabis', 'gluck', 'other'].includes(selectedCategory?.type)" class="text-center">
-            Ich verzichte für 14 Tage  <br>
-            komplett auf <span class="font-weight-bold"> {{selectedCategory?.category}}</span>
+        <div class="bubble progress-container w-100">
+            <circle-progress [percent]="25"></circle-progress>
+            <p>Tag 1 von 14</p>
         </div>
 
         <div>
-            Tag1 von 14
+            <div class="bubble bubble-left mb-2">
+                <img src="/assets/image/New/bubble-left.png" alt="bubble-right">
+                <p>
+                    Ab morgen kannst du täglich zurückmelden, ob du dein Challenge-Ziel erreicht hast.
+                </p>
+            </div>
+            <div class="bubble bubble-left">
+                <img src="/assets/image/New/bubble-left.png" alt="bubble-right">
+                <p>
+                    Wie zuversichtlich bist du, dass du morgen dein Ziel erreichst?
+                </p>
+            </div>
         </div>
 
-        <div class="ion-text-center">
-            <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        <div class="bubble emoji">
+            <div class="emoji-image" [ngClass]="{'selected-emoji': selectedEmoji === 0}" style="background-image: url('/assets/image/New/emoji-1.png')" (click)="reaction(0)"></div>
+            <div class="emoji-image" [ngClass]="{'selected-emoji': selectedEmoji === 1}" style="background-image: url('/assets/image/New/emoji-2.png')" (click)="reaction(1)"></div>
+            <div class="emoji-image" [ngClass]="{'selected-emoji': selectedEmoji === 2}" style="background-image: url('/assets/image/New/emoji-3.png')" (click)="reaction(2)"></div>
+            <div class="emoji-image" [ngClass]="{'selected-emoji': selectedEmoji === 3}" style="background-image: url('/assets/image/New/emoji-4.png')" (click)="reaction(3)"></div>
+            <div class="emoji-image" [ngClass]="{'selected-emoji': selectedEmoji === 4}" style="background-image: url('/assets/image/New/emoji-5.png')" (click)="reaction(4)"></div>
+            <div class="emoji-image" [ngClass]="{'selected-emoji': selectedEmoji === 5}" style="background-image: url('/assets/image/New/emoji-6.png')" (click)="reaction(5)"></div>
         </div>
 
-        <div class="text-center speech-bubble">
-            Ab morgen kannst du <br> täglich zurückmelden, ob <br> Du Dein Challenge - Ziel <br> erreicht hast
+        <div  *ngIf="showLastSpeech" class="bubble bubble-left">
+            <img src="/assets/image/New/bubble-left.png" alt="bubble-right">
+            <p>
+                Danke für deine Einschätzung! <b>Viel Erfolg!</b>
+            </p>
         </div>
 
-        <div class="text-center speech-bubble">
-            Wie zuversichtlich bist du, <br> dass du morgen dein Ziel <br> erreichst?
-        </div>
-
-        <div class="emoji-group speech-bubble">
-            <div class="emoji-first" (click)="reaction(0)"></div>
-            <div class="emoji-second" (click)="reaction(1)"></div>
-            <div class="emoji-third" (click)="reaction(2)"></div>
-            <div class="emoji-fourth" (click)="reaction(3)"></div>
-            <div class="emoji-fifth" (click)="reaction(4)"></div>
-            <div class="emoji-sixth" (click)="reaction(5)"></div>
-        </div>
-
-        <div *ngIf="showLastSpeech" class="text-center speech-bubble">
-            Danke für deine Einschätzung! <br>
-            Viel Erfolg!
-        </div>
-
-        <div class="gradient-bar"></div>
     </div>
 
 </ion-content>
+
+<ion-footer>
+    <div class="bar">
+        <div class="footer-bar footer-bar-grey"></div>
+    </div>
+</ion-footer>

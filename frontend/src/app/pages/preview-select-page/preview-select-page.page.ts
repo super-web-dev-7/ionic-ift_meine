@@ -12,6 +12,7 @@ export class PreviewSelectPagePage implements OnInit {
 
     selectedCategory: any;
     showLastSpeech = false;
+    selectedEmoji = null;
 
     constructor(
         public menu: MenuController,
@@ -35,6 +36,7 @@ export class PreviewSelectPagePage implements OnInit {
 
     reaction(emoji: number) {
         this.showLastSpeech = true;
+        this.selectedEmoji = emoji
         this.httpRequest.setReaction(this.selectedCategory.id, {value: emoji, field: 'reaction'}).subscribe(res => {
         }, error => {
             console.log(error)

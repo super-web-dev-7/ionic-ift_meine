@@ -34,6 +34,7 @@
     "cordova-plugin-uniquedeviceid": "^1.3.2",
     "device-uuid": "^1.0.4",
     "jwt-decode": "^2.2.0",
+    "ng-circle-progress": "^1.5.1",
     "phonegap-plugin-barcodescanner": "^8.1.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",

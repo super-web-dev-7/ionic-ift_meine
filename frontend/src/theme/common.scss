@@ -1,7 +1,7 @@
 @font-face {
     font-family: SFProFont-Regular;
     font-style: normal;
-    src: url("/assets/font/SFProFont/SF-Pro-Display-Regular.otf");
+    src: url("/assets/font/SFProFont/SF-Pro-Display-Light.otf");
 }
 
 @font-face {
@@ -55,6 +55,7 @@ ion-content {
 
     p {
         font-size: 16px;
+        letter-spacing: 0.6px;
     }
 
     --ion-font-family: SFProFont-Regular, sans-serif!important;
@@ -301,6 +302,10 @@ ion-footer {
   background: #ffffff;
 }
 
+.footer-md::before {
+    height: 0;
+}
+
 .white-pane {
     background-color: white;
     height: 70vh;
@@ -326,11 +331,11 @@ ion-text h1 {
     justify-content: space-between;
     padding: 13px 10px;
     background-color: var(--ion-color-medium);
+    border-radius: 12px;
 
     p {
         font-size: 14px;
         line-height: 24px;
-        padding-right: 10px;
         margin: 0;
     }
 
@@ -342,10 +347,16 @@ ion-text h1 {
 
 .bubble-right {
     border-radius: 12px 12px 0 12px;
+    p {
+        padding-right: 10px;
+    }
 }
 
 .bubble-left {
     border-radius: 12px 12px 12px 0;
+    p {
+        padding-left: 10px;
+    }
 }
 
 .opacity-3 {
