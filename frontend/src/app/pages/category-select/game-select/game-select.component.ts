@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController} from '@ionic/angular';
 import {Router} from '@angular/router';
-import {CategoryService} from "../../../providers/category/category.service";
+import {CategoryService} from '../../../providers/category/category.service';
 
 @Component({
     selector: 'app-game-select',
@@ -17,6 +17,7 @@ export class GameSelectComponent implements OnInit {
         'GTA',
         'Counter Strike',
         'DOTA 2',
+        'Anderes Spiel'
     ];
     anotherCategory: any;
 

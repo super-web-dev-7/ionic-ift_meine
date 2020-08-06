@@ -1,39 +1,20 @@
-.font-large {
-    line-height: 50px;
-    padding: 0 25px;
+.back-button {
+    background-color: #F2F2F2;
 }
 
 .container {
-    padding: 0;
-    height: auto;
-    min-height: 100%;
-}
+    align-items: flex-start;
+    justify-content: space-between;
 
-.avatar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    h1 {
+        margin-bottom: 10px;
+    }
 
-.circle {
-    border: #b0e6e2 2px solid;
-    border-radius: 50%;
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
+    .text-field {
+        margin-top: 28px;
+    }
 
-.green-dot {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #33d695;
-}
-
-.percentage-list {
-    margin-bottom: 25px;
+    ion-button.button {
+        margin-bottom: 12px;
+    }
 }

@@ -31,9 +31,9 @@
             </div>
             <div class="mt-2 position-relative">
                 <ion-slides [options]="sliderConfig" pager="true" #slides>
-                    <ion-slide *ngFor="let item of slideData">
+                    <ion-slide *ngFor="let item of slideData" (click)="slideAction(item.title)">
                         <div>
-                            <ion-card (click)="slideAction(item.title)">
+                            <ion-card>
                                 <ion-card-header>
                                     <ion-card-title>
                                         {{item.title}}

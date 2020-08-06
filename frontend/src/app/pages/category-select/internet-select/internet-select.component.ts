@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController} from '@ionic/angular';
 import {Router} from '@angular/router';
-import {CategoryService} from "../../../providers/category/category.service";
+import {CategoryService} from '../../../providers/category/category.service';
 
 @Component({
     selector: 'app-internet-select',
@@ -12,6 +12,12 @@ export class InternetSelectComponent implements OnInit {
 
     public selectedCategory: any;
     anotherCategory: any;
+    category = [
+        'Streaming',
+        'Chat',
+        'Social - Media',
+        'Andere App'
+    ]
 
     constructor(
         public menu: MenuController,
@@ -32,7 +38,7 @@ export class InternetSelectComponent implements OnInit {
         this.menu.open('menu')
     }
 
-    onButtonClick() {
+    gotoDetailSelectPage() {
         if (this.selectedCategory !== undefined) {
             switch (this.selectedCategory) {
                 case 0:
