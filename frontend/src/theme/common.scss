@@ -68,6 +68,7 @@ ion-content {
         flex-direction: column;
         align-items: center;
         color: var(--ion-color-medium);
+        padding: 15px;
     }
 
     //.container > div:first-child {
@@ -190,60 +191,60 @@ ion-content {
     height: 450px;
 }
 
-.logo {
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-}
+//.logo {
+//    width: 40px;
+//    height: 40px;
+//    margin-left: 10px;
+//}
 
-.other-category {
-    width: 90%;
-    background-color: #55575d;
-    border-radius: 5px;
-    color: white;
-    text-align: center;
-    font-size: 15px;
-}
+//.other-category {
+//    width: 90%;
+//    background-color: #55575d;
+//    border-radius: 5px;
+//    color: white;
+//    text-align: center;
+//    font-size: 15px;
+//}
 
-.speech-bubble {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    text-align: center;
-    padding: 10px;
-    background-color: #fff;
-    border: 8px solid #2CB9B0;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
-    -webkit-box-shadow: 2px 2px 4px #888;
-    -moz-box-shadow: 2px 2px 4px #888;
-    box-shadow: 2px 2px 4px #888;
-    margin-bottom: 45px;
-}
-
-.speech-bubble:after {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 38px;
-    bottom: -24px;
-    border: 12px solid;
-    border-color: #fff transparent transparent #fff;
-}
-.speech-bubble:before {
-    content: ' ';
-    position: absolute;
-    width: 0;
-    height: 0;
-    left: 30px;
-    bottom: -44px;
-    border: 22px solid;
-    border-color: #2CB9B0 transparent transparent #2CB9B0;
-}
+//.speech-bubble {
+//    display: flex;
+//    flex-direction: column;
+//    align-items: center;
+//    justify-content: center;
+//    position: relative;
+//    text-align: center;
+//    padding: 10px;
+//    background-color: #fff;
+//    border: 8px solid #2CB9B0;
+//    -webkit-border-radius: 30px;
+//    -moz-border-radius: 30px;
+//    border-radius: 30px;
+//    -webkit-box-shadow: 2px 2px 4px #888;
+//    -moz-box-shadow: 2px 2px 4px #888;
+//    box-shadow: 2px 2px 4px #888;
+//    margin-bottom: 45px;
+//}
+//
+//.speech-bubble:after {
+//    content: ' ';
+//    position: absolute;
+//    width: 0;
+//    height: 0;
+//    left: 38px;
+//    bottom: -24px;
+//    border: 12px solid;
+//    border-color: #fff transparent transparent #fff;
+//}
+//.speech-bubble:before {
+//    content: ' ';
+//    position: absolute;
+//    width: 0;
+//    height: 0;
+//    left: 30px;
+//    bottom: -44px;
+//    border: 22px solid;
+//    border-color: #2CB9B0 transparent transparent #2CB9B0;
+//}
 
 body {
     color: #0C0D34;
@@ -258,10 +259,13 @@ body {
 
 .back-button {
     background-color: #FAFAFA;
-    opacity: 0.4;
     border-radius: 26px;
     width: 44px;
     height: 44px!important;
+
+    ion-icon {
+        font-size: 16px;
+    }
 }
 
 .blank-100 {
@@ -361,4 +365,78 @@ ion-text h1 {
 
 .opacity-3 {
     opacity: 0.3;
+}
+
+.opacity-4 {
+    opacity: 0.4;
+}
+
+.mt-30 {
+    margin-top: 30px!important;
+}
+
+.mb-30 {
+    margin-bottom: 30px!important;
+}
+
+.text-field {
+    color: var(--ion-color-primary);
+    border: 1px solid #e6e1e1;
+    border-radius: 4px;
+    height: 48px;
+}
+
+.avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+}
+
+.circle {
+    border: 1.4px solid #2CB9B0;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.green-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--ion-color-success);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.checkbox-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 12px;
+
+    p {
+        margin: 0;
+    }
+}
+
+.select-container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
 }

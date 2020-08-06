@@ -121,6 +121,7 @@ export class CategorySelectPage implements OnInit {
 
     slideAction(title: string) {
         if (title === 'Alkohol') {
+            console.log('Alcol')
             this.categoryService.setCategory({category: 'Alkohol', type: 'alkohol'});
             this.gotoDetailPage();
         } else if (title === 'Rauchen / Dampfen') {
