@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 
-import {Platform} from '@ionic/angular';
+import {MenuController, Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
 import {StatusBar} from '@ionic-native/status-bar/ngx';
 import {DeviceUUID} from 'device-uuid';
 
 import {CodeService} from './providers/code/code.service';
 import {HttpService} from './providers/http/http.service';
-import {DispenseService} from "./providers/dispense/dispense.service";
+import {DispenseService} from './providers/dispense/dispense.service';
 
 export interface Code {
     isExist: boolean,
@@ -20,27 +20,19 @@ export interface Code {
     styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-    public selectedIndex = 0;
+    public selectedIndex = null;
     public appPages = [
         {
             title: 'Förderer',
             url: '/impressum',
-            icon: 'mail'
         },
         {
             title: 'Impressum',
             url: '/impressum',
-            icon: 'mail'
         },
         {
             title: 'Datenschutz',
             url: '/privacy',
-            icon: 'paper-plane'
-        },
-        {
-            title: 'Copyright, Design',
-            url: '/copyright',
-            icon: 'heart'
         }
     ];
 
@@ -48,42 +40,30 @@ export class AppComponent implements OnInit {
         {
             title: 'Challenge - Verlauf',
             url: '/challenge-progress',
-            icon: ''
         },
         {
             title: 'MZo - Erklarvideo',
             url: '/video-guide',
-            icon: ''
         },
         {
             title: 'MZo - Challenge - Regeln',
             url: '/mzo-challenge',
-            icon: ''
         },
         {
             title: 'Kontakt',
             url: '/kontakt',
-            icon: ''
         },
         {
             title: 'Förderer',
             url: '/impressum',
-            icon: 'mail'
         },
         {
             title: 'Impressum',
             url: '/impressum',
-            icon: 'mail'
         },
         {
             title: 'Datenschutz',
             url: '/privacy',
-            icon: 'paper-plane'
-        },
-        {
-            title: 'Copyright, Design',
-            url: '/copyright',
-            icon: 'heart'
         }
     ];
 
@@ -91,27 +71,18 @@ export class AppComponent implements OnInit {
         {
             title: 'Kontakt',
             url: '/kontakt',
-            icon: ''
         },
         {
             title: 'Förderer',
             url: '/impressum',
-            icon: 'mail'
         },
         {
             title: 'Impressum',
             url: '/impressum',
-            icon: 'mail'
         },
         {
             title: 'Datenschutz',
             url: '/privacy',
-            icon: 'paper-plane'
-        },
-        {
-            title: 'Copyright, Design',
-            url: '/copyright',
-            icon: 'heart'
         }
     ];
 
@@ -121,22 +92,18 @@ export class AppComponent implements OnInit {
         {
             title: 'Dashboard',
             url: '/admin',
-            icon: 'grid'
         },
         {
             title: 'Daten',
             url: '/admin/daten',
-            icon: 'calendar'
         },
         {
             title: 'Codes',
             url: '/admin/code-register',
-            icon: 'calendar'
         },
         {
             title: 'QR Codes',
             url: '/admin/qrcode-register',
-            icon: 'qr-code'
         }
     ];
     public currentCode: Code;
@@ -148,7 +115,8 @@ export class AppComponent implements OnInit {
         public statusBar: StatusBar,
         public codeService: CodeService,
         public httpRequest: HttpService,
-        public dispenseService: DispenseService
+        public dispenseService: DispenseService,
+        public menu: MenuController,
     ) {
         this.initializeApp();
     }
@@ -180,5 +148,9 @@ export class AppComponent implements OnInit {
         //         this.menuStatus = 1;
         //     }
         // })
+    }
+
+    closeMenu() {
+        this.menu.close('menu')
     }
 }
