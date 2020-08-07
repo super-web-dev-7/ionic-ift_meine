@@ -26,6 +26,7 @@ export class VideoExplainationPage implements OnInit {
     loading: any;
     loaded = false;
     toggleValue: any = false;
+    currentDispense: any;
 
     constructor(
         public router: Router,
@@ -43,6 +44,8 @@ export class VideoExplainationPage implements OnInit {
 
     async ionViewWillEnter() {
         this.toggleValue = false;
+        this.currentDispense = this.dispenseService.dispenseValue;
+        console.log(this.currentDispense)
         // this.loading = await this.loadingCtrl.create({
         // });
         // if (!this.loaded) {

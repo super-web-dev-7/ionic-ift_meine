@@ -28,7 +28,12 @@
             </div>
         </div>
 
-        <ion-toggle class="swipe-toggle" [checked]="toggleValue" [(ngModel)]="toggleValue" (ionChange)="toggleChange()" (click)="toggleClick($event)"></ion-toggle>
+        <ion-toggle *ngIf="!currentDispense?.category" class="swipe-toggle"
+                    [checked]="toggleValue"
+                    [(ngModel)]="toggleValue"
+                    (ionChange)="toggleChange()"
+                    (click)="toggleClick($event)">
+        </ion-toggle>
         <div class="bar">
             <div class="footer-bar footer-bar-white"></div>
         </div>
