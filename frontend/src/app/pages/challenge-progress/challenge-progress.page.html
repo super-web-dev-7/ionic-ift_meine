@@ -27,8 +27,81 @@
         </div>
         <p class="title">Mein Challenge Verlauf</p>
         <div class="challenge-container">
-
+            <div *ngFor="let i of day; let index = index;"
+                 (click)="missing_box(index)"
+                 class="item-container"
+                 [ngClass]="{'today': dispense?.day_after === index}">
+                <div [ngClass]="{
+                     'box': true,
+                     'green': feedback && feedback['day' + (index + 1)] === 1,
+                     'red': feedback && feedback['day' + (index + 1)] === 0,
+                     'missing': feedback && feedback['day' + (index + 1)] === null && dispense?.day_after > index
+                     }">
+                    {{feedback && feedback['day' + (index + 1)] === null && dispense?.day_after > index ? '?' : ''}}
+                    <ion-icon *ngIf="feedback && feedback['day' + (index + 1)] === 1" name="checkmark-outline"></ion-icon>
+                    <ion-icon *ngIf="feedback && feedback['day' + (index + 1)] === 0" name="close-outline"></ion-icon>
+                </div>
+                <p class="item-label">TAG {{index + 1}}</p>
+            </div>
         </div>
+        <div class="legende">
+            <p>Legende</p>
+            <div class="legende-container">
+                <div class="legende-item">
+                    <div class="box green"></div>
+                    <p class="item-label">Challenge - Ziel erreicht</p>
+                </div>
+            </div>
+            <div class="legende-container">
+                <div class="legende-item">
+                    <div class="box red"></div>
+                    <p class="item-label">Challenge - Ziel verfehlt</p>
+                </div>
+            </div>
+            <div class="legende-container">
+                <div class="legende-item">
+                    <div class="box missing"></div>
+                    <p class="item-label">Rückmeldung fehlt</p>
+                </div>
+            </div>
+            <div class="legende-container">
+                <div class="legende-item today">
+                    <div class="box"></div>
+                    <p class="item-label">Heutiger Tag</p>
+                </div>
+            </div>
+        </div>
+<!--            <div class="item-container">-->
+<!--                <div class="box green">-->
+<!--                    <ion-icon name="checkmark-outline"></ion-icon>-->
+<!--                </div>-->
+<!--                <p class="item-label">TAG 1</p>-->
+<!--            </div>-->
+<!--            <div class="item-container">-->
+<!--                <div class="box red">-->
+<!--                    <ion-icon name="close-outline"></ion-icon>-->
+<!--                </div>-->
+<!--                <p class="item-label">TAG 1</p>-->
+<!--            </div>-->
+<!--            <div class="item-container">-->
+<!--                <div class="box missing">-->
+<!--                    ?-->
+<!--                </div>-->
+<!--                <p class="item-label">TAG 1</p>-->
+<!--            </div>-->
+<!--            <div class="item-container">-->
+<!--                <div class="box">-->
+<!--                    ?-->
+<!--                </div>-->
+<!--                <p class="item-label">TAG 1</p>-->
+<!--            </div>-->
+<!--            <div class="item-container today">-->
+<!--                <div class="box">-->
+<!--                    ?-->
+<!--                </div>-->
+<!--                <p class="item-label">TAG 1</p>-->
+<!--            </div>-->
+
         <!--            <div class="bubble bubble-left mb-2">-->
         <!--                <img src="/assets/image/New/bubble-left.png" alt="bubble-right">-->
         <!--                <p>-->
@@ -37,9 +110,9 @@
         <!--            </div>-->
     </div>
     <div class="text-center button-container">
-        <ion-button expand="block" class="button" color="success" shape="round"
-                    [routerLink]="'/daily-feedback/' + dispense?.day_after">
-            Meide dich zurück!
+        <ion-button expand="block" class="button custom" color="success" shape="round"
+                    [routerLink]="'/challenge-cancel'">
+            Die Challenge abbrechen
         </ion-button>
     </div>
 
@@ -223,4 +296,11 @@
 
     <!--        <div class="gradient-bar"></div>-->
     <!--    </div>-->
+    <div class="bar mt-30">
+        <div class="footer-bar footer-bar-grey"></div>
+    </div>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+
+</ion-footer>

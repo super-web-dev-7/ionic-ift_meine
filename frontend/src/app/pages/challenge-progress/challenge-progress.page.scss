@@ -1,6 +1,7 @@
 .container {
     align-items: inherit;
     justify-content: flex-start;
+    padding-bottom: 27px;
 
     .title {
         font-size: 12px;
@@ -10,11 +11,93 @@
         text-align: center;
         font-weight: 600;
     }
+
+    .challenge-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: -5px;
+        margin-right: -5px;
+
+        .item-container {
+            display: flex;
+            flex-direction: column;
+            width: 40px;
+            margin-left: 1.1vw;
+            margin-right: 1.1vw;
+
+            .item-label {
+                font-size: 10px;
+                line-height: 12px;
+                text-align: center;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: #b6b6c2;
+                margin-top: 5px;
+            }
+        }
+    }
+
+    .box {
+        border-radius: 12px;
+        width: 12vw;
+        height: 12vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        background-color: #F6F7FB;
+    }
+
+    .green {
+        background-color: var(--ion-color-success);
+    }
+
+    .red {
+        background-color: var(--ion-color-danger);
+    }
+
+    .missing {
+        background-color: var(--ion-color-warning);
+    }
+
+    .today {
+        .box {
+            border: 1px solid var(--ion-color-success);
+        }
+        .item-label {
+            color: var(--ion-color-primary) !important;
+        }
+    }
+
+    .legende {
+        margin-top: 50px;
+
+        .legende-container {
+            margin-bottom: 16px;
+        }
+
+        .legende-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            .box {
+                width: 20px;
+                height: 20px;
+                border-radius: 4px;
+            }
+
+            p {
+                margin-bottom: 0;
+                opacity: 0.3;
+                padding-left: 12px;
+            }
+        }
+    }
 }
-//.subtitle {
-//    font-size: 25px;
-//    line-height: 30px;
-//}
+
 //
 //.mark-explain-container {
 //    display: block;
