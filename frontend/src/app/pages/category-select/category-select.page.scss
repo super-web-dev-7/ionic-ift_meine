@@ -1,47 +1,6 @@
-.font-large {
-    line-height: 50px;
-    padding: 0 25px;
-}
-
 .container {
     padding: 0;
     height: auto;
-}
-
-.avatar {
-    padding: 8px;
-    vertical-align: middle;
-}
-
-.circle {
-    border: #b0e6e2 2px solid;
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.img-avatar {
-    width: 55px;
-    height: 55px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-}
-
-.category-select {
-    width: 100%;
-    padding: 0 20px;
-    ion-grid {
-        ion-row {
-            margin-bottom: 40px;
-        }
-    }
 }
 
 .border-bottom {

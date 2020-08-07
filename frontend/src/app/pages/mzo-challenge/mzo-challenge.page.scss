@@ -1,49 +1,64 @@
-.challenge {
-    margin-top: 30px;
-    text-align: center;
+.primary-pane {
+    height: 75vh;
+    padding: 30px 15px 27px 0;
+    display: flex;
+    flex-direction: column;
 
-    .challenge-title {
-        margin-top: 30px;
-        color: #5b636e;
+    .regeln-title {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 36px;
     }
 
-    .challenge-lists {
-        margin: 30px 3px 60px;
-        text-align: left;
-        color: #5b636e;
-    }
+    .regeln-lists {
+        display: flex;
+        flex-direction: column;
 
-    .img-avatar {
-        width: 55px;
-        height: 55px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        padding: 10px;
-    }
+        .regeln-item:last-child {
+            margin-bottom: 0;
+        }
 
-    .avatar {
-        padding: 8px;
-        vertical-align: middle;
-    }
+        .regeln-item {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 18px;
 
-    .challenge-list {
-        margin: 10px 0;
+            .regeln-mark {
+                width: 60px;
+                height: 60px;
+                background: #232448;
+                border-radius: 12px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
 
-        p {
-            font-size: 18px;
+            .regeln-label {
+                margin-bottom: 0;
+                line-height: 24px;
+                font-size: 14px;
+                padding-left: 10px;
+                max-width: 80%;
+            }
         }
     }
+}
 
-    .circle {
-        border: #b0e6e2 2px solid;
-        border-radius: 50%;
-        width: 55px;
-        height: 55px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
+.container {
+    padding: 0;
+    height: auto;
+}
+
+ion-footer {
+    background: var(--ion-color-primary);
+}
+
+.blank-30 {
+    width: 100%;
+    align-items: flex-start;
+    padding: 15px;
 }

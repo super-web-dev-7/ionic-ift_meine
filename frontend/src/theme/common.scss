@@ -315,6 +315,16 @@ ion-footer {
     width: 100%;
 }
 
+.primary-pane {
+    background-color: var(--ion-color-primary);
+    height: 70vh;
+    width: 100%;
+
+    p {
+        color: #ffffff;
+    }
+}
+
 .bottom-right-round {
     border-bottom-right-radius: 75px;
 }
