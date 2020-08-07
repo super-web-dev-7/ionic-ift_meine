@@ -1,3 +1,47 @@
-.custom {
-    font-size: 13px;
+.container {
+    padding: 0;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.blank-30 {
+    padding: 10px 15px 27px 15px;
+}
+
+.primary-pane {
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    padding: 29px 15px 47px 15px;
+    justify-content: space-between;
+
+    .title {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 36px;
+    }
+
+    .daily-result-container {
+        padding: 21px 15px;
+        margin-bottom: 0;
+        p {
+            color: var(--ion-color-primary);
+            font-size: 16px;
+        }
+
+        ion-icon {
+            font-size: 40px;
+        }
+    }
+    .negative {
+        margin-top: 22px;
+        ion-icon {
+            font-size: 45px;
+        }
+    }
+}
+
+ion-footer {
+    background-color: var(--ion-color-primary);
 }

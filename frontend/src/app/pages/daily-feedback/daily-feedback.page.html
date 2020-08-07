@@ -1,16 +1,8 @@
 <ion-header>
     <ion-toolbar>
-        <ion-buttons slot="start" class="">
-            <ion-avatar class="logo" slot="start">
-                <img src="/assets/icon/favicon.png" alt="logo">
-            </ion-avatar>
-            <ion-button [routerLink]="'/before-feedback'">
-                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
-            </ion-button>
-        </ion-buttons>
         <ion-buttons slot="end" class="">
-            <ion-button (click)="openMenu()">
-                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+            <ion-button class="menu-button" (click)="openMenu()">
+                <ion-icon size="large" name="reorder-two-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
@@ -18,46 +10,40 @@
 
 <ion-content [fullscreen]="true" class="home">
     <div class="container">
-        <div>
-            <h1 class="ion-text-center font-large">
-                Meine Zeit ohne <br>
-                - Die challenge -
-            </h1>
-            <div class="ion-text-center">
-                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+        <div class="blank-30">
+            <div>
+                <ion-text color="primary">
+                    <h1 class="primary-color">
+                        Meine Zeit ohne <br>
+                        <span class="secondary-color">Die Challenge</span>
+                    </h1>
+                </ion-text>
+                <p>
+                    In den nächsten 14 Tage komplett auf <b>{{dispense?.category}}</b>
+                </p>
+            </div>
+            <div class="bubble progress-container w-100">
+                <circle-progress [percent]="(dispense?.day_after) * 100 / 14"></circle-progress>
+                <p>Tag {{dispense?.day_after + 1}} von 14</p>
             </div>
         </div>
-
-        <!--        <div *ngIf="['internet', 'game', 'smoking'].includes(selectedCategory?.type)" class="text-center">-->
-        <!--            Ich rauche/dampfe täglich <br>-->
-        <!--            maximal <span>{{selectedCategory?.maximumValue}} </span> <span-->
-        <!--                class="font-weight-bold">{{selectedCategory?.category}}</span>-->
-        <!--        </div>-->
-
-        <div class="text-center">
-            Tägliche Rückmeldung
+        <div class="primary-pane border-top-right-radius">
+            <p class="text-center title">Tägliche Rückmeldung</p>
+            <div class="bubble progress-container daily-result-container w-100" (click)="setFeedback(true)">
+                <ion-icon color="success" name="checkmark-circle-outline"></ion-icon>
+                <p><b>Ja</b>, ich habe gestern mein Challenge - Ziel erreicht.</p>
+            </div>
+            <div class="bubble progress-container daily-result-container w-100 negative" (click)="setFeedback(false)">
+                <ion-icon color="danger" name="close-circle-outline"></ion-icon>
+                <p><b>Nein</b>, ich habe gestern nicht mein Challenge - Ziel erreicht.</p>
+            </div>
         </div>
-
-        <div class="text-center speech-bubble">
-            Ich verzichte für 14 Tage <br>
-            komplett auf <span class="font-weight-bold"> {{dispense?.category}}</span>
-        </div>
-
-        <div>
-            <ion-button expand="block" class="button custom" color="success" shape="round" (click)="setFeedback(true)">
-                Ja, ich habe gestern mein Challenge - <br>
-                Ziel erreicht.
-            </ion-button>
-
-            <br>
-
-            <ion-button expand="block" class="button custom" color="success" shape="round" (click)="setFeedback(false)">
-                Nein, ich habe gestern nicht mein <br>
-                Challenge - Ziel erreicht
-            </ion-button>
-        </div>
-
-        <div class="gradient-bar"></div>
     </div>
 
 </ion-content>
+
+<ion-footer class="ion-no-border">
+    <div class="bar">
+        <div class="footer-bar footer-bar-white"></div>
+    </div>
+</ion-footer>

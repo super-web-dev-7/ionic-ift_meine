@@ -74,9 +74,9 @@ ion-content {
     //    margin-top: 20px;
     //}
 
-    .container > div:first-child img {
-        margin: 20px;
-    }
+    //.container > div:first-child img {
+    //    margin: 20px;
+    //}
 
     .border {
         //border: 2px solid red;
@@ -448,4 +448,19 @@ ion-text h1 {
     flex-direction: row;
     justify-content: center;
     width: 100%;
+}
+
+.progress-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 10px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+
+    p {
+        margin-left: 20px;
+        font-size: 18px;
+    }
 }
