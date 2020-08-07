@@ -1,16 +1,8 @@
 <ion-header>
     <ion-toolbar>
-        <ion-buttons slot="start" class="">
-            <ion-avatar class="logo" slot="start">
-                <img src="/assets/icon/favicon.png" alt="logo">
-            </ion-avatar>
-            <ion-button [routerLink]="'/daily-feedback/' + dispense?.day_after">
-                <img src="/assets/image/QR%20Code%20Scanner/directional.png" alt="direction">
-            </ion-button>
-        </ion-buttons>
-        <ion-buttons slot="end" class="">
-            <ion-button (click)="openMenu()">
-                <img src="/assets/image/Verzichtsbereich/menu.png" alt="direction">
+        <ion-buttons slot="end">
+            <ion-button class="menu-button" (click)="openMenu()">
+                <ion-icon size="large" name="reorder-two-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
     </ion-toolbar>
@@ -19,35 +11,71 @@
 <ion-content [fullscreen]="true" class="home">
     <div class="container">
         <div>
-            <h1 class="ion-text-center font-large">
-                Meine Zeit ohne <br>
-                - Die challenge -
-            </h1>
-            <div class="ion-text-center">
-                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">
+            <ion-text color="primary">
+                <h1 class="primary-color">
+                    Meine Zeit ohne <br>
+                    <span class="secondary-color">Die Challenge</span>
+                </h1>
+            </ion-text>
+        </div>
+
+        <div>
+            <div class="bubble bubble-left mb-2">
+                <img src="/assets/image/New/bubble-left.png" alt="bubble-right">
+                <p>
+                    Ab morgen kannst du täglich zurückmelden, ob du dein Challenge-Ziel erreicht hast.
+                </p>
+            </div>
+            <div class="bubble bubble-left">
+                <img src="/assets/image/New/bubble-left.png" alt="bubble-right">
+                <p>
+                    Wie zuversichtlich bist du, dass du morgen dein Ziel erreichst?
+                </p>
             </div>
         </div>
 
-        <div class="text-center speech-bubble">
-            Sehr gut ! Klasse, das du dein <br>
-            Ziel erreicht hast.
+        <div class="bubble emoji">
+            <div class="emoji-image" style="background-image: url('/assets/image/New/emoji-1.png')" (click)="reaction(0)"></div>
+            <div class="emoji-image" style="background-image: url('/assets/image/New/emoji-2.png')" (click)="reaction(1)"></div>
+            <div class="emoji-image" style="background-image: url('/assets/image/New/emoji-3.png')" (click)="reaction(2)"></div>
+            <div class="emoji-image" style="background-image: url('/assets/image/New/emoji-4.png')" (click)="reaction(3)"></div>
+            <div class="emoji-image" style="background-image: url('/assets/image/New/emoji-5.png')" (click)="reaction(4)"></div>
+            <div class="emoji-image" style="background-image: url('/assets/image/New/emoji-6.png')" (click)="reaction(5)"></div>
         </div>
+<!--        <div>-->
+<!--            <h1 class="ion-text-center font-large">-->
+<!--                Meine Zeit ohne <br>-->
+<!--                - Die challenge - -->
+<!--            </h1>-->
+<!--            <div class="ion-text-center">-->
+<!--                <img src="/assets/image/Home/Bitmap.png" alt="Bitmap" class="ion-margin-top ion-margin-bottom">-->
+<!--            </div>-->
+<!--        </div>-->
 
-        <div class="text-center speech-bubble">
-            Wie zuversichtlich bist du, <br> dass du morgen dein Ziel auch <br> erreichst?
-        </div>
+<!--        <div class="text-center speech-bubble">-->
+<!--            Sehr gut ! Klasse, das du dein <br>-->
+<!--            Ziel erreicht hast.-->
+<!--        </div>-->
 
-        <div class="emoji-group speech-bubble">
-            <div class="emoji-first" (click)="reaction(0)"></div>
-            <div class="emoji-second" (click)="reaction(1)"></div>
-            <div class="emoji-third" (click)="reaction(2)"></div>
-            <div class="emoji-fourth" (click)="reaction(3)"></div>
-            <div class="emoji-fifth" (click)="reaction(4)"></div>
-            <div class="emoji-sixth" (click)="reaction(5)"></div>
-        </div>
+<!--        <div class="text-center speech-bubble">-->
+<!--            Wie zuversichtlich bist du, <br> dass du morgen dein Ziel auch <br> erreichst?-->
+<!--        </div>-->
 
-
-        <div class="gradient-bar"></div>
+<!--        <div class="emoji-group speech-bubble">-->
+<!--            <div class="emoji-first" (click)="reaction(0)"></div>-->
+<!--            <div class="emoji-second" (click)="reaction(1)"></div>-->
+<!--            <div class="emoji-third" (click)="reaction(2)"></div>-->
+<!--            <div class="emoji-fourth" (click)="reaction(3)"></div>-->
+<!--            <div class="emoji-fifth" (click)="reaction(4)"></div>-->
+<!--            <div class="emoji-sixth" (click)="reaction(5)"></div>-->
+<!--        </div>-->
+<!--        -->
+<!--        <div class="gradient-bar"></div>-->
     </div>
-
 </ion-content>
+
+<ion-footer>
+    <div class="bar">
+        <div class="footer-bar footer-bar-grey"></div>
+    </div>
+</ion-footer>
