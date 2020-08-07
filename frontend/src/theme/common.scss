@@ -257,7 +257,7 @@ body {
 }
 
 .back-button {
-    background-color: #FAFAFA;
+    background-color: #F2F2F2;
     border-radius: 26px;
     width: 44px;
     height: 44px!important;
@@ -359,6 +359,7 @@ ion-text h1 {
 }
 
 .bubble-right {
+    justify-content: flex-start;
     border-radius: 12px 12px 0 12px;
     p {
         padding-right: 10px;
@@ -366,6 +367,7 @@ ion-text h1 {
 }
 
 .bubble-left {
+    justify-content: flex-start;
     border-radius: 12px 12px 12px 0;
     p {
         padding-left: 10px;

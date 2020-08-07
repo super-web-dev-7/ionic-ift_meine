@@ -13,8 +13,9 @@ export class ChallengeCancelPage implements OnInit {
     selectedCategory: number;
     anotherCategory: any;
     category = [
-        'mein Ziel unrealistisch ist',
-        'ich keine Lust mehr habe'
+        '... mein Ziel unrealistisch ist',
+        '... ich keine Lust mehr habe',
+        '... anderer Grund'
     ];
 
     constructor(

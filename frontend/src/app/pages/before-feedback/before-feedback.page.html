@@ -26,8 +26,32 @@
                 <circle-progress [percent]="(dispense?.day_after) * 100 / 14"></circle-progress>
                 <p>Tag {{dispense?.day_after + 1}} von 14</p>
             </div>
+            <div class="bubble bubble-left mb-2 day-7" *ngIf="dispense?.day_after === 6">
+                <img src="/assets/image/New/day7-bubble.png" alt="bubble-left">
+                <p>
+                    Bergfest! Die Hälfte der Challenge ist geschafft!
+                </p>
+            </div>
+            <div class="bubble bubble-left mb-2" *ngIf="dispense?.day_after === 13">
+                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">
+                <p>
+                    Wow ! <br> Heute ist Tag 14 deiner Challenge
+                </p>
+            </div>
+            <div class="bubble bubble-left mb-2" *ngIf="dispense?.day_after === 13">
+                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">
+                <p>
+                    Erreichst du dein Ziel?
+                </p>
+            </div>
+            <div class="bubble bubble-left mb-2" *ngIf="dispense?.day_after === 13">
+                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">
+                <p>
+                    Nach deiner Rückmeldung für den heutigen, d.h. letzten Tag der Challenge, erhälst du eine Teilnehmer - Urkunde. Bleib dran!
+                </p>
+            </div>
             <div class="bubble bubble-left mb-2">
-                <img src="/assets/image/New/bubble-left.png" alt="bubble-right">
+                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">
                 <p>
                     Hast du gestern dein Challenge-Ziel erreicht ?
                 </p>
@@ -39,7 +63,6 @@
                 Meide dich zurück!
             </ion-button>
         </div>
-
     </div>
     <!--    <div class="container" [ngClass]="{'h-150': dispense?.day_after === 6 || dispense?.day_after === 13}">-->
     <!--        <div>-->
@@ -122,6 +145,6 @@
 
 <ion-footer class="ion-no-border">
     <div class="bar">
-        <div class="footer-bar footer-bar-white"></div>
+        <div class="footer-bar footer-bar-grey"></div>
     </div>
 </ion-footer>
