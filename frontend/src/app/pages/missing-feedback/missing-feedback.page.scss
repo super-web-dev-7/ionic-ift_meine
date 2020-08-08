@@ -1,3 +1,12 @@
-.custom {
-    margin-bottom: 10px;
+.container {
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .missing-days {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -17,7 +17,11 @@
                     <span class="secondary-color">Die Challenge</span>
                 </h1>
             </ion-text>
-            <p *ngIf="['internet', 'game', 'smoking'].includes(selectedCategory?.type)">
+
+            <p *ngIf="['internet', 'game'].includes(selectedCategory?.type)">
+                Ich rauche/dampfe täglich maximal <b>{{selectedCategory?.maximumValue}} Minuten {{selectedCategory?.category}}</b>
+            </p>
+            <p *ngIf="selectedCategory?.type === 'smoking'">
                 Ich rauche/dampfe täglich maximal <b>{{selectedCategory?.maximumValue}} {{selectedCategory?.category}}</b>
             </p>
             <p *ngIf="['alkohol', 'canabis', 'gluck', 'other'].includes(selectedCategory?.type)">

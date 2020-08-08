@@ -12,13 +12,16 @@
     <div class="container">
         <div class="white-pane bottom-right-round">
             <div class="white-pane-content">
-                <iframe width="345"
-                        height="309"
-                        class="youtube-iframe"
-                        [src]="this.trustedVideoUrl"
-                        (load)="getVideoUrl() ? handleIFrameLoadEvent() : null"
-                        frameborder="0"
-                        allowfullscreen></iframe>
+                <div class="text-center">
+                    <iframe width="345"
+                            height="309"
+                            class="youtube-iframe"
+                            [src]="this.trustedVideoUrl"
+                            (load)="getVideoUrl() ? handleIFrameLoadEvent() : null"
+                            frameborder="0"
+                            allowfullscreen></iframe>
+                </div>
+
                 <ion-text color="primary">
                     <h1 class="primary-color">
                         Meine Zeit ohne <br>

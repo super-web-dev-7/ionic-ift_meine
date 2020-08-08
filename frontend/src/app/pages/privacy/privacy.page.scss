@@ -1,0 +1,13 @@
+.container {
+  padding: 15px;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  h1, h3, p, ul li {
+    color: var(--ion-color-primary);
+  }
+
+  h3, h1 {
+    font-weight: bold;
+  }
+}
