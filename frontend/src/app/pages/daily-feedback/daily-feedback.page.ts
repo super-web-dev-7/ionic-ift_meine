@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController} from '@ionic/angular';
-import {DispenseService} from '../../providers/dispense/dispense.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {HttpService} from "../../providers/http/http.service";
+
+import {DispenseService} from '../../providers/dispense/dispense.service';
+import {HttpService} from '../../providers/http/http.service';
 
 @Component({
     selector: 'app-daily-feedback',
@@ -41,7 +42,7 @@ export class DailyFeedbackPage implements OnInit {
             return;
         }
         console.log(this.dispense)
-        this.httpRequest.daily_Success(feedback, this.dispense.id, this.day).subscribe(res => {
+        this.httpRequest.daily_Success(feedback, this.dispense.id, this.day).subscribe(() => {
             this.router.navigate(['/after-feedback/' + this.day]);
         }, error => console.log(error))
     }

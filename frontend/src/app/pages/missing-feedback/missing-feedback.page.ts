@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController} from '@ionic/angular';
 import {Router} from '@angular/router';
+
 import {DispenseService} from '../../providers/dispense/dispense.service';
 import {HttpService} from '../../providers/http/http.service';
-import {of} from "rxjs";
 
 @Component({
     selector: 'app-missing-feedback',

@@ -28,36 +28,3 @@
         border-radius: 50%;
     }
 }
-.emoji-first::after {
-    content: '\01F601'
-}
-
-.emoji-second::after {
-    content: '\01F600'
-}
-
-.emoji-third::after {
-    content: '\01F642'
-}
-
-.emoji-fourth::after {
-    content: '\01F610'
-}
-
-.emoji-fifth::after {
-    content: '\01F615'
-}
-
-.emoji-sixth::after {
-    content: '\01F61E'
-}
-
-.emoji-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    div {
-        font-size: 30px;
-    }
-}

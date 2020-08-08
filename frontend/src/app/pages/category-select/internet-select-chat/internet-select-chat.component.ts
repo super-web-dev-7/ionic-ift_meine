@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuController} from "@ionic/angular";
-import {CategoryService} from "../../../providers/category/category.service";
-import {Router} from "@angular/router";
+import {MenuController} from '@ionic/angular';
+import {Router} from '@angular/router';
+import {CategoryService} from '../../../providers/category/category.service';
 
 @Component({
     selector: 'app-internet-select-chat',

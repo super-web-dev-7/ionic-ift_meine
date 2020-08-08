@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {LoadingController, MenuController} from '@ionic/angular';
+import {MenuController} from '@ionic/angular';
 import {DeviceUUID} from 'device-uuid';
 import {DomSanitizer} from '@angular/platform-browser';
 
@@ -14,7 +14,6 @@ import {DispenseService} from '../../providers/dispense/dispense.service';
 })
 export class VideoExplainationPage implements OnInit {
 
-    topic: any = null;
     deviceId: string;
 
     video: any = {
@@ -23,15 +22,12 @@ export class VideoExplainationPage implements OnInit {
     };
 
     trustedVideoUrl: any = this.getVideoUrl();
-    loading: any;
-    loaded = false;
     toggleValue: any = false;
     currentDispense: any;
 
     constructor(
         public router: Router,
         public menu: MenuController,
-        public loadingCtrl: LoadingController,
         public domSanitizer: DomSanitizer,
         public httpRequest: HttpService,
         public dispenseService: DispenseService
@@ -45,12 +41,6 @@ export class VideoExplainationPage implements OnInit {
     async ionViewWillEnter() {
         this.toggleValue = false;
         this.currentDispense = this.dispenseService.dispenseValue;
-        console.log(this.currentDispense)
-        // this.loading = await this.loadingCtrl.create({
-        // });
-        // if (!this.loaded) {
-        //     this.loading.present();
-        // }
     }
 
     getVideoUrl() {
@@ -60,11 +50,6 @@ export class VideoExplainationPage implements OnInit {
     openMenu() {
         this.menu.enable(true, 'menu');
         this.menu.open('menu')
-    }
-
-    handleIFrameLoadEvent(): void {
-        this.loaded = true;
-        // this.loading.dismiss();
     }
 
     gotoArea() {

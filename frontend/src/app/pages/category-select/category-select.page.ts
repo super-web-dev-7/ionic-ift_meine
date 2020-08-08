@@ -2,9 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MenuController, ToastController, IonSlides} from '@ionic/angular';
 import {Router} from '@angular/router';
 import {DeviceUUID} from 'device-uuid';
+
 import {CategoryService} from '../../providers/category/category.service';
 import {HttpService} from '../../providers/http/http.service';
-
 
 @Component({
     selector: 'app-category-select',
@@ -95,7 +95,7 @@ export class CategorySelectPage implements OnInit {
             } else {
                 this.presentToast('You have already pending challenge');
             }
-        }, error => {
+        }, () => {
         });
     }
 

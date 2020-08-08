@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {DispenseService} from '../../providers/dispense/dispense.service';
 import {MenuController} from '@ionic/angular';
 import {Router} from '@angular/router';
+
+import {DispenseService} from '../../providers/dispense/dispense.service';
 import {HttpService} from '../../providers/http/http.service';
 
 @Component({

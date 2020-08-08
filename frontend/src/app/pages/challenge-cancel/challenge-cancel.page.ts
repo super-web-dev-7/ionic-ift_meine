@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController} from '@ionic/angular';
 import {Router} from '@angular/router';
-import {HttpService} from "../../providers/http/http.service";
-import {DispenseService} from "../../providers/dispense/dispense.service";
+import {HttpService} from '../../providers/http/http.service';
+import {DispenseService} from '../../providers/dispense/dispense.service';
 
 @Component({
     selector: 'app-challenge-cancel',
@@ -56,7 +56,7 @@ export class ChallengeCancelPage implements OnInit {
             // this.categoryService.setCategory({category: this.category[this.selectedCategory], type: 'internet'});
         }
         this.httpRequest.cancelDispense(this.dispenseService.dispenseValue, cancelReason).subscribe(
-            res => {
+            () => {
                 this.dispenseService.setDispense({});
             }, error => console.log(error)
         )

@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {MenuController} from "@ionic/angular";
-import {CategoryService} from "../../providers/category/category.service";
-import {HttpService} from "../../providers/http/http.service";
+import {MenuController} from '@ionic/angular';
+
+import {CategoryService} from '../../providers/category/category.service';
+import {HttpService} from '../../providers/http/http.service';
 
 @Component({
     selector: 'app-preview-select-page',
@@ -37,7 +38,7 @@ export class PreviewSelectPagePage implements OnInit {
     reaction(emoji: number) {
         this.showLastSpeech = true;
         this.selectedEmoji = emoji
-        this.httpRequest.setReaction(this.selectedCategory.id, {value: emoji, field: 'reaction'}).subscribe(res => {
+        this.httpRequest.setReaction(this.selectedCategory.id, {value: emoji, field: 'reaction'}).subscribe(() => {
         }, error => {
             console.log(error)
         })
