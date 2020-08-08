@@ -20,10 +20,6 @@ const routes: Routes = [
                 loadChildren: () => import('./pages/backup/backup.module').then(m => m.BackupPageModule)
             },
             {
-                path: 'qr-code-scanner',
-                loadChildren: () => import('./pages/qr-code-scanner/qr-code-scanner.module').then(m => m.QrCodeScannerPageModule)
-            },
-            {
                 path: 'forgot',
                 loadChildren: () => import('./pages/forgot/forgot.module').then(m => m.ForgotPageModule)
             },
@@ -37,43 +33,9 @@ const routes: Routes = [
         path: '',
         children: [
             {
-                path: 'area',
-                loadChildren: () => import('./pages/area/area.module').then(m => m.AreaPageModule)
-            },
-            {
-                path: 'intensity',
-                loadChildren: () => import('./pages/intensity/intensity.module').then(m => m.IntensityPageModule)
-            },
-            {
-                path: 'summary',
-                loadChildren: () => import('./pages/summary/summary.module').then(m => m.SummaryPageModule)
-            },
-            {
-                path: 'taq',
-                loadChildren: () => import('./pages/taq/taq.module').then(m => m.TaqPageModule)
-            },
-
-            {
-                path: 'tagx',
-                loadChildren: () => import('./pages/tagx/tagx.module').then(m => m.TagxPageModule)
-            },
-            {
-                path: 'feedback',
-                loadChildren: () => import('./pages/feedback/feedback.module').then(m => m.FeedbackPageModule)
-            },
-            {
-                path: 'feedback-confirmation',
-                loadChildren: () => import('./pages/feedback-confirmation/feedback-confirmation.module')
-                    .then(m => m.FeedbackConfirmationPageModule)
-            },
-            {
                 path: 'video-guide',
                 loadChildren: () => import('./pages/video-explaination/video-explaination.module')
                     .then(m => m.VideoExplainationPageModule)
-            },
-            {
-                path: 'main-challenge',
-                loadChildren: () => import('./pages/main-challenge/main-challenge.module').then(m => m.MainChallengePageModule)
             },
             {
                 path: 'category-select',
