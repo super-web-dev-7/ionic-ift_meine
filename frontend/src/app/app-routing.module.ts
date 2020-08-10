@@ -89,6 +89,10 @@ const routes: Routes = [
                 path: 'mzo-challenge',
                 loadChildren: () => import('./pages/mzo-challenge/mzo-challenge.module').then(m => m.MzoChallengePageModule)
             },
+            {
+                path: 'final-page',
+                loadChildren: () => import('./pages/final-page/final-page.module').then(m => m.FinalPagePageModule)
+            },
         ],
         canActivate: [AuthGuard],
         data: {isAdmin: false}

@@ -63,7 +63,6 @@ export class HomePage implements OnInit {
                         }
                     })
                 }
-
             }, error => {
                 console.log(error);
                 this.attemptCount++;

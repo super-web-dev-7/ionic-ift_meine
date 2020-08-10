@@ -23,7 +23,7 @@
         </div>
         <div class="bubble progress-container w-100">
             <circle-progress [percent]="(dispense?.day_after) * 100 / 14"></circle-progress>
-            <p>Tag {{dispense?.day_after + 1}} von 14</p>
+            <p>Tag {{dispense?.day_after === 14 ? 14 : dispense?.day_after + 1}} von 14</p>
         </div>
         <div class="bubble bubble-left mb-2 day-7" *ngIf="dispense?.day_after === 6">
             <img src="/assets/image/New/day7-bubble.png" alt="bubble-left">
@@ -47,6 +47,12 @@
             <img src="/assets/image/New/bubble-left.png" alt="bubble-left">
             <p>
                 Nach deiner Rückmeldung für den heutigen, d.h. letzten Tag der Challenge, erhälst du eine Teilnehmer - Urkunde. Bleib dran!
+            </p>
+        </div>
+        <div class="bubble bubble-left mb-4" *ngIf="dispense?.day_after === 14">
+            <img src="/assets/image/New/bubble-left.png" alt="bubble-left">
+            <p>
+                <span [routerLink]="'/final-page'"><b><u>Melde dich zurück</u></b></span> und lade dir deine Teilnahme - Urkunde herunter.
             </p>
         </div>
         <p class="title">Mein Challenge Verlauf</p>
@@ -96,7 +102,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center button-container">
+    <div *ngIf="dispense?.day_after !== 14" class="text-center button-container">
         <ion-button expand="block" class="button custom" color="success" shape="round"
                     [routerLink]="'/challenge-cancel'">
             Die Challenge abbrechen

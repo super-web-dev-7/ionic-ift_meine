@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="end">
+            <ion-button class="menu-button" (click)="openMenu()">
+                <ion-icon size="large" name="reorder-two-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="home">
+    <div class="container">
+        <div>
+            <ion-text color="primary">
+                <h1 class="primary-color">
+                    Meine Zeit ohne <br>
+                    <span class="secondary-color">Die Challenge</span>
+                </h1>
+            </ion-text>
+            <div class="bubble bubble-left mb-2">
+                <img src="/assets/image/New/bubble-left.png" alt="bubble-right">
+                <p>
+                    Du hast an 14 von 14 Tagen dein Ziel erreicht!
+                </p>
+            </div>
+            <div class="bubble bubble-left">
+                <img src="/assets/image/New/bubble-left.png" alt="bubble-right">
+                <p>
+                    Super, dass du an MZo - Die Challenge teilgenommen hast! Die App ist nun nicht mehr nutzbar wie bisher. Natürlich kannst du dich auch ohne App weiterhin herrausfordern und auf etwas verzichten ;)
+                </p>
+            </div>
+        </div>
+
+    </div>
+</ion-content>
+
+<ion-footer>
+    <div class="bar">
+        <div class="footer-bar footer-bar-grey"></div>
+    </div>
+</ion-footer>
