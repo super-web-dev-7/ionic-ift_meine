@@ -53,11 +53,12 @@ export class HomePage implements OnInit {
                     this.httpRequest.get_dispenseByDeviceId(new DeviceUUID().get()).subscribe((response: any) => {
                         if (response.result.length > 0) {
                             this.dispenseService.setDispense(response.result[0]);
-                            if (response.result[0].day_after === 14) {
-                                this.router.navigate(['/challenge-progress'])
-                            } else {
-                                this.router.navigate(['/before-feedback']);
-                            }
+                            this.router.navigate(['/before-feedback']);
+                            // if (response.result[0].day_after === 14) {
+                            //     this.router.navigate(['/challenge-progress'])
+                            // } else {
+                            //
+                            // }
                         } else {
                             this.router.navigate(['/video-guide']);
                         }
