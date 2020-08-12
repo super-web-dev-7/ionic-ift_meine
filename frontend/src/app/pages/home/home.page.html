@@ -21,8 +21,9 @@
                 <form>
                     <ion-input class="input-code" [(ngModel)]="code" name="code"
                                placeholder="Geben Sie Ihr Teilnahme-Code"></ion-input>
-                    <p class="mat-error ion-text-center" *ngIf="attemptCount !== 0">You have {{5 - attemptCount}}
-                        attempts.</p>
+                    <p class="mat-error ion-text-center" *ngIf="attemptCount !== 0">
+                        Du hast noch {{5 - attemptCount}} Versuche.
+                    </p>
                     <p class="text-center mt-3 mb-4" (click)="gotoBackup()">Teilnahme-Code vergessen?</p>
                     <div class="privacy-checkbox">
                         <ion-checkbox color="primary" [checked]="isChecked" (ionChange)="onChange()"></ion-checkbox>

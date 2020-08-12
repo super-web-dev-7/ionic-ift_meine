@@ -13,12 +13,14 @@ export class InputNumberComponent implements OnInit {
   @Input() placeholder: string;
   @Input() model: number;
   @Output() modelChange = new EventEmitter();
+  @Input() disabled: boolean;
 
   constructor() {}
 
   ngOnInit() {}
 
   decrease() {
+    if (this.disabled) return;
     if (this.model > 0) {
       this.model -= this.step;
       this.modelChange.emit(this.model);
@@ -26,6 +28,7 @@ export class InputNumberComponent implements OnInit {
   }
 
   increase() {
+    if (this.disabled) return;
     if (this.model < this.maxValue) {
       this.model += this.step;
       this.modelChange.emit(this.model);

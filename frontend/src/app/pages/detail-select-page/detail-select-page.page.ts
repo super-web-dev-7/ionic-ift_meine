@@ -70,15 +70,14 @@ export class DetailSelectPagePage implements OnInit {
                 this.label[2] = 'Ich konsumieren täglich maximal';
             }
         } else if (this.selectedCategory.type === 'internet') {
-            this.label[0] = 'Ich spiele täglich ' + this.selectedCategory.category;
-            this.label[1] = 'Ich möchte auf verzichten ' + this.selectedCategory.category;
-            this.label[2] = 'Ich spiele täglich maximal ' + this.selectedCategory.category;
+            this.label[0] = 'Ich nutze täglich ' + this.selectedCategory.category;
+            this.label[1] = 'Ich verzichte täglich auf ' + this.selectedCategory.category + 'für:';
+            this.label[2] = 'Ich nutze täglich maximal ' + this.selectedCategory.category;
         } else if (this.selectedCategory.type === 'game') {
             this.label[0] = 'Ich nutze täglich ' + this.selectedCategory.category;
             this.label[1] = 'Ich möchte auf verzichten ' + this.selectedCategory.category;
             this.label[2] = 'Ich nutze täglich maximal ' + this.selectedCategory.category;
         }
-        console.log(this.selectedCategory)
     }
 
     openMenu() {

@@ -1,9 +1,10 @@
 import db_connection from '../config/db';
 
 const Code = function (code) {
-    this.code = code.code,
-    this.isAdmin = code.isAdmin,
-    this.type = code.type
+    this.code = code.code;
+    this.isAdmin = code.isAdmin;
+    this.backup_password = code.backup_password;
+    this.type = code.type;
 };
 
 Code.create = (newCode, result) => {

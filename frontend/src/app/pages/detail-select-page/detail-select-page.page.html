@@ -41,10 +41,11 @@
                             [label]="label[1]">
                     </app-input-number>
                     <app-input-number
-                            [(model)]="maximumValue"
+                            [model]="currentValue - hopeValue"
                             [step]="2"
                             [maxValue]="50"
                             [placeholder]="placeholder"
+                            [disabled]="true"
                             [label]="label[2]">
                     </app-input-number>
                 </div>

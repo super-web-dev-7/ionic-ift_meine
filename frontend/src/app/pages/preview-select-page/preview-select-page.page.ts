@@ -36,6 +36,9 @@ export class PreviewSelectPagePage implements OnInit {
     }
 
     reaction(emoji: number) {
+        setTimeout(() => {
+            console.log('123111111111111111111111111111111111')
+        }, 3000)
         this.showLastSpeech = true;
         this.selectedEmoji = emoji
         this.httpRequest.setReaction(this.selectedCategory.id, {value: emoji, field: 'reaction'}).subscribe(() => {

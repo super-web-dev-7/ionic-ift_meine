@@ -25,9 +25,19 @@
                 This field is required.
             </ion-text>
         </p>
-
+        <ion-item class="ion-no-padding animated fadeInUp">
+            <ion-label position="floating">
+                Please input new backup code
+            </ion-label>
+            <ion-input color="secondary" type="text" formControlName="backup"></ion-input>
+        </ion-item>
+        <p class="text08"
+           *ngIf="onRegisterForm.get('backup').touched && onRegisterForm.get('backup').hasError('required')">
+            <ion-text color="warning">
+                This field is required.
+            </ion-text>
+        </p>
         <br>
-
         <mat-form-field>
             <mat-label>User Type</mat-label>
             <mat-select formControlName="isAdmin">

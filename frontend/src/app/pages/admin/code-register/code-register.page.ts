@@ -14,7 +14,7 @@ import {CodeRegisterComponent} from './Create/code-register.component';
 })
 export class CodeRegisterPage implements OnInit {
 
-    displayedColumns: string[] = ['Code', 'IsAdmin', 'Created_AT'];
+    displayedColumns: string[] = ['Code', 'backup', 'IsAdmin', 'Created_AT'];
 
     dataSource = new MatTableDataSource<any>();
 

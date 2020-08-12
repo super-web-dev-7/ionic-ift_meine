@@ -25,6 +25,9 @@ export class CodeRegisterComponent implements OnInit {
             name: [null, Validators.compose([
                 Validators.required
             ])],
+            backup: [null, Validators.compose([
+                Validators.required
+            ])],
             isAdmin: ['0', Validators.compose([Validators.required])]
         });
     }
@@ -46,6 +49,7 @@ export class CodeRegisterComponent implements OnInit {
 
         const data = {
             code: this.f.name.value,
+            backup_password: this.f.backup.value,
             isAdmin: this.f.isAdmin.value,
             type: 'alphanumeric'
         };
