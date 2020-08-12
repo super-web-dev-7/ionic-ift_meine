@@ -8,8 +8,8 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <div class="container">
+<ion-content [scrollEvents]="true" (ionScroll)="logScrolling($event)">
+    <div class="container" #scroll>
         <h1 class="text-center">
             Datenschutzerklärung für die App <br>
             "Meine Zeit ohne – Die Challenge"
@@ -281,6 +281,6 @@
             wir uns vor, sie von Zeit zu Zeit zu ändern und Änderungen bei der Erhebung, Verarbeitung
             oder Nutzung Ihrer Daten nachzupflegen. Die aktuelle Fassung der Datenschutzerklärung ist
             stets unter „Datenschutz“ innerhalb der App abrufbar.</p>
-        <p>Stand: 20.07.2020</p>
+        <p class="last">Stand: 20.07.2020</p>
     </div>
 </ion-content>

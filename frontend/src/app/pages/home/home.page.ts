@@ -40,6 +40,9 @@ export class HomePage implements OnInit {
 
     onChange() {
         this.isChecked = !this.isChecked;
+        if (this.isChecked) {
+            this.router.navigate(['/privacy'])
+        }
     }
 
     code_check() {
