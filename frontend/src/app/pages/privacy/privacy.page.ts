@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AlertController, MenuController, NavController} from '@ionic/angular';
+import {CodeService} from '../../providers/code/code.service';
 
 @Component({
     selector: 'app-privacy',
@@ -9,11 +10,13 @@ import {AlertController, MenuController, NavController} from '@ionic/angular';
 export class PrivacyPage implements OnInit {
 
     @ViewChild('scroll') content: any;
+    isOpenAlert = false;
 
     constructor(
         public menu: MenuController,
         public navCtrl: NavController,
-        public alertController: AlertController
+        public alertController: AlertController,
+        public codeService: CodeService
     ) {
     }
 
@@ -27,12 +30,14 @@ export class PrivacyPage implements OnInit {
 
     logScrolling(event) {
         if ((event.detail.scrollTop - 55) > (this.content.nativeElement.scrollHeight - window.innerHeight)) {
-            // this.navCtrl.pop();
-            this.presentAlertConfirm()
+            if (!this.isOpenAlert) {
+                this.presentAlertConfirm()
+            }
         }
     }
 
     async presentAlertConfirm() {
+        this.isOpenAlert = true;
         const alert = await this.alertController.create({
             cssClass: 'my-custom-class',
             header: '',
@@ -43,16 +48,23 @@ export class PrivacyPage implements OnInit {
                     role: 'cancel',
                     cssClass: 'secondary',
                     handler: (blah) => {
-                        console.log('Confirm Cancel: blah');
+                        this.alertAction(false);
                     }
                 }, {
                     text: 'Yes',
                     handler: () => {
-                        this.navCtrl.pop();
+                        this.alertAction(true);
                     }
                 }
             ]
         });
         await alert.present();
+    }
+
+    alertAction(action) {
+        this.navCtrl.pop();
+        this.isOpenAlert = false;
+        this.codeService.setIsReadPrivacyValue(action);
+
     }
 }

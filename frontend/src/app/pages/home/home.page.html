@@ -36,7 +36,7 @@
                         </ion-label>
                     </div>
                     <div class="text-center">
-                        <ion-button [disabled]="!code || !isChecked" class="button-code" color="secondary"
+                        <ion-button [disabled]="!code || !isChecked || !isReadPrivacy" class="button-code" color="secondary"
                                     shape="round" (click)="code_check()">
                             Einloggen
                         </ion-button>

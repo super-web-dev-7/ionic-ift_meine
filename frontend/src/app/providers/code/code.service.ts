@@ -14,9 +14,14 @@ export class CodeService {
     public currentCodeSubject: BehaviorSubject<any>;
     public currentCode: Observable<any>;
 
+    public isReadPrivacySubject: BehaviorSubject<boolean>;
+    public isReadPrivacy: Observable<boolean>;
+
     constructor(
         public httpRequest: HttpService,
     ) {
+        this.isReadPrivacySubject = new BehaviorSubject<boolean>(false);
+        this.isReadPrivacy = this.isReadPrivacySubject.asObservable();
 
         if (sessionStorage.getItem('currentCode') != null) {
             this.currentCodeSubject = new BehaviorSubject<any>(jwt_decode(sessionStorage.getItem('currentCode')));
@@ -29,6 +34,14 @@ export class CodeService {
 
     public get currentCodeValue(): any {
         return this.currentCodeSubject.value;
+    }
+
+    public setIsReadPrivacyValue(value) {
+        this.isReadPrivacySubject.next(value);
+    }
+
+    public get isReadPrivacyValue(): boolean {
+        return this.isReadPrivacySubject.value;
     }
 
     code_check(code: string) {

@@ -39,7 +39,7 @@
                             </ion-label>
                         </div>
                         <div class="text-center">
-                            <ion-button class="button-code" [disabled]="!backupPassword || !isChecked"
+                            <ion-button class="button-code" [disabled]="!backupPassword || !isChecked || !isReadPrivacy"
                                         color="secondary" shape="round" (click)="backup_password()">
                                 Einloggen
                             </ion-button>

@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
     code: any = '';
     isChecked = false;
     attemptCount = 0;
+    isReadPrivacy = false;
 
     constructor(
         public router: Router,
@@ -31,6 +32,9 @@ export class HomePage implements OnInit {
 
     ngOnInit() {
         this.dispenseService.setDispense({});
+        this.codeService.isReadPrivacySubject.subscribe(isRead => {
+            this.isReadPrivacy = isRead;
+        })
     }
 
     openMenu() {

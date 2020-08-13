@@ -19,6 +19,7 @@ export class BackupPage implements OnInit {
     backupPassword: any = '';
     attemptCount = 0;
     isChecked = false;
+    isReadPrivacy = false;
 
     constructor(
         public router: Router,
@@ -31,6 +32,9 @@ export class BackupPage implements OnInit {
     }
 
     ngOnInit() {
+        this.codeService.isReadPrivacySubject.subscribe(isRead => {
+            this.isReadPrivacy = isRead;
+        })
     }
 
     openMenu() {
@@ -44,6 +48,9 @@ export class BackupPage implements OnInit {
 
     onChange() {
         this.isChecked = !this.isChecked;
+        if (this.isChecked) {
+            this.router.navigate(['/privacy'])
+        }
     }
 
     async presentToast(text) {
