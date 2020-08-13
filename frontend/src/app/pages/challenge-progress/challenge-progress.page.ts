@@ -14,7 +14,7 @@ import {HttpService} from '../../providers/http/http.service';
 export class ChallengeProgressPage implements OnInit {
 
     dispense: any;
-    day = new Array(14)
+    day = new Array(7)
     feedback: any;
 
     constructor(

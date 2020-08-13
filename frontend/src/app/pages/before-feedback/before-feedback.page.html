@@ -23,7 +23,7 @@
                 </p>
             </div>
             <div class="bubble progress-container w-100">
-                <circle-progress [percent]="(dispense?.day_after) * 100 / 14"></circle-progress>
+                <circle-progress [percent]="(dispense?.day_after + 1) * 100 / 14"></circle-progress>
                 <p>Tag {{dispense?.day_after === 14 ? 14 : dispense?.day_after + 1}} von 14</p>
             </div>
             <div class="bubble bubble-left mb-2 day-7" *ngIf="dispense?.day_after === 6">

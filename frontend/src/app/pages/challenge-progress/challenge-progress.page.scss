@@ -19,13 +19,13 @@
         flex-wrap: wrap;
         margin-left: -5px;
         margin-right: -5px;
+        width: 100%;
 
         .item-container {
             display: flex;
             flex-direction: column;
-            width: 40px;
-            margin-left: 1.6vw;
-            margin-right: 1.6vw;
+            margin-left: 3px;
+            margin-right: 3px;
 
             .item-label {
                 font-size: 10px;

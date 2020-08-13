@@ -44,7 +44,7 @@ export class HomePage implements OnInit {
 
     onChange() {
         this.isChecked = !this.isChecked;
-        if (this.isChecked) {
+        if (this.isChecked && !this.isReadPrivacy) {
             this.router.navigate(['/privacy'])
         }
     }

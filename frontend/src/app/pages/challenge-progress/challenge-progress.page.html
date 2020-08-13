@@ -18,7 +18,7 @@
                 </h1>
             </ion-text>challenge-progress
             <p>
-                In den nächsten 14 Tage verzichte ich komplett auf <b>{{dispense?.category}}</b>
+                In den nächsten 14 Tagen verzichte ich komplett auf <b>{{dispense?.category}}</b>
             </p>
         </div>
         <div class="bubble progress-container w-100">
@@ -72,6 +72,24 @@
                     <ion-icon *ngIf="feedback && feedback['day' + (index + 1)] === 0" name="close-outline"></ion-icon>
                 </div>
                 <p class="item-label">TAG {{index + 1}}</p>
+            </div>
+        </div>
+        <div class="challenge-container">
+            <div *ngFor="let i of day; let index = index;"
+                 (click)="missing_box(index + 7)"
+                 class="item-container"
+                 [ngClass]="{'today': dispense?.day_after === index + 7}">
+                <div [ngClass]="{
+                     'box': true,
+                     'green': feedback && feedback['day' + (index + 7 + 1)] === 1,
+                     'red': feedback && feedback['day' + (index + 7 + 1)] === 0,
+                     'missing': feedback && feedback['day' + (index + 7 + 1)] === null && dispense?.day_after > index + 7
+                     }">
+                    {{feedback && feedback['day' + (index + 7 + 1)] === null && dispense?.day_after > index + 7 ? '?' : ''}}
+                    <ion-icon *ngIf="feedback && feedback['day' + (index + 7 + 1)] === 1" name="checkmark-outline"></ion-icon>
+                    <ion-icon *ngIf="feedback && feedback['day' + (index + 7 + 1)] === 0" name="close-outline"></ion-icon>
+                </div>
+                <p class="item-label">TAG {{index + 7 + 1}}</p>
             </div>
         </div>
         <div class="legende">

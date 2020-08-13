@@ -20,7 +20,7 @@ export class CodeService {
     constructor(
         public httpRequest: HttpService,
     ) {
-        this.isReadPrivacySubject = new BehaviorSubject<boolean>(false);
+        this.isReadPrivacySubject = new BehaviorSubject<boolean>(localStorage.getItem('ift_privacy') === 'true');
         this.isReadPrivacy = this.isReadPrivacySubject.asObservable();
 
         if (sessionStorage.getItem('currentCode') != null) {

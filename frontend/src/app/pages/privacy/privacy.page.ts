@@ -11,6 +11,7 @@ export class PrivacyPage implements OnInit {
 
     @ViewChild('scroll') content: any;
     isOpenAlert = false;
+    isReadPrivacy: boolean;
 
     constructor(
         public menu: MenuController,
@@ -21,6 +22,7 @@ export class PrivacyPage implements OnInit {
     }
 
     ngOnInit() {
+        this.isReadPrivacy = localStorage.getItem('ift_privacy') === 'true'
     }
 
     openMenu() {
@@ -30,8 +32,7 @@ export class PrivacyPage implements OnInit {
 
     logScrolling(event) {
         if ((event.detail.scrollTop - 55) > (this.content.nativeElement.scrollHeight - window.innerHeight)) {
-            console.log('reached')
-            if (!this.isOpenAlert) {
+            if (!this.isOpenAlert && !this.isReadPrivacy) {
                 this.presentAlertConfirm()
             }
         }
@@ -68,9 +69,10 @@ export class PrivacyPage implements OnInit {
         await alert.present();
     }
 
-     alertAction(action) {
-         this.isOpenAlert = false;
-         this.codeService.setIsReadPrivacyValue(action);
+    alertAction(action) {
+        this.isOpenAlert = false;
+        this.codeService.setIsReadPrivacyValue(action);
         this.navCtrl.pop();
+        localStorage.setItem('ift_privacy', action)
     }
 }
