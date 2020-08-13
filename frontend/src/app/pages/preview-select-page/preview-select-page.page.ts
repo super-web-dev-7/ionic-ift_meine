@@ -3,6 +3,7 @@ import {MenuController} from '@ionic/angular';
 
 import {CategoryService} from '../../providers/category/category.service';
 import {HttpService} from '../../providers/http/http.service';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-preview-select-page',
@@ -18,7 +19,8 @@ export class PreviewSelectPagePage implements OnInit {
     constructor(
         public menu: MenuController,
         public categoryService: CategoryService,
-        public httpRequest: HttpService
+        public httpRequest: HttpService,
+        public router: Router
     ) {
     }
 
@@ -37,7 +39,7 @@ export class PreviewSelectPagePage implements OnInit {
 
     reaction(emoji: number) {
         setTimeout(() => {
-            console.log('123111111111111111111111111111111111')
+            this.router.navigate(['/challenge-progress'])
         }, 3000)
         this.showLastSpeech = true;
         this.selectedEmoji = emoji
