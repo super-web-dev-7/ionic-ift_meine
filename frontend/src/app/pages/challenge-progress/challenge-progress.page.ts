@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuController} from '@ionic/angular';
 import {Router} from '@angular/router';
+import {DeviceUUID} from 'device-uuid';
 
 import {DispenseService} from '../../providers/dispense/dispense.service';
 import {HttpService} from '../../providers/http/http.service';
@@ -28,12 +29,17 @@ export class ChallengeProgressPage implements OnInit {
     }
 
     async ionViewWillEnter() {
-        this.dispense = this.dispenseService.dispenseValue;
-        await this.httpRequest.get_feedback(this.dispense).subscribe(
-            res => {
-                this.feedback = res;
-            }, error => console.log(error)
-        )
+        this.httpRequest.get_dispenseByDeviceId(new DeviceUUID().get()).subscribe((response: any) => {
+            if (response.result.length > 0) {
+                this.dispenseService.setDispense(response.result[0]);
+                this.dispense = this.dispenseService.dispenseValue;
+                this.httpRequest.get_feedback(this.dispense).subscribe(
+                    res => {
+                        this.feedback = res;
+                    }, error => console.log(error)
+                )
+            }
+        })
     }
 
     openMenu() {
