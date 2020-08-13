@@ -30,6 +30,7 @@ export class PrivacyPage implements OnInit {
 
     logScrolling(event) {
         if ((event.detail.scrollTop - 55) > (this.content.nativeElement.scrollHeight - window.innerHeight)) {
+            console.log('reached')
             if (!this.isOpenAlert) {
                 this.presentAlertConfirm()
             }
@@ -41,19 +42,25 @@ export class PrivacyPage implements OnInit {
         const alert = await this.alertController.create({
             cssClass: 'my-custom-class',
             header: '',
-            message: 'Have you read privacy policy?',
+            message: 'Hast du die Datenschutzerklärung gelesen?',
             buttons: [
                 {
-                    text: 'No',
+                    text: 'Nein',
                     role: 'cancel',
                     cssClass: 'secondary',
                     handler: (blah) => {
-                        this.alertAction(false);
+                        const navTransition = alert.dismiss();
+                        navTransition.then(() => {
+                            this.alertAction(false);
+                        });
                     }
                 }, {
-                    text: 'Yes',
+                    text: 'Ja',
                     handler: () => {
-                        this.alertAction(true);
+                        const navTransition = alert.dismiss();
+                        navTransition.then(() => {
+                            this.alertAction(true);
+                        });
                     }
                 }
             ]
@@ -61,10 +68,9 @@ export class PrivacyPage implements OnInit {
         await alert.present();
     }
 
-    alertAction(action) {
+     alertAction(action) {
+         this.isOpenAlert = false;
+         this.codeService.setIsReadPrivacyValue(action);
         this.navCtrl.pop();
-        this.isOpenAlert = false;
-        this.codeService.setIsReadPrivacyValue(action);
-
     }
 }
