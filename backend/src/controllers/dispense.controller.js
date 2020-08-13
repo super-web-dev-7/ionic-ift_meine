@@ -53,7 +53,7 @@ exports.cancel = (req, res) => {
     })
 }
 
-cron.schedule('*/5 * * * *', function () {
+cron.schedule('* * * * *', function () {
     Dispense.updateCronJob();
     console.log('----------------Running cron jobs----------------')
 })
