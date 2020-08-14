@@ -100,9 +100,9 @@ export class DetailSelectPagePage implements OnInit {
                 ...this.selectedCategory,
                 currentValue: this.currentValue,
                 hopeValue: this.hopeValue,
-                maximumValue: this.maximumValue
+                maximumValue: this.currentValue - this.hopeValue
             }
-        )
+        );
         this.httpRequest.createChallenge({...this.categoryService.categoryValue, deviceId: this.deviceId}).subscribe((res:any) => {
             if (res === 'exist') {
                 console.log('Dispense is already exist')
