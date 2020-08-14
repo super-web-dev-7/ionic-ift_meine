@@ -14,8 +14,6 @@ import {DispenseService} from '../../providers/dispense/dispense.service';
     styleUrls: ['./backup.page.scss'],
 })
 export class BackupPage implements OnInit {
-
-
     backupPassword: any = '';
     attemptCount = 0;
     isChecked = false;

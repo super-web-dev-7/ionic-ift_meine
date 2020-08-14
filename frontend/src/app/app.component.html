@@ -11,31 +11,17 @@
                     </ion-buttons>
                 </ion-toolbar>
             </ion-header>
-            <ion-content *ngIf="!currentCode?.isAdmin && menuStatus === 0">
+            <ion-content *ngIf="!currentCode?.isAdmin">
                 <ion-list id="inbox-list">
+                    <ion-menu-toggle *ngIf="menuStatus === 1" auto-hide="false">
+                        <ion-item (click)="selectedIndex = 0" routerDirection="root" [routerLink]="'/challenge-progress'" lines="none"
+                                  detail="false" [class.selected]="selectedIndex == 0">
+                            <ion-label>Challenge - Verlauf</ion-label>
+                        </ion-item>
+                    </ion-menu-toggle>
                     <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-                        <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
-                                  detail="false" [class.selected]="selectedIndex == i">
-                            <ion-label>{{ p.title }}</ion-label>
-                        </ion-item>
-                    </ion-menu-toggle>
-                </ion-list>
-            </ion-content>
-            <ion-content *ngIf="!currentCode?.isAdmin && menuStatus === 1">
-                <ion-list id="inbox-list">
-                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages2; let i = index">
-                        <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
-                                  detail="false" [class.selected]="selectedIndex == i">
-                            <ion-label>{{ p.title }}</ion-label>
-                        </ion-item>
-                    </ion-menu-toggle>
-                </ion-list>
-            </ion-content>
-            <ion-content *ngIf="!currentCode?.isAdmin && menuStatus === 2">
-                <ion-list id="inbox-list">
-                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appEndPages; let i = index">
-                        <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
-                                  detail="false" [class.selected]="selectedIndex == i">
+                        <ion-item (click)="selectedIndex = i + 1" routerDirection="root" [routerLink]="[p.url]" lines="none"
+                                  detail="false" [class.selected]="selectedIndex == i + 1">
                             <ion-label>{{ p.title }}</ion-label>
                         </ion-item>
                     </ion-menu-toggle>
@@ -51,12 +37,6 @@
                     </ion-menu-toggle>
                 </ion-list>
             </ion-content>
-            <ion-footer>
-                <p class="copyright">Copyright | Design</p>
-                <div class="bar">
-                    <div class="footer-bar footer-bar-grey"></div>
-                </div>
-            </ion-footer>
         </ion-menu>
         <ion-router-outlet id="main-content"></ion-router-outlet>
     </ion-split-pane>

@@ -22,25 +22,10 @@ export interface Code {
 export class AppComponent implements OnInit {
     public selectedIndex = null;
     public appPages = [
-        {
-            title: 'Förderer',
-            url: '/impressum',
-        },
-        {
-            title: 'Impressum',
-            url: '/impressum',
-        },
-        {
-            title: 'Datenschutz',
-            url: '/privacy',
-        }
-    ];
-
-    public appPages2 = [
-        {
-            title: 'Challenge - Verlauf',
-            url: '/challenge-progress',
-        },
+        // {
+        //     title: 'Challenge - Verlauf',
+        //     url: '/challenge-progress',
+        // },
         {
             title: 'MZo - Erklarvideo',
             url: '/video-guide',
@@ -49,25 +34,6 @@ export class AppComponent implements OnInit {
             title: 'MZo - Challenge - Regeln',
             url: '/mzo-challenge',
         },
-        {
-            title: 'Kontakt',
-            url: '/kontakt',
-        },
-        {
-            title: 'Förderer',
-            url: '/impressum',
-        },
-        {
-            title: 'Impressum',
-            url: '/impressum',
-        },
-        {
-            title: 'Datenschutz',
-            url: '/privacy',
-        }
-    ];
-
-    public appEndPages = [
         {
             title: 'Kontakt',
             url: '/kontakt',
@@ -133,7 +99,7 @@ export class AppComponent implements OnInit {
             this.currentCode = currentCode;
         });
         this.dispenseService.dispenseSubject.subscribe((val: any) => {
-            this.menuStatus = val?.day_after > 0 ? 1 : 0;
+            this.menuStatus = val?.day_after > -1 ? 1 : 0;
         })
     }
 

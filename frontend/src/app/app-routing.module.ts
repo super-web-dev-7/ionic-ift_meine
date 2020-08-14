@@ -25,18 +25,22 @@ const routes: Routes = [
             },
             {
                 path: 'privacy',
-                loadChildren: () => import('./pages/privacy/privacy.module').then( m => m.PrivacyPageModule)
-              },
-        ]
-    },
-    {
-        path: '',
-        children: [
+                loadChildren: () => import('./pages/privacy/privacy.module').then(m => m.PrivacyPageModule)
+            },
             {
                 path: 'video-guide',
                 loadChildren: () => import('./pages/video-explaination/video-explaination.module')
                     .then(m => m.VideoExplainationPageModule)
             },
+            {
+                path: 'mzo-challenge',
+                loadChildren: () => import('./pages/mzo-challenge/mzo-challenge.module').then(m => m.MzoChallengePageModule)
+            },
+        ]
+    },
+    {
+        path: '',
+        children: [
             {
                 path: 'category-select',
                 loadChildren: () => import('./pages/category-select/category-select.module').then(m => m.CategorySelectPageModule)
@@ -74,7 +78,7 @@ const routes: Routes = [
             {
                 path: 'challenge-cancel',
                 loadChildren: () => import('./pages/challenge-cancel/challenge-cancel.module')
-                    .then( m => m.ChallengeCancelPageModule)
+                    .then(m => m.ChallengeCancelPageModule)
             },
             {
                 path: 'challenge-cancel-result',
@@ -84,10 +88,6 @@ const routes: Routes = [
             {
                 path: 'missing-feedback',
                 loadChildren: () => import('./pages/missing-feedback/missing-feedback.module').then(m => m.MissingFeedbackPageModule)
-            },
-            {
-                path: 'mzo-challenge',
-                loadChildren: () => import('./pages/mzo-challenge/mzo-challenge.module').then(m => m.MzoChallengePageModule)
             },
             {
                 path: 'final-page',
