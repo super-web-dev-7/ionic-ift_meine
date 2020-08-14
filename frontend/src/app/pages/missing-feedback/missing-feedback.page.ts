@@ -40,8 +40,6 @@ export class MissingFeedbackPage implements OnInit {
                         this.missingFeedback.push(index + 1)
                     }
                 }
-                console.log(this.missingFeedback)
-                console.log(this.feedback)
             }, error => console.log(error)
         )
     }

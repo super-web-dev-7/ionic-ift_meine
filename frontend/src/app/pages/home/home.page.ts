@@ -37,6 +37,12 @@ export class HomePage implements OnInit {
         })
     }
 
+    ionWillViewEnter() {
+        if (this.codeService.currentCodeValue) {
+            this.gotoNextPage();
+        }
+    }
+
     openMenu() {
         this.menu.enable(true, 'menu');
         this.menu.open('menu');
@@ -57,24 +63,7 @@ export class HomePage implements OnInit {
         this.codeService.code_check(this.code).pipe(first()).subscribe(res => {
                 if (res.isAdmin === 1) this.router.navigate(['/admin']);
                 else {
-                    this.httpRequest.get_dispenseByDeviceId(new DeviceUUID().get()).subscribe((response: any) => {
-                        if (response.result.length > 0) {
-                            this.dispenseService.setDispense(response.result[0]);
-                            const dispense = response.result[0];
-                            this.httpRequest.get_feedback(dispense).subscribe(
-                                (res: any) => {
-                                    console.log(res);
-                                    if (res['day' + dispense.day_after] !== null) {
-                                        this.router.navigate(['/challenge-progress'])
-                                    } else {
-                                        this.router.navigate(['/daily-feedback/' + response.result[0]?.day_after]);
-                                    }
-                                }, error => console.log(error)
-                            )
-                        } else {
-                            this.router.navigate(['/video-guide']);
-                        }
-                    })
+                    this.gotoNextPage();
                 }
             }, error => {
                 console.log(error);
@@ -95,6 +84,26 @@ export class HomePage implements OnInit {
             position: 'top',
         });
         toast.present();
+    }
+
+    gotoNextPage() {
+        // this.httpRequest.get_dispenseByDeviceId(new DeviceUUID().get()).subscribe((response: any) => {
+            // if (response.result.length > 0) {
+            //     this.dispenseService.setDispense(response.result[0]);
+            //     const dispense = response.result[0];
+            //     this.httpRequest.get_feedback(dispense).subscribe(
+            //         (result: any) => {
+            //             if (result['day' + dispense.day_after] !== null) {
+            //                 this.router.navigate(['/challenge-progress'])
+            //             } else {
+            //                 this.router.navigate(['/daily-feedback/' + response.result[0]?.day_after]);
+            //             }
+            //         }, error => console.log(error)
+            //     )
+            // } else {
+                this.router.navigate(['/video-guide']);
+            // }
+        // })
     }
 
     gotoForgot() {

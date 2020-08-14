@@ -1,73 +1,73 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="end">
-            <ion-button class="menu-button" (click)="openMenu()">
-                <ion-icon size="large" name="reorder-two-outline"></ion-icon>
-            </ion-button>
-        </ion-buttons>
-    </ion-toolbar>
-</ion-header>
+<!--<ion-header>-->
+<!--    <ion-toolbar>-->
+<!--        <ion-buttons slot="end">-->
+<!--            <ion-button class="menu-button" (click)="openMenu()">-->
+<!--                <ion-icon size="large" name="reorder-two-outline"></ion-icon>-->
+<!--            </ion-button>-->
+<!--        </ion-buttons>-->
+<!--    </ion-toolbar>-->
+<!--</ion-header>-->
 
-<ion-content [fullscreen]="true" class="home">
-    <div class="container">
-        <div>
-            <div>
-                <ion-text color="primary">
-                    <h1 class="primary-color">
-                        Meine Zeit ohne <br>
-                        <span class="secondary-color">Die Challenge</span>
-                    </h1>
-                </ion-text>
-                <p>
-                    In den nächsten 14 Tage komplett auf <b>{{dispense?.category}}</b>
-                </p>
-            </div>
-            <div class="bubble progress-container w-100">
-                <circle-progress [percent]="(dispense?.day_after + 1) * 100 / 14"></circle-progress>
-                <p>Tag {{dispense?.day_after === 14 ? 14 : dispense?.day_after + 1}} von 14</p>
-            </div>
-            <div class="bubble bubble-left mb-2 day-7" *ngIf="dispense?.day_after === 6">
-                <img src="/assets/image/New/day7-bubble.png" alt="bubble-left">
-                <p>
-                    Bergfest! Die Hälfte der Challenge ist geschafft!
-                </p>
-            </div>
-            <div class="bubble bubble-left mb-2" *ngIf="dispense?.day_after === 13">
-                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">
-                <p>
-                    Wow ! <br> Heute ist Tag 14 deiner Challenge
-                </p>
-            </div>
-            <div class="bubble bubble-left mb-2" *ngIf="dispense?.day_after === 13">
-                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">
-                <p>
-                    Erreichst du dein Ziel?
-                </p>
-            </div>
-            <div class="bubble bubble-left mb-2" *ngIf="dispense?.day_after === 13">
-                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">
-                <p>
-                    Nach deiner Rückmeldung für den heutigen, d.h. letzten Tag der Challenge, erhälst du eine Teilnehmer - Urkunde. Bleib dran!
-                </p>
-            </div>
-            <div class="bubble bubble-left mb-2">
-                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">
-                <p>
-                    Hast du gestern dein Challenge-Ziel erreicht ?
-                </p>
-            </div>
-        </div>
-        <div class="text-center button-container">
-            <ion-button expand="block" class="button" color="success" shape="round"
-                        [routerLink]="'/daily-feedback/' + dispense?.day_after">
-                Meide dich zurück!
-            </ion-button>
-        </div>
-    </div>
-</ion-content>
+<!--<ion-content [fullscreen]="true" class="home">-->
+<!--    <div class="container">-->
+<!--        <div>-->
+<!--            <div>-->
+<!--                <ion-text color="primary">-->
+<!--                    <h1 class="primary-color">-->
+<!--                        Meine Zeit ohne <br>-->
+<!--                        <span class="secondary-color">Die Challenge</span>-->
+<!--                    </h1>-->
+<!--                </ion-text>-->
+<!--                <p>-->
+<!--                    In den nächsten 14 Tage komplett auf <b>{{dispense?.category}}</b>-->
+<!--                </p>-->
+<!--            </div>-->
+<!--            <div class="bubble progress-container w-100">-->
+<!--                <circle-progress [percent]="(dispense?.day_after + 1) * 100 / 14"></circle-progress>-->
+<!--                <p>Tag {{dispense?.day_after === 14 ? 14 : dispense?.day_after + 1}} von 14</p>-->
+<!--            </div>-->
+<!--            <div class="bubble bubble-left mb-2 day-7" *ngIf="dispense?.day_after === 6">-->
+<!--                <img src="/assets/image/New/day7-bubble.png" alt="bubble-left">-->
+<!--                <p>-->
+<!--                    Bergfest! Die Hälfte der Challenge ist geschafft!-->
+<!--                </p>-->
+<!--            </div>-->
+<!--            <div class="bubble bubble-left mb-2" *ngIf="dispense?.day_after === 13">-->
+<!--                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">-->
+<!--                <p>-->
+<!--                    Wow ! <br> Heute ist Tag 14 deiner Challenge-->
+<!--                </p>-->
+<!--            </div>-->
+<!--            <div class="bubble bubble-left mb-2" *ngIf="dispense?.day_after === 13">-->
+<!--                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">-->
+<!--                <p>-->
+<!--                    Erreichst du dein Ziel?-->
+<!--                </p>-->
+<!--            </div>-->
+<!--            <div class="bubble bubble-left mb-2" *ngIf="dispense?.day_after === 13">-->
+<!--                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">-->
+<!--                <p>-->
+<!--                    Nach deiner Rückmeldung für den heutigen, d.h. letzten Tag der Challenge, erhälst du eine Teilnehmer - Urkunde. Bleib dran!-->
+<!--                </p>-->
+<!--            </div>-->
+<!--            <div class="bubble bubble-left mb-2">-->
+<!--                <img src="/assets/image/New/bubble-left.png" alt="bubble-left">-->
+<!--                <p>-->
+<!--                    Hast du gestern dein Challenge-Ziel erreicht ?-->
+<!--                </p>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="text-center button-container">-->
+<!--            <ion-button expand="block" class="button" color="success" shape="round"-->
+<!--                        [routerLink]="'/daily-feedback/' + dispense?.day_after">-->
+<!--                Meide dich zurück!-->
+<!--            </ion-button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</ion-content>-->
 
-<ion-footer class="ion-no-border">
-    <div class="bar">
-        <div class="footer-bar footer-bar-grey"></div>
-    </div>
-</ion-footer>
+<!--<ion-footer class="ion-no-border">-->
+<!--    <div class="bar">-->
+<!--        <div class="footer-bar footer-bar-grey"></div>-->
+<!--    </div>-->
+<!--</ion-footer>-->

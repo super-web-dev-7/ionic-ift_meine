@@ -102,7 +102,6 @@ export class CategorySelectPage implements OnInit {
     gotoDetailPage() {
         this.httpRequest.createChallenge({...this.categoryService.categoryValue, deviceId: this.deviceId}).subscribe((res:any) => {
             if (res === 'exist') {
-                console.log('Dispense is already exist')
                 this.presentToast('You have already pending challenge');
                 // this.router.navigateByUrl('preview-select-page')
             } else {
@@ -121,7 +120,6 @@ export class CategorySelectPage implements OnInit {
 
     slideAction(title: string) {
         if (title === 'Alkohol') {
-            console.log('Alcol')
             this.categoryService.setCategory({category: 'Alkohol', type: 'alkohol'});
             this.gotoDetailPage();
         } else if (title === 'Rauchen / Dampfen') {

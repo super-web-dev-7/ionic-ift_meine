@@ -5,12 +5,12 @@ import {AuthGuard} from './providers/helper/auth.guard';
 const routes: Routes = [
     {
         path: '',
+        redirectTo: '/before-feedback',
+        pathMatch: 'full'
+    },
+    {
+        path: '',
         children: [
-            {
-                path: '',
-                redirectTo: 'home',
-                pathMatch: 'full'
-            },
             {
                 path: 'home',
                 loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)

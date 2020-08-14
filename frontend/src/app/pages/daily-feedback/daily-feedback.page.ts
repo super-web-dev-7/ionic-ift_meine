@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 import {DispenseService} from '../../providers/dispense/dispense.service';
 import {HttpService} from '../../providers/http/http.service';
-
+import {DeviceUUID} from 'device-uuid';
 @Component({
     selector: 'app-daily-feedback',
     templateUrl: './daily-feedback.page.html',
@@ -41,7 +41,6 @@ export class DailyFeedbackPage implements OnInit {
         if (this.dispense.day_after === 0) {
             return;
         }
-        console.log(this.dispense)
         this.httpRequest.daily_Success(feedback, this.dispense.id, this.day).subscribe(() => {
             this.router.navigate(['/after-feedback/' + this.day]);
         }, error => console.log(error))

@@ -23,8 +23,8 @@ export class CodeService {
         this.isReadPrivacySubject = new BehaviorSubject<boolean>(localStorage.getItem('ift_privacy') === 'true');
         this.isReadPrivacy = this.isReadPrivacySubject.asObservable();
 
-        if (sessionStorage.getItem('currentCode') != null) {
-            this.currentCodeSubject = new BehaviorSubject<any>(jwt_decode(sessionStorage.getItem('currentCode')));
+        if (localStorage.getItem('currentCode') != null) {
+            this.currentCodeSubject = new BehaviorSubject<any>(jwt_decode(localStorage.getItem('currentCode')));
             this.currentCode = this.currentCodeSubject.asObservable();
         } else {
             this.currentCodeSubject = new BehaviorSubject<any>(null);
@@ -47,7 +47,7 @@ export class CodeService {
     code_check(code: string) {
         return this.httpRequest.code_check(code).pipe(map((res: any) => {
             if (res) {
-                sessionStorage.setItem('currentCode', res.token);
+                localStorage.setItem('currentCode', res.token);
                 this.currentCodeSubject.next(jwt_decode(res.token));
             }
             return jwt_decode(res.token);
@@ -57,7 +57,7 @@ export class CodeService {
     backup_password(code: string) {
         return this.httpRequest.backup_password(code).pipe(map((res: any) => {
             if (res) {
-                sessionStorage.setItem('currentCode', res.token);
+                localStorage.setItem('currentCode', res.token);
                 this.currentCodeSubject.next(jwt_decode(res.token));
             }
             return jwt_decode(res.token);

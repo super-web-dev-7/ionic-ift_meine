@@ -105,7 +105,6 @@ export class DetailSelectPagePage implements OnInit {
         );
         this.httpRequest.createChallenge({...this.categoryService.categoryValue, deviceId: this.deviceId}).subscribe((res:any) => {
             if (res === 'exist') {
-                console.log('Dispense is already exist')
                 this.presentToast('You have already pending challenge');
             } else {
                 this.categoryService.setCategory(
